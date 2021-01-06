@@ -1,0 +1,384 @@
+12:51:07  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+12:51:42  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@djhhud.com
+13:06:42  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+13:09:20  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+13:14:39  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+13:14:40  INFO               JavaReflectionManager.java   66: HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+13:14:40  INFO                             Version.java   54: HHH000412: Hibernate Core {4.3.5.Final}
+13:14:40  INFO                         Environment.java  239: HHH000206: hibernate.properties not found
+13:14:40  INFO                         Environment.java  346: HHH000021: Bytecode provider name : javassist
+13:14:40  INFO                       Configuration.java 2073: HHH000043: Configuring from resource: /hibernate.cfg.xml
+13:14:40  INFO                       Configuration.java 2092: HHH000040: Configuration resource: /hibernate.cfg.xml
+13:17:05  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+13:17:05  INFO                       Configuration.java 2073: HHH000043: Configuring from resource: /hibernate.cfg.xml
+13:17:05  INFO                       Configuration.java 2092: HHH000040: Configuration resource: /hibernate.cfg.xml
+13:21:08  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+13:21:08  INFO               JavaReflectionManager.java   66: HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+13:21:08  INFO                             Version.java   54: HHH000412: Hibernate Core {4.3.5.Final}
+13:21:08  INFO                         Environment.java  239: HHH000206: hibernate.properties not found
+13:21:08  INFO                         Environment.java  346: HHH000021: Bytecode provider name : javassist
+13:21:08  INFO                       Configuration.java 2073: HHH000043: Configuring from resource: /hibernate.cfg.xml
+13:21:08  INFO                       Configuration.java 2092: HHH000040: Configuration resource: /hibernate.cfg.xml
+13:27:22  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+13:27:22  INFO               JavaReflectionManager.java   66: HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+13:27:22  INFO                             Version.java   54: HHH000412: Hibernate Core {4.3.5.Final}
+13:27:22  INFO                         Environment.java  239: HHH000206: hibernate.properties not found
+13:27:22  INFO                         Environment.java  346: HHH000021: Bytecode provider name : javassist
+13:27:22  INFO                       Configuration.java 2073: HHH000043: Configuring from resource: /hibernate.cfg.xml
+13:27:22  INFO                       Configuration.java 2092: HHH000040: Configuration resource: /hibernate.cfg.xml
+13:28:48  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+13:31:24  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+13:32:18  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+13:32:19  INFO               JavaReflectionManager.java   66: HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+13:32:19  INFO                             Version.java   54: HHH000412: Hibernate Core {4.3.5.Final}
+13:32:19  INFO                         Environment.java  239: HHH000206: hibernate.properties not found
+13:32:19  INFO                         Environment.java  346: HHH000021: Bytecode provider name : javassist
+13:32:19  INFO                       Configuration.java 2073: HHH000043: Configuring from resource: /hibernate.cfg.xml
+13:32:19  INFO                       Configuration.java 2092: HHH000040: Configuration resource: /hibernate.cfg.xml
+13:34:40  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+13:34:41  INFO               JavaReflectionManager.java   66: HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+13:34:41  INFO                             Version.java   54: HHH000412: Hibernate Core {4.3.5.Final}
+13:34:41  INFO                         Environment.java  239: HHH000206: hibernate.properties not found
+13:34:41  INFO                         Environment.java  346: HHH000021: Bytecode provider name : javassist
+13:34:41  INFO                       Configuration.java 2073: HHH000043: Configuring from resource: /hibernate.cfg.xml
+13:34:41  INFO                       Configuration.java 2092: HHH000040: Configuration resource: /hibernate.cfg.xml
+14:30:00  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+14:30:00  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@1f5b85d
+14:30:00  INFO                        LoginManager.java   34: UserName:>>>>MANTOSH
+14:31:38  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>hhjshwhs@hdsu.com
+14:31:39  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@154c326
+14:31:39  INFO                     LoginController.java   37: User Is.>>>>>>>>>>>>>>>>>>>>>user.User@1801ba6
+14:32:31  INFO                     LoginController.java   32: email:>>>>>>>>>>>>>>>>hwdjh@kjeui.com
+14:32:31  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@506ad5
+14:32:31  INFO                     LoginController.java   37: User Is.>>>>>>>>>>>>>>>>>>>>>null
+14:39:33  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>hdjhjh@hdhjhj.com
+14:39:34  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@11405e1
+14:42:46  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>kdkdhkj@jhjdh.com
+14:42:46  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@1a840e
+14:43:26  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>jdkjkj@jkdjk.com
+14:43:26  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@7e815d
+14:48:33  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>jdhh@dfkkhfh.com
+14:48:33  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@dc34ca
+14:48:53  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>jdhh@dfkkhfh.com
+14:48:53  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@1d77b09
+14:50:25  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>jshjhj@kdh.com
+14:50:25  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@127d6c8
+14:52:40  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>hshjjh@hjshj.com
+14:52:40  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@19e2ae0
+14:54:07  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>jdjhj@hjdjh.com
+14:54:07  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@e048f7
+14:54:23  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+14:54:23  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@142127a
+14:54:23  INFO                        LoginManager.java   34: UserName:>>>>MANTOSH
+15:04:39  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+15:04:39  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@14bbf24
+15:04:39  INFO                        LoginManager.java   34: UserName:>>>>MANTOSH
+15:05:47  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+15:05:47  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@f5c803
+15:05:47  INFO                        LoginManager.java   34: UserName:>>>>MANTOSH
+15:42:33  INFO                      UserController.java   57: Status is>>>>>>>>>>>>>>>>>>>>>>>>>>>>true
+16:12:51  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>jdjh@ek.com
+16:12:51  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@1154ab5
+16:13:11  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+16:13:11  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@1a69070
+16:13:26  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+16:13:26  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@aa7fc6
+16:13:26  INFO                        LoginManager.java   34: UserName:>>>>MANTOSH
+16:52:04  INFO                      UserController.java   80: List is>>>>>>>>>>>>>>>>>>>>>>>>>4
+17:05:01  INFO                      UserController.java   80: List is>>>>>>>>>>>>>>>>>>>>>>>>>4
+17:08:43  INFO                      UserController.java   80: List is>>>>>>>>>>>>>>>>>>>>>>>>>4
+17:11:36  INFO                      UserController.java   80: List is>>>>>>>>>>>>>>>>>>>>>>>>>4
+17:11:36  INFO                      UserController.java   83: user0>>>>>>>>>>>>>>>>>>kamal
+17:11:36  INFO                      UserController.java   83: user1>>>>>>>>>>>>>>>>>>kamal
+17:11:36  INFO                      UserController.java   83: user2>>>>>>>>>>>>>>>>>>kamal
+17:11:36  INFO                      UserController.java   83: user3>>>>>>>>>>>>>>>>>>kamal
+17:13:12  INFO                      UserController.java   80: List is>>>>>>>>>>>>>>>>>>>>>>>>>1
+17:13:12  INFO                      UserController.java   83: user0>>>>>>>>>>>>>>>>>>kamal
+17:14:15  INFO                      UserController.java   80: List is>>>>>>>>>>>>>>>>>>>>>>>>>1
+17:14:15  INFO                      UserController.java   83: user0>>>>>>>>>>>>>>>>>>kamal
+17:17:49  INFO                      UserController.java   80: List is>>>>>>>>>>>>>>>>>>>>>>>>>4
+17:17:49  INFO                      UserController.java   83: user0>>>>>>>>>>>>>>>>>>kamal
+17:17:49  INFO                      UserController.java   83: user1>>>>>>>>>>>>>>>>>>kamal
+17:17:49  INFO                      UserController.java   83: user2>>>>>>>>>>>>>>>>>>kamal
+17:17:49  INFO                      UserController.java   83: user3>>>>>>>>>>>>>>>>>>kamal
+17:19:33  INFO                      UserController.java   80: List is>>>>>>>>>>>>>>>>>>>>>>>>>4
+17:19:33  INFO                      UserController.java   83: user0>>>>>>>>>>>>>>>>>>MANTOSH
+17:19:33  INFO                      UserController.java   83: user1>>>>>>>>>>>>>>>>>>jagsir
+17:19:33  INFO                      UserController.java   83: user2>>>>>>>>>>>>>>>>>>darshan
+17:19:33  INFO                      UserController.java   83: user3>>>>>>>>>>>>>>>>>>kamal
+17:20:47  INFO                      UserController.java   80: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+17:20:47  INFO                      UserController.java   83: user0>>>>>>>>>>>>>>>>>>MANTOSH
+17:20:47  INFO                      UserController.java   83: user1>>>>>>>>>>>>>>>>>>jagsir
+17:20:47  INFO                      UserController.java   83: user2>>>>>>>>>>>>>>>>>>darshan
+17:20:47  INFO                      UserController.java   83: user3>>>>>>>>>>>>>>>>>>kamal
+17:20:47  INFO                      UserController.java   83: user4>>>>>>>>>>>>>>>>>>gagan
+17:39:12  INFO                      UserController.java   84: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+17:39:12  INFO                      UserController.java   87: user0>>>>>>>>>>>>>>>>>>MANTOSH
+17:39:12  INFO                      UserController.java   87: user1>>>>>>>>>>>>>>>>>>jagsir
+17:39:12  INFO                      UserController.java   87: user2>>>>>>>>>>>>>>>>>>darshan
+17:39:12  INFO                      UserController.java   87: user3>>>>>>>>>>>>>>>>>>kamal
+17:39:12  INFO                      UserController.java   87: user4>>>>>>>>>>>>>>>>>>gagan
+17:41:09  INFO                      UserController.java   84: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+17:41:09  INFO                      UserController.java   87: user0>>>>>>>>>>>>>>>>>>MANTOSH
+17:41:09  INFO                      UserController.java   87: user1>>>>>>>>>>>>>>>>>>jagsir
+17:41:09  INFO                      UserController.java   87: user2>>>>>>>>>>>>>>>>>>darshan
+17:41:09  INFO                      UserController.java   87: user3>>>>>>>>>>>>>>>>>>kamal
+17:41:09  INFO                      UserController.java   87: user4>>>>>>>>>>>>>>>>>>gagan
+17:43:06  INFO                      UserController.java   84: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+17:43:06  INFO                      UserController.java   87: user0>>>>>>>>>>>>>>>>>>MANTOSH
+17:43:06  INFO                      UserController.java   87: user1>>>>>>>>>>>>>>>>>>jagsir
+17:43:06  INFO                      UserController.java   87: user2>>>>>>>>>>>>>>>>>>darshan
+17:43:06  INFO                      UserController.java   87: user3>>>>>>>>>>>>>>>>>>kamal
+17:43:06  INFO                      UserController.java   87: user4>>>>>>>>>>>>>>>>>>gagan
+17:43:09  INFO                      UserController.java  101: Id is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>103
+17:43:09  INFO                      UserController.java  105: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>darshan
+17:50:42  INFO                      UserController.java   84: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+17:50:42  INFO                      UserController.java   87: user0>>>>>>>>>>>>>>>>>>MANTOSH
+17:50:42  INFO                      UserController.java   87: user1>>>>>>>>>>>>>>>>>>jagsir
+17:50:42  INFO                      UserController.java   87: user2>>>>>>>>>>>>>>>>>>darshan
+17:50:42  INFO                      UserController.java   87: user3>>>>>>>>>>>>>>>>>>kamal
+17:50:42  INFO                      UserController.java   87: user4>>>>>>>>>>>>>>>>>>gagan
+17:50:45  INFO                      UserController.java  104: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>jagsir
+17:51:37  INFO                      UserController.java   84: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+17:51:37  INFO                      UserController.java   87: user0>>>>>>>>>>>>>>>>>>MANTOSH
+17:51:37  INFO                      UserController.java   87: user1>>>>>>>>>>>>>>>>>>jagsir
+17:51:37  INFO                      UserController.java   87: user2>>>>>>>>>>>>>>>>>>darshan
+17:51:37  INFO                      UserController.java   87: user3>>>>>>>>>>>>>>>>>>kamal
+17:51:37  INFO                      UserController.java   87: user4>>>>>>>>>>>>>>>>>>gagan
+17:51:42  INFO                      UserController.java  104: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>gagan
+17:56:07  INFO                      UserController.java   84: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+17:56:07  INFO                      UserController.java   87: user0>>>>>>>>>>>>>>>>>>MANTOSH
+17:56:07  INFO                      UserController.java   87: user1>>>>>>>>>>>>>>>>>>jagsir
+17:56:07  INFO                      UserController.java   87: user2>>>>>>>>>>>>>>>>>>darshan
+17:56:07  INFO                      UserController.java   87: user3>>>>>>>>>>>>>>>>>>kamal
+17:56:07  INFO                      UserController.java   87: user4>>>>>>>>>>>>>>>>>>gagan
+17:56:09  INFO                      UserController.java  104: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>kamal
+18:06:46  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+18:06:46  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+18:06:46  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>jagsir
+18:06:46  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+18:06:46  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+18:06:46  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+18:06:50  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>kamal
+18:06:53  INFO                      UserController.java   55: userUpdate>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+18:11:02  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>dhhdh@jdjh.com
+18:11:02  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@14720ad
+18:11:15  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+18:11:15  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@1da1bcf
+18:11:15  INFO                        LoginManager.java   34: UserName:>>>>MANTOSH
+18:11:31  INFO                      UserController.java   61: Saveuser>>>>>>>>>>>>>>>>>>>>>>
+18:15:46  INFO                      UserController.java   88: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+18:15:46  INFO                      UserController.java   91: user0>>>>>>>>>>>>>>>>>>MANTOSH
+18:15:46  INFO                      UserController.java   91: user1>>>>>>>>>>>>>>>>>>jagsir
+18:15:46  INFO                      UserController.java   91: user2>>>>>>>>>>>>>>>>>>darshan
+18:15:46  INFO                      UserController.java   91: user3>>>>>>>>>>>>>>>>>>kamal
+18:15:46  INFO                      UserController.java   91: user4>>>>>>>>>>>>>>>>>>gagan
+18:15:52  INFO                      UserController.java  108: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>gagan
+18:15:55  INFO                      UserController.java  117: id is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>0
+18:19:47  INFO                      UserController.java   88: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+18:19:47  INFO                      UserController.java   91: user0>>>>>>>>>>>>>>>>>>MANTOSH
+18:19:47  INFO                      UserController.java   91: user1>>>>>>>>>>>>>>>>>>jagsir
+18:19:47  INFO                      UserController.java   91: user2>>>>>>>>>>>>>>>>>>darshan
+18:19:47  INFO                      UserController.java   91: user3>>>>>>>>>>>>>>>>>>kamal
+18:19:47  INFO                      UserController.java   91: user4>>>>>>>>>>>>>>>>>>gagan
+18:19:50  INFO                      UserController.java  108: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>jagsir
+18:19:52  INFO                      UserController.java  117: id is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>0
+18:35:26  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+18:35:26  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+18:35:26  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>jagsir
+18:35:26  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+18:35:26  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+18:35:26  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+18:35:31  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>kamal
+18:38:19  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+18:38:19  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+18:38:19  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>jagsir
+18:38:19  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+18:38:19  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+18:38:19  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+18:38:21  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>gagan
+18:38:23  INFO                      UserController.java  116: id is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>0
+18:40:34  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+18:40:34  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+18:40:34  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>jagsir
+18:40:34  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+18:40:34  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+18:40:34  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+18:40:37  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>gagan
+18:40:39  INFO                      UserController.java  116: id is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>0
+18:44:14  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+18:44:14  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+18:44:14  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>jagsir
+18:44:14  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+18:44:14  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+18:44:14  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+18:44:19  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>darshan
+18:47:17  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+18:47:17  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+18:47:17  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>jagsir
+18:47:17  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+18:47:17  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+18:47:17  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+18:47:20  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>jagsir
+18:47:22  INFO                      UserController.java  116: id is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>102
+19:04:51  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+19:04:51  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:04:51  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>jagsir
+19:04:51  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:04:51  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:04:51  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:04:54  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>jagsir
+19:05:10  INFO                         UserManager.java  104: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(name,email,mobile) values ('Bobby','bobby@gmail.com','Bobby') where id=102' at line 1
+19:05:10  INFO                      UserController.java  123: Update Status>>>>>>>>>>>>>>>>false
+19:07:17  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+19:07:17  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:07:17  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>jagsir
+19:07:17  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:07:17  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:07:17  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:07:19  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>jagsir
+19:07:33  INFO                         UserManager.java  104: java.sql.SQLException: Parameter index out of range (1 > number of parameters, which is 0).
+19:07:33  INFO                      UserController.java  123: Update Status>>>>>>>>>>>>>>>>false
+19:10:56  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+19:10:56  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:10:56  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>jagsir
+19:10:56  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:10:56  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:10:56  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:10:58  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>jagsir
+19:11:11  INFO                      UserController.java  123: Update Status>>>>>>>>>>>>>>>>true
+19:17:00  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+19:17:00  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:17:00  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>bobby
+19:17:00  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:17:00  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:17:00  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:17:04  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>bobby
+19:17:33  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>5
+19:17:33  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:17:33  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:17:33  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:17:33  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:17:33  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:18:13  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+19:18:13  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@15dd9d4
+19:18:13  INFO                        LoginManager.java   34: UserName:>>>>MANTOSH
+19:18:50  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>6
+19:18:50  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:18:50  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:18:50  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:18:50  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:18:50  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:18:50  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Harman
+19:18:52  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Harman
+19:19:19  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>6
+19:19:19  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:19:19  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:19:19  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:19:19  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:19:19  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:19:19  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Ekampreet
+19:35:07  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+19:35:07  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@14d40ba
+19:35:07  INFO                        LoginManager.java   34: UserName:>>>>MANTOSH
+19:35:44  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>7
+19:35:44  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:35:44  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:35:44  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:35:44  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:35:44  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:35:44  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Ekampreet
+19:35:44  INFO                      UserController.java   90: user6>>>>>>>>>>>>>>>>>>Farhan
+19:35:53  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Farhan
+19:36:10  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>7
+19:36:10  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:36:10  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:36:10  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:36:10  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:36:10  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:36:10  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Ekampreet
+19:36:10  INFO                      UserController.java   90: user6>>>>>>>>>>>>>>>>>>Akhtar
+19:36:51  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>7
+19:36:51  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:36:51  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:36:51  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:36:51  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:36:51  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:36:51  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Ekampreet
+19:36:51  INFO                      UserController.java   90: user6>>>>>>>>>>>>>>>>>>Akhtar
+19:37:01  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>7
+19:37:01  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:37:01  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:37:01  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:37:01  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:37:01  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:37:01  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Ekampreet
+19:37:01  INFO                      UserController.java   90: user6>>>>>>>>>>>>>>>>>>Akhtar
+19:37:08  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>7
+19:37:08  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:37:08  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:37:08  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:37:08  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:37:08  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:37:08  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Ekampreet
+19:37:08  INFO                      UserController.java   90: user6>>>>>>>>>>>>>>>>>>Akhtar
+19:39:56  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>7
+19:39:56  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:39:56  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:39:56  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:39:56  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:39:56  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:39:56  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Ekampreet
+19:39:56  INFO                      UserController.java   90: user6>>>>>>>>>>>>>>>>>>Akhtar
+19:41:29  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>7
+19:41:29  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:41:29  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:41:29  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:41:29  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:41:29  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:41:29  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Ekampreet
+19:41:29  INFO                      UserController.java   90: user6>>>>>>>>>>>>>>>>>>Akhtar
+19:41:33  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>7
+19:41:33  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:41:33  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:41:33  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:41:33  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:41:33  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:41:33  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Ekampreet
+19:41:33  INFO                      UserController.java   90: user6>>>>>>>>>>>>>>>>>>Akhtar
+19:41:38  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>7
+19:41:38  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:41:38  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:41:38  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:41:38  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:41:38  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:41:38  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Ekampreet
+19:41:38  INFO                      UserController.java   90: user6>>>>>>>>>>>>>>>>>>Akhtar
+19:41:41  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Akhtar
+19:41:55  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>7
+19:41:55  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+19:41:55  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+19:41:55  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+19:41:55  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+19:41:55  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+19:41:55  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Ekampreet
+19:41:55  INFO                      UserController.java   90: user6>>>>>>>>>>>>>>>>>>Sara
+20:11:58  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>hello@gmail
+20:11:58  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@ac1a16
+20:12:55  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+20:12:55  INFO                        LoginManager.java   27: Connection>>>>>>>>>>>>>>>>>>>>>>>com.mysql.jdbc.JDBC4Connection@901554
+20:12:55  INFO                        LoginManager.java   34: UserName:>>>>MANTOSH
+20:13:49  INFO                      UserController.java   87: List is>>>>>>>>>>>>>>>>>>>>>>>>>8
+20:13:49  INFO                      UserController.java   90: user0>>>>>>>>>>>>>>>>>>MANTOSH
+20:13:49  INFO                      UserController.java   90: user1>>>>>>>>>>>>>>>>>>Kuljit
+20:13:49  INFO                      UserController.java   90: user2>>>>>>>>>>>>>>>>>>darshan
+20:13:49  INFO                      UserController.java   90: user3>>>>>>>>>>>>>>>>>>kamal
+20:13:49  INFO                      UserController.java   90: user4>>>>>>>>>>>>>>>>>>gagan
+20:13:49  INFO                      UserController.java   90: user5>>>>>>>>>>>>>>>>>>Ekampreet
+20:13:49  INFO                      UserController.java   90: user6>>>>>>>>>>>>>>>>>>Sara
+20:13:49  INFO                      UserController.java   90: user7>>>>>>>>>>>>>>>>>>virginia
+20:13:56  INFO                      UserController.java  107: User is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>virginia
+22:43:29  INFO                         UserManager.java  167: java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+22:44:25  INFO                         UserManager.java  167: java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+22:51:06  INFO                         UserManager.java  168: java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+22:53:28  INFO                         UserManager.java  169: java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell

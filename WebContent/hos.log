@@ -1,0 +1,8 @@
+14:25:35  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>mantosh@gmail.com
+14:25:35  INFO                        LoginManager.java   39: Exception>>>[Ljava.lang.StackTraceElement;@a96f6d
+14:26:35  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>null
+14:26:35  INFO                        LoginManager.java   39: Exception>>>[Ljava.lang.StackTraceElement;@2c214b
+14:28:17  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>null
+14:28:17  INFO                        LoginManager.java   39: Exception>>>[Ljava.lang.StackTraceElement;@1089c31
+14:29:04  INFO                     LoginController.java   33: email:>>>>>>>>>>>>>>>>null
+14:29:04  INFO                        LoginManager.java   39: Exception>>>[Ljava.lang.StackTraceElement;@1b330c3

@@ -1,0 +1,85 @@
+13:50:57  INFO                      UserController.java  141: Random number>>>>>>>>>>>>>>>>>>>>>>>>>>>>>0.8819592321454888
+13:54:40  INFO                      UserController.java  142: Random number>>>>>>>>>>>>>>>>>>>>>>>>>>>>>74540.86240147488100
+13:56:14  INFO                      UserController.java  142: Random number>>>>>>>>>>>>>>>>>>>>>>>>>>>>>0100
+13:56:37  INFO                      UserController.java  142: Random number>>>>>>>>>>>>>>>>>>>>>>>>>>>>>0100
+13:59:10  INFO                      UserController.java  142: Random number>>>>>>>>>>>>>>>>>>>>>>>>>>>>>2055729098
+13:59:27  INFO                      UserController.java  142: Random number>>>>>>>>>>>>>>>>>>>>>>>>>>>>>570468605
+14:04:14  INFO                      UserController.java  141: Current time>>>>>>>>>>>>>>>>>>>>>>>14:04:14.207
+14:25:30  INFO                         UserManager.java   98: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail' at line 1
+14:25:46  INFO                         UserManager.java   98: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail.com' at line 1
+14:26:12  INFO                         UserManager.java   98: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail.com' at line 1
+14:27:29  INFO                         UserManager.java   98: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail' at line 1
+14:27:29  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>null
+14:28:13  INFO                         UserManager.java   98: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail.com' at line 1
+14:28:13  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>null
+14:32:22  INFO                         UserManager.java   98: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail.com' at line 1
+14:32:22  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>null
+14:39:09  INFO                         UserManager.java   98: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%xyz@gmail.com' at line 1
+14:39:09  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>null
+14:46:11  INFO                         UserManager.java   98: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail.com' at line 1
+14:46:11  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>null
+14:47:12  INFO                         UserManager.java   98: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail.com' at line 1
+14:47:12  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>null
+14:48:49  INFO                         UserManager.java   89: Query:select * from user where email='xyz@gmail.com' 
+14:48:49  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>virginia
+14:50:01  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>null
+14:50:09  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>virginia
+14:50:09  INFO                         UserManager.java  137: java.lang.NumberFormatException: For input string: "14:50:09.220"
+14:50:09  INFO                      UserController.java  148: status >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>false
+14:55:58  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>virginia
+14:55:58  INFO                         UserManager.java  137: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where id=108' at line 1
+14:55:58  INFO                      UserController.java  148: status >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>false
+14:57:11  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>virginia
+14:57:11  INFO                         UserManager.java  137: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where id='108'' at line 1
+14:57:11  INFO                      UserController.java  148: status >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>false
+15:01:34  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>virginia
+15:01:34  INFO                      UserController.java  148: status >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>true
+15:04:17  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>null
+15:11:09  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>virginia
+15:11:56  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>null
+15:12:25  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>Sara
+15:13:42  INFO                      UserController.java  144: user >>>>>>>>>>>>>>>>>>>>>>>>>>>Sara
+15:17:52  INFO                      UserController.java  145: user >>>>>>>>>>>>>>>>>>>>>>>>>>>virginia
+15:18:13  INFO                      UserController.java  145: user >>>>>>>>>>>>>>>>>>>>>>>>>>>Sara
+15:22:21  INFO                      UserController.java  145: user >>>>>>>>>>>>>>>>>>>>>>>>>>>Sara
+15:32:15  INFO                      UserController.java  167: Useris >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>null
+15:33:49  INFO                      UserController.java  165: OTPis >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>190038
+15:33:49  INFO                      UserController.java  168: Useris >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>null
+15:34:51  INFO                      UserController.java  165: OTPis >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>190038
+15:34:51  INFO                      UserController.java  168: Useris >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>null
+15:36:11  INFO                      UserController.java  165: OTPis >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>190038
+15:36:11  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=190038
+15:36:11  INFO                      UserController.java  168: Useris >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>null
+15:38:40  INFO                      UserController.java  149: user >>>>>>>>>>>>>>>>>>>>>>>>>>>MANTOSH
+15:38:56  INFO                      UserController.java  165: OTPis >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>8844299
+15:38:56  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=8844299
+15:38:56  INFO                      UserController.java  168: Useris >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>MANTOSH
+15:44:59  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=190038
+15:45:08  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=8844299
+16:01:03  INFO                      UserController.java  149: user >>>>>>>>>>>>>>>>>>>>>>>>>>>MANTOSH
+16:01:11  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=8844299
+16:02:09  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=5260780
+16:02:09  INFO                      UserController.java  169: Time is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>15:22:21.7280.15
+16:06:41  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=5260780
+16:06:41  INFO                      UserController.java  185: Time is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>15:37
+16:15:40  INFO                      UserController.java  153: user >>>>>>>>>>>>>>>>>>>>>>>>>>>virginia
+16:17:28  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=7682857
+16:17:28  INFO                      UserController.java  185: Time is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>16:16
+16:25:38  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=7682857
+16:25:38  INFO                      UserController.java  187: Time is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>16:16
+16:32:23  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=7682857
+16:32:23  INFO                      UserController.java  188: Time is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>16:16
+16:32:23  INFO                      UserController.java  190: check>>>>>>>>>>>>>>>>>>>>>>true
+16:34:15  INFO                      UserController.java  154: user >>>>>>>>>>>>>>>>>>>>>>>>>>>virginia
+16:37:31  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=6075239
+16:37:31  INFO                      UserController.java  188: Time is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>16:35
+16:41:32  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=6075239
+16:41:32  INFO                      UserController.java  188: Time is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>16:49
+16:42:21  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=6075239
+16:42:21  INFO                      UserController.java  188: Time is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>16:49
+16:46:21  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=6075239
+16:46:21  INFO                      UserController.java  188: Time is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>16:49
+16:58:52  INFO                      UserController.java  158: user >>>>>>>>>>>>>>>>>>>>>>>>>>>Kuljit
+16:59:23  INFO                         UserManager.java  110: QUery>>>>>>>>>>>>>select * from user where otp=8496376
+16:59:23  INFO                      UserController.java  192: Time is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>17:13
+16:59:35  INFO                      UserController.java  212: id is>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>102

@@ -1,0 +1,1329 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>User Management</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #4 for statistics, charts, recent events and reports" name="description" />
+    <meta content="" name="author" />
+    
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap-switch.min.css" rel="stylesheet" />
+    <link href="assets/css/daterangepicker.min.css" rel="stylesheet" />
+    <link href="assets/css/morris.css" rel="stylesheet" />
+    <link href="assets/css/fullcalendar.min.css" rel="stylesheet" />
+    <link href="assets/css/jqvmap.css" rel="stylesheet" />
+    <link href="assets/css/components.min.css" rel="stylesheet" />
+    <link href="assets/css/plugins.min.css" rel="stylesheet" />
+    <link href="assets/css/layout.min.css" rel="stylesheet" />
+    <link href="assets/css/default.min.css" rel="stylesheet" />
+    <link href="assets/css/custom.min.css" rel="stylesheet" />
+    <link href="assets/css/CustomTheme.css" rel="stylesheet" />
+    <link href="assets/css/light.min.css" rel="stylesheet" />
+    <!--<link href="/css/AssistanceSystem.css" rel="stylesheet" />-->
+    <link href="http://49.50.86.152:6004/ProjectTheme/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://49.50.86.152:6004/ProjectTheme/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="http://49.50.86.152:6004/ProjectTheme/layouts/layout4/css/themes/light.min.css" rel="stylesheet" />
+    
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+
+        .TopMenu > li {
+            margin-left: 9px;
+            border: 1px solid #a79d9d;
+            padding: 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo" ng-app="app">
+    <!-- BEGIN HEADER -->
+    <div class="page-header navbar navbar-fixed-top">
+        
+<script src="http://49.50.86.152:6004/ProjectTheme/global/plugins/jquery.min.js"></script>
+
+<style>
+    #imgCompanyLogo {
+        height: 43px !important;
+    }
+
+    .defaultAlert {
+        float: left;
+        /* margin-left: 10px; */
+        white-space: normal;
+    }
+
+    .DefaultLogo {
+        width: 75%;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+       
+        var img = $("#ImageSpan > img");
+        if ($("#ImageSpan > img").length > 0) {
+            if (img[0].alt != "") {
+                $("#ImageTextSpan").html(img[0].alt);
+                $("#ImageSpan").hide();
+                $("#ImageTextSpan").css('display', 'block')
+            }
+            else {
+                $("#ImageSpan").show();
+                $("#ImageTextSpan").hide();
+            }
+        }
+    });
+
+    function HideColumns() {
+        
+        var IsSeenByUser = getCookie("Notificationseen");
+        if (IsSeenByUser == "false") {
+            
+            setCookie("Notificationseen", "true");
+            $('#spnAlretCounts').text("0");
+            // ViewData["AlertsCount"] = 0;
+        }
+        else {
+            $('#spnAlretCounts').text("0");
+        }
+    }
+
+    function getCookie(cname) {
+
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function setCookie(cname, cvalue) {
+        var d = new Date();
+        //d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        //var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";path=/";
+    }
+
+
+
+
+</script>
+
+<div class="page-header-inner ">
+    <div class="page-logo">
+        <a href="#" style="text-decoration:none">
+            <span class="logo-default text-success" style="color: #d6d6d6;display:none" id="ImageSpan"> <img alt='SMS24HOURS'  style='vertical-align: middle;height: 50px;margin-top:8px;font-size: 30px;margin-top:8px'/></span>
+        </a>
+        <div class="menu-toggler sidebar-toggler">
+        </div>
+    </div>
+    <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".page-sidebar"> </a>
+
+    <div class="page-top">
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <li class="separator hide"> </li>
+                <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar" style="display:none;">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                       data-close-others="true">
+                        <i class="icon-question"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="external">
+                            <h3>
+                                <span class="bold">Service Support</span>
+                            </h3>
+                        </li>
+                        <li>
+                            <ul class="dropdown-menu-list scroller" style="height: 55px;" data-handle-color="#637283">
+                                <li>
+                                    <a href="/WebAdmin/Layout/ServiceSupport">
+                                        <span class="details">
+                                            <span class="label label-sm label-icon label-success">
+                                                <i class="fa fa-plus"></i>
+                                            </span>Service Support
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <!-- END INBOX DROPDOWN -->
+
+                <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar" onclick="HideColumns();">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <i class="icon-bell" style="width: 0px;"></i>
+                            <span style="position: relative;top: -15px;right: -4px;">&nbsp;</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="external">
+                            <h3>
+                                <span class="bold">Notification</span>
+                            </h3>
+                        </li>
+                        <li>
+                            <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+                             <li class="alert alert-info defaultAlert" style='margin-bottom: 0px;'><button class="close" data-dismiss="alert">&times;</button><strong>Alert!</strong> You dont have a notification right now! </li>                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="separator hide"> </li>
+                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                <li class="dropdown dropdown-user" style="padding: 0;">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                       data-close-others="true">
+
+                        <span class="username username-hide-on-mobile"> <i class="icon-user"></i> <span class='hidden-xs'><i class="fa fa-angle-down"></i></span> </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a href="#">
+                                <i class="icon-users"></i>Welcome, VIRTUOSOFT 
+                                <br />
+                                <span style="font-size: 11px;padding-left: 24px;"> { 8699632083 }</span>
+                                <br />
+                                <span style="font-size: 11px;padding-left: 24px;">Last Login IP: 122.180.29.172</span>
+                                <br />
+                                <span style="font-size: 11px;padding-left: 24px;">Last Login Date: 01/14/2020 16:37:25</span>
+                            </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                            <a href="/WebAdmin/UserProfile/UserProfile">
+                                <i class="icon-user"></i> My Profile
+                            </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+
+                            <a href="/WebAdmin/ManagePanel/ChangePassword">
+                                <i class="icon-settings"></i> Change Password
+                            </a>
+
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+
+                            <a href="/WebAdmin/UserProfile/Logout">
+                                <i class="icon-key"></i> Log Out
+                            </a>
+
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END PAGE TOP -->
+</div>
+
+
+
+
+
+    </div>
+    <!-- BEGIN HEADER & CONTENT DIVIDER -->
+    <div class="clearfix"> </div>
+    
+    <!-- BEGIN CONTAINER -->
+    <div class="Main_Menu">
+        <div class="page-header-menu">
+            <div class="container">
+                <nav class="navbar">
+                    <div class="container-fluid">
+                        <div class="hor-menu">
+                            <div id="navbarMenu" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="index.html" data-toggle="pills" class="2"><i class="icon-user DisplayIcon"></i>&nbsp; ADMINISTRATION</a></li>
+                                    <li><a href="ManageSmppGateway.html" data-toggle="pills" class="3"><i class="icon-settings DisplayIcon"></i>&nbsp;CONFIGURATION</a></li>
+
+                                    <li><a href="PermissionInRole.html" data-toggle="pills" class="5"><i class="icon-lock DisplayIcon"></i>&nbsp;PERMISSION</a></li>
+                                    <li><a href="LiveTrafficReport.html" data-toggle="pills" class="6"><i class="icon-layers DisplayIcon"></i>&nbsp;REPORTING</a></li>
+                                    <li><a href="ClientSystemLogs.html" data-toggle="pills" class="7"><i class="icon-screen-desktop DisplayIcon"></i>&nbsp;MONITORING</a></li>
+                                    <li><a href="ManageCountry.html" data-toggle="pills" class="8"><i class="icon-wallet DisplayIcon"></i>&nbsp;BILLING</a></li>
+                                    <li><a href="QueueTransfer.html" data-toggle="pills" class="12"><i class="icon-docs DisplayIcon"></i>&nbsp;UTILITY</a></li>
+                                </ul>
+                            </div><!--/.nav-collapse -->
+                        </div><!--/.container-fluid -->
+                    </div>
+                    <div class="visible-xs Mhor-menu" style="overflow: auto;">
+                        <ul class="TopMenu" style="display: inline-flex;list-style: none;text-align: center;padding-left: 0;margin-top: 10px;font-size: 10px;">
+                            <li><a href="/WebAdmin/Administration/UserManagement" data-toggle="pills" class="2"><i class="icon-user DisplayIcon"></i></a></li>
+                            <li><a href="/WebAdmin/Smpp/ManageSmppGateway" data-toggle="pills" class="3"><i class="icon-settings DisplayIcon"></i></a></li>
+                            <li><a href="/WebAdmin/ApiDocument/ApiDocs" data-toggle="pills" class="4"><i class="icon-docs DisplayIcon"></i></a></li>
+                            <li><a href="/WebAdmin/Permission/PermissionInRole" data-toggle="pills" class="5" style="display:none"><i class="icon-lock DisplayIcon"></i></a></li>
+                            <li><a href="/WebAdmin/Report/LiveTrafficReport" data-toggle="pills" class="6"><i class="icon-layers DisplayIcon"></i></a></li>
+                            <li><a href="/WebAdmin/Monitoring/ClientSystemLogs" data-toggle="pills" class="7"><i class="icon-screen-desktop DisplayIcon"></i></a></li>
+                            <li><a href="ManageCountry.html" data-toggle="pills" class="8"><i class="icon-wallet DisplayIcon"></i>&nbsp;BILLING</a></li>
+                            <li><a href="QueueTransfer.html" data-toggle="pills" class="12"><i class="icon-doc DisplayIcon"></i>&nbsp;UTILITY</a></li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+        <div class="page-container">
+            <div class="page-sidebar-wrapper">
+                <div class="page-sidebar navbar-collapse collapse">
+                    <ul class="page-sidebar-menu" id="2" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-user"></i>
+                                <span class="title">User Administration</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item start">
+                                    <a href="UserManagement.html" class="2">
+                                        <i class="icon-users"></i>
+                                        <span class="title"> User Management</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start">
+                                    <a href="ViewUserTreeList.html" class="2">
+                                        <i class="icon-layers"></i>
+                                        <span class="title">Site User Tree List</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start">
+                                    <a href="GetClientList.html" class="2">
+                                        <i class="icon-users"></i>
+                                        <span class="title">Client Detail List</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start">
+                                    <a href="ClientTransactions.html" class="2">
+                                        <i class="icon-note"></i>
+                                        <span class="title">Client Transactions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-check"></i>
+                                <span class="title">Approvals</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item  ">
+                                    <a href="ManageSenderId.html" class="2">
+                                        <i class="icon-call-in"></i>
+                                        <span class="title">  All SenderId Request</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ManageTemplates.html" class="2">
+                                        <i class="fa fa-clone"></i>
+                                        <span class="title">  All Template Request</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-settings"></i>
+                                <span class="title">Settings</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item  ">
+                                    <a href="BlackListNumber.html" class="2">
+                                        <i class="fa fa-ban"></i>
+                                        <span class="title">  Black List Numbers</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ManageSpamKeyword.html" class="2">
+                                        <i class="icon-key"></i>
+                                        <span class="title">  Global Spam Keywords</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ManageUserSpamKeyword.html" class="2">
+                                        <i class="icon-key"></i>
+                                        <span class="title">  User Spam Keywords</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="SiteBranding.html" class="2">
+                                        <i class="icon-notebook"></i>
+                                        <span class="title">  Site Branding</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ManageNotification.html" class="2">
+                                        <i class="icon-info"></i>
+                                        <span class="title">  Manage Notification</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ChangePassword.html" class="2">
+                                        <i class="icon-note"></i>
+                                        <span class="title">  Change Password</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-list"></i>
+                                <span class="title">General Setting</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item ">
+                                    <a href="GeneralSetting.html" class="2">
+                                        <i class="icon-bag"></i>
+                                        <span class="title">
+                                            Manage General Setting
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display:none;">
+                                    <a href="BusinessAccount.html" class="2">
+                                        <i class="icon-bag"></i>
+                                        <span class="title">
+                                            Manage Business Account
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ForcePasswordChange.html" class="2">
+                                        <i class="icon-close"></i>
+                                        <span class="title">
+                                            Force Password Change
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ForceLockDown.html" class="2">
+                                        <i class="icon-lock"></i>
+                                        <span class="title">
+                                            Force Lock Down
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                    <ul class="page-sidebar-menu" id="3" style="display:none" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start active open">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-list"></i>
+                                <span class="title">Gateway Configuration</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item start active open">
+                                    <a href="ManageSmppGateway.html" class="3">
+                                        <i class="fa fa-sliders"></i>
+                                        <span class="title">Manage Gateway/Handler</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="ManageGatewayErrorCodes.html" class="3">
+                                        <i class="fa fa-code"></i>
+                                        <span class="title"> Mange Gateway Error Codes</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item start ">
+                                    <a href="index.html" class="3">
+                                        <i class="fa fa-gavel"></i>
+                                        <span class="title"> OA/DA Normalization Rules</span>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+                            <li class="nav-item start ">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-list"></i>
+                                    <span class="title"> Interface Configuration</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item start active open">
+                                        <a href="index.html" class="3">
+                                            <i class="icon-user"></i>
+                                            <span class="title"> Manage Interface</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item start active">
+                                        <a href="EsmeBlackListRule.html" class="3">
+                                            <i class="icon-lock"></i>
+                                            <span class="title"> Esme Blacklist Rule</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item start active">
+                                        <a href="EsmeClientList.html" class="3">
+                                            <i class="icon-user"></i>
+                                            <span class="title"> Esme Client List</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-list"></i>
+                                <span class="title">Routing Rule Manager</span>
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item ">
+                                    <a href="ManageMtRules.html" class="8">
+                                        <i class="icon-paper-plane"></i>
+                                        <span class="title"> MT Routing Rules </span>
+                                        <span class="selected"></span>
+                                    </a>
+
+                                    <ul>
+                                        <li class="nav-item start-li" style="display:none">
+                                            <a href="AddNewMtRule.html" class="8">
+                                                <i class="icon-paper-plane"></i>
+                                                <span class="title"> Add New MT Rule</span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item ">
+                                    <a href="FindRoutes.html" class="8">
+                                        <i class="icon-magnifier"></i>
+                                        <span class="title"> Routing Rules Simulator </span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-list"></i>
+                                <span class="title"> Deamon/Services</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item start ">
+                                    <a href="ManageService.html" class="3">
+                                        <i class="icon-settings"></i>
+                                        <span class="title">  Manage Services</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item start" style="display:none">
+                            <a href="QuickConfiguration.html" class="8">
+                                <i class="icon-wrench"></i>
+                                <span class="title">Quick Configuration</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item start">
+                            <a href="Housekeeping.html" class="8">
+                                <i class="icon-notebook"></i>
+                                <span class="title">Housekeeping</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="page-sidebar-menu" id="4" style="display:none" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start active open">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-layers"></i>
+                                <span class="title">Documents</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item start active open">
+                                    <a href="ApiDocs.html" class="4">
+                                        <i class="icon-doc"></i>
+                                        <span class="title">  API Documents</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                    <ul class="page-sidebar-menu" id="6" style="display:none" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start active open">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-doc"></i>
+                                <span class="title">SMPP Reporting</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+                                <li class="nav-item start active open">
+                                    <a href="LiveTrafficReport.html" class="6">
+                                        <i class="icon-graph"></i>
+                                        <span class="title">Live Web Traffic Report</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item start active open">
+                                    <a href="GatewayMessageCount.html" class="6">
+                                        <i class="icon-docs"></i>
+                                        <span class="title">Gateway Queue</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item start active open">
+                                    <a href="index.html" class="6">
+                                        <i class="icon-docs"></i>
+                                        <span class="title">Sent Report</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start active open">
+                                    <a href="MessageUsageCount.html" class="6">
+                                        <i class="icon-envelope-open"></i>
+                                        <span class="title">Sent Count</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start active open">
+                                    <a href="DownloadReport.html" class="6">
+                                        <i class="fa fa-download"></i>
+                                        <span class="title">Download Report</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item start">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-docs"></i>
+                                <span class="title">ESME Reporting</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item start active open">
+                                    <a href="EsmeLiveTrafficReport.html" class="6">
+                                        <i class="icon-graph"></i>
+                                        <span class="title">Live Web Traffic Report</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start active open">
+                                    <a href="EsmeMessageUsageCount.html" class="6">
+                                        <i class="icon-envelope-open"></i>
+                                        <span class="title">Sent Count</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        <li class="nav-item start">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-docs"></i>
+                                <span class="title">Business Insight</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+                                <li class="nav-item start active open">
+                                    <a href="Senders.html" class="6">
+                                        <i class="icon-bar-chart"></i>
+                                        <span class="title">Top 10 Senders</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item start">
+                                    <a href="GatewayReport.html" class="6">
+                                        <i class="icon-calculator"></i>
+                                        <span class="title">Gateway Wise Count</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item start active open">
+                                    <a href="GatewayWiseMarginReport.html" class="6">
+                                        <i class="icon-docs"></i>
+                                        <span class="title">Gateway Wise Profit</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item start active open" style="display:none;">
+                                    <a href="MarginDetailReport.html" class="6">
+                                        <i class="icon-docs"></i>
+                                        <span class="title">MarginDetailReport</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item start active open">
+                                    <a href="GatewayMessageReport.html" class="6">
+                                        <i class="icon-docs"></i>
+                                        <span class="title">Gateway Status Report</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item start">
+                            <a href="AlertNotification.html" class="6">
+                                <i class="icon-share-alt"></i>
+                                <span class="title">View Alert(s)</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    </ul>
+
+
+
+                    <ul class="page-sidebar-menu" id="7" style="display:none" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start active open">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-list"></i>
+                                <span class="title">SMPP Client</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item start active open">
+                                    <a href="ClientServerLogs.html" class="7">
+                                        <i class="icon-docs"></i>
+                                        <span class="title">  PDU Logs</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item start active open">
+                                    <a href="ClientSystemLogs.html" class="7">
+                                        <i class="icon-notebook"></i>
+                                        <span class="title">  Event Viewer(Client)</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start active open">
+                                    <a href="DlrSystemLogs.html" class="7">
+                                        <i class="icon-notebook"></i>
+                                        <span class="title">  Event Viewer(DLR)</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                            <li class="nav-item start">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-list"></i>
+                                    <span class="title">SMPP Server</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item start">
+                                        <a href="ServerLogs.html" class="7">
+                                            <i class="icon-docs"></i>
+                                            <span class="title">  PDU Logs</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item start active open">
+                                        <a href="ServerSystemLogs.html class="7">
+                                            <i class="icon-notebook"></i>
+                                            <span class="title">  Event Viewer(Server)</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa fa-wrench"></i>
+                                <span class="title">Debug Tools</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="LastError.html" class="7">
+                                        <i class="icon-globe"></i>
+                                        <span class="title">  Last Error</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="AuditLogs.html" class="7">
+                                        <i class="icon-clock"></i>
+                                        <span class="title">  Audit Logs</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="WebLogs.html" class="7">
+                                        <i class="icon-layers"></i>
+                                        <span class="title"> Client Web Logs</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="page-sidebar-menu" id="8" style="display:none" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+
+
+                        <li class="nav-item start active open">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-list"></i>
+                                <span class="title"> Master Data Manager</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item start">
+                                    <a href="ManageCountry.html" class="8">
+                                        <i class="icon-globe"></i>
+                                        <span class="title"> Manage Countries </span>
+                                        <span class="selected"></span>
+                                    </a>
+                                    <ul>
+                                        <li class="nav-item start-li" style="display:none">
+                                            <a href="ImportCountries.html" class="8">
+                                                <i class="icon-globe"></i>
+                                                <span class="title"> Import Countries </span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item start ">
+                                    <a href="ManageMCCMNC.html" class="8">
+                                        <i class="icon-pointer"></i>
+                                        <span class="title"> Manage MCC/MNC </span>
+                                    </a>
+                                    <ul>
+                                        <li class="nav-item start-li" style="display:none">
+                                            <a href="ImportMCCMNC.html" class="8">
+                                                <i class="icon-pointer"></i>
+                                                <span class="title"> Import MCC/MNC </span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item start">
+                                    <a href="ManagePrefix.html" class="8">
+                                        <i class="icon-layers"></i>
+                                        <span class="title"> Manage Prefix </span>
+                                    </a>
+                                    <ul>
+                                        <li class="nav-item start-li" style="display:none">
+                                            <a href="ImportPrefix.html" class="8">
+                                                <i class="icon-globe"></i>
+                                                <span class="title"> Import Prefix </span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item start-li" style="display:none">
+                                            <a href="VerifyPrefix.html" class="8">
+                                                <i class="icon-globe"></i>
+                                                <span class="title"> Verify Prefix </span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="ManageGatewayPrice.html" class="8">
+                                        <i class="icon-note"></i>
+                                        <span class="title"> Manage Gateway Price </span>
+                                    </a>
+                                    <ul>
+                                        <li class="nav-item start-li" style="display:none">
+                                            <a href="ImportGatewayPrice.html" class="8">
+                                                <i class="icon-note"></i>
+                                                <span class="title"> Import Gateway Price </span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item start-li" style="display:none">
+                                            <a href="ViewGatewayDetails.html" class="8">
+                                                <i class="icon-note"></i>
+                                                <span class="title"> View Gateway Details </span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-list"></i>
+                                <span class="title">Rate Plan Manager</span>
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item ">
+                                    <a href="ManageRatePlans.html" class="8">
+                                        <i class="icon-folder"></i>
+                                        <span class="title"> Manage Rate Plans </span>
+                                        <span class="selected"></span>
+                                    </a>
+                                    <ul>
+                                        <li class="nav-item start-li" style="display:none">
+                                            <a href="AddNewTemplate.html" class="8">
+                                                <i class="icon-globe"></i>
+                                                <span class="title"> Add Rate Plan Template</span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item start-li" style="display:none">
+                                            <a href="ViewTemplates.html class="8">
+                                                <i class="icon-globe"></i>
+                                                <span class="title"> View Template Details</span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+                        <li class="nav-item start">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-list"></i>
+                                <span class="title">Currency Manager</span>
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item ">
+                                    <a href="ManageCurrency.html" class="8">
+                                        <i class="icon-tag"></i>
+                                        <span class="title"> Manage Currency </span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="page-sidebar-menu" id="9" style="display:none" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start active open">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-layers"></i>
+                                <span class="title">Manage Api</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item start active open">
+                                    <a href="index.html" class="9">
+                                        <i class="icon-microphone"></i>
+                                        <span class="title"> HTTP Voice Api</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="page-sidebar-menu" id="11" style="display:none" data-keep-expanded="false"
+                        data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start active open">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa fa-group fa-lg"></i>
+                                <span class="title">SDP</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="ManageSDPAccount.html" class="4">
+                                        <i class="fa fa-asterisk"></i>
+                                        <span class="title">Manage SDP Account(s)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="ManageSDPEndPoint.html" class="4">
+                                        <i class="fa fa-bars"></i>
+                                        <span class="title">Manage SDP Endpoint(s)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="SDPService.html" class="4">
+                                        <i class="fa fa-bars"></i>
+                                        <span class="title">Manage SDP Service(s)</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa fa-group fa-lg"></i>
+                                <span class="title">Applications</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="NotifyServiceApp.html" class="4">
+                                        <i class="fa fa-asterisk"></i>
+                                        <span class="title">Notify Service App</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="OrderSyncRelationApp.html" class="4">
+                                        <i class="fa fa-bars"></i>
+                                        <span class="title">Order Sync Relation App</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa fa-group fa-lg"></i>
+                                <span class="title">Reports</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="SubscriptionList.html" class="4">
+                                        <i class="fa fa-asterisk"></i>
+                                        <span class="title">Subscription Report</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="page-sidebar-menu" style="display:none" id="12" data-keep-expanded="false"
+                        data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item active open">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa fa-trademark fa-lg"></i>
+                                <span class="title">Message Queue</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="QueueTransfer.html" class="12">
+                                        <i class="fa fa-asterisk"></i>
+                                        <span class="title">Manage Queue-Transfer</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item start">
+                            <a href="TraceMessage.html" class="12">
+                                <i class="icon-eyeglasses"></i>
+                                <span class="title">Message Trace</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item start">
+                            <a href="Throughput.html" class="12">
+                                <i class="icon-pie-chart"></i>
+                                <span class="title">View Throughput</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    </ul>
+
+
+
+                    <!-- END SIDEBAR MENU -->
+                </div>
+                <!-- END SIDEBAR -->
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+            <div id="mainContentDiv">
+                        <script src="http://49.50.86.152:6004/ProjectTheme/global/plugins/jquery.min.js"></script>
+                         <link href="http://49.50.86.152:6004/CSS/CustomLayout.css" rel="stylesheet" />
+<style>
+    @media (max-width:800px) {
+        #txtAPIValidationIPAddress {
+            width: 100% !important;
+        }
+
+        #txtHTTPWebPushURL {
+            width: 100% !important;
+        }
+    }
+
+    #DvKeyword {
+        height: 450px;
+        overflow-y: auto;
+    }
+</style>
+
+
+
+<script src="/CSS/select2.min.js"></script>
+
+<div class="row">
+        <script>
+            $(document).ready(function () {
+
+
+                $.urlParam = function (name) {
+                    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+                    if (results == null) {
+                        return null;
+                    }
+                    else {
+                        return decodeURI(results[1]) || 0;
+                    }
+                }
+                if ($.urlParam('name') != "0" && $.urlParam('name') != "" && $.urlParam('name') != undefined) {
+                    $('#txtUserNames').val($.urlParam('name'));
+                    $("#ViewUserProfile").click();
+                }
+            });
+        </script>
+
+
+    <div class="col-md-12">
+        <div class="portlet light portlet-fit bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-blue sbold">User Management</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="dvMessage"></div>
+                <form class="form-inline" method="post" action="/WebAdmin/Administration/UserManagement">
+                    <div class="form-group">
+                        <input class="form-control input-sm tb" data-val="true" data-val-length="The User Name should not be more than 50 characters long." data-val-length-max="50" data-val-regex="Please enter valid username" data-val-regex-pattern="[a-zA-Z0-9@#$%&amp;*&#x2B;\-_()&#x2B;.,![\]\s\\/]&#x2B;$" data-val-required="User Name is required" id="txtUserNames" name="UserName" placeholder="Enter User Name" required="required" style="width: 225px;" type="text" value="" />
+                    </div>
+                    <button type="submit" id="ViewUserProfile" class="btn btn-sm btn-success"><i class="fa fa-check"></i>&nbsp;View</button>
+                    <a href="index.html" id="DisplayAddNewUSer" class="btn btn-info btn-sm"><i class="fa fa-user"></i>&nbsp;Add New User</a>
+                </form>
+
+                <br />
+                <div style="padding: 15px !important; display: none" id="alertdiv">
+                    <a href="#" class="close" aria-label="close">&times;</a>
+                    <span id="AlertMessage"></span>
+                </div>
+                <div class="tab-content">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    function gotoUserRatePlan() {
+    if ($('#txtUserNames').val != "") {
+
+        var companyId = '';
+        if (companyId != '')
+            window.location.href = "/WebAdmin/Administration/UserRatePlan?cId=" + companyId;
+    }
+}
+</script>
+</div>
+<div class="modal fade" id="SessionformModal">
+                        <div class="modal-dialog" style="max-width: 480px">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4>Session Expired</h4>
+                                </div>
+                                <form>
+                                    <div class="modal-body">
+
+                                        <div class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <span>Your session is expired.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="form-group text-right">
+                                            <a href="/User/Login" class="btn btn-info">Ok</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="page-footer">
+            <div class="page-footer-inner" style="margin-bottom:0px !important">
+                © 2020 sms24hours powered by Virtuoso NetSoft Pvt. Ltd.. All rights reserved.
+                    <span><b>Contact Us</b></span>
+                                    <span><i class="fa fa-envelope-o"></i> Email : support@sms24hours.com</span>
+                                    &nbsp;| &nbsp;<span><i class="fa fa-phone" aria-hidden="true"></i> Phone :&#x2B;91-9872363621</span>
+            </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up"></i>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/cookie.min.js"></script>
+    <script src="assets/js/raphael-min.js"></script>
+    <script src="assets/js/app.min.js"></script>
+    <script src="assets/js/slimscroll.min.js" type="text/javascript"></script>
+    <script src="assets/js/layout.min.js"></script>
+    <script src="assets/js/demo.min.js"></script>
+    <script src="assets/js/quick-sidebar.min.js"></script>
+    <script src="assets/js/quick-nav.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <!--<script src="/js/AssistanceSystem.js"></script>-->
+
+    
+    <script src="assets/js/jquery.blockui.min.js"></script>
+    <!--<script src="/Scripts/jquery-ui_1.8.23.min.js"></script>
+    <script src="/Scripts/bootstrap-multiselect.js"></script>
+    <link href="/CSS/bootstrap-multiselect.css" rel="stylesheet" />-->
+    <link href="assets/css/bootstrap-switch.css" rel="stylesheet" />
+    <script src="assets/js/bootstrap-switch.js"></script>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet" />
+    <script src="assets/js/validate.min.js"></script>
+    <link href="assets/css/datatables.bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/datatables.min.css" rel="stylesheet" />
+    <script src="assets/js/datatables.min.js"></script>
+    <script src="assets/js/datatables.bootstrap.js"></script>
+    <link href="assets/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <script src="assets/js/bootstrap-datepicker.min.js"></script>
+    <link href="assets/css/daterangepicker.min.css" rel="stylesheet" />
+    <script src="assets/js/daterangepicker.min.js"></script>
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="/Scripts/KeywordCtrl.js"></script>
+    <link href="assets/css/bootstrap-select.css" rel="stylesheet" />
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <!--<script src="/Scripts/UserAdministration.js"></script>-->
+
+    <script>
+        $(document).ready(function () {
+            $('#clickmewow').click(function () {
+                $('#radio1003').attr('checked', 'checked');
+            });
+        })
+
+
+        $(document).ready(function () {
+
+            $('[data-toggle="tooltip"]').tooltip();
+
+            $("#displaySelectTabName").html("Administration")
+
+            var pathname = window.location.pathname;
+            $('.page-sidebar-menu li a').each(function () {
+                var h = $(this).attr('href');
+
+                if (pathname == h) {
+
+                    $(".page-sidebar ul.page-sidebar-menu").hide();
+                    $(this).closest(".page-sidebar-menu").show();
+                    $(this).parent().parent().parent().parent().show();
+                    $(".page-sidebar-menu li").removeClass("active open");
+                    $(this).parent().parent().parent().addClass("active open");
+
+                    if ($(this).parent().hasClass("start-li")) {
+                        $(this).parent().parent().parent().parent().parent().addClass("active");
+                    }
+                    else {
+                        $(this).parent().addClass("active");
+                    }
+                    var TabClass = $(this)[0].className;
+                    $(".hor-menu li").removeClass("active");
+                    var Activeindex = 0;
+                    $(".hor-menu li a").each(function (i, index) {
+                        if (index.className == TabClass) {
+                            Activeindex = i;
+                            $(this).parent().addClass("active");
+                            return false;
+                        }
+                    });
+                    //For Mobile menu Active Class
+
+                    $(".Mhor-menu li").css({ 'border': '1px solid #a79d9d' });
+                    $(".Mhor-menu li").eq([Activeindex]).css({ 'border': '1px solid #3d5869' });
+                    $(".Mhor-menu li").eq([Activeindex]).find('i').css({
+                        'color': 'white',
+                        'margin': '0 auto 6px',
+                        'height': '36px',
+                        'width': '37px',
+                        'font-size': '20px',
+                        'padding': '8px 7px',
+                        'display': 'block',
+                        '- moz - border - radius': '100px',
+                        '-webkit - border - radius': '100px',
+                        'border - radius': '20px',
+                        'border': '1px solid #29b899',
+                        'background': '#29b899'
+                    });
+                }
+            });
+
+            if ($.fn.dataTable != undefined) {
+                $.fn.dataTable.ext.errMode = 'none';
+            }
+            $(document).ajaxError(function (e, xhr) {
+
+                if (xhr.status == 401)
+                    $("#SessionformModal").modal();
+                //window.location = "/User/Login";
+                else if (xhr.status == 403)
+                    alert("You have no enough permissions to request this resource.");
+            });
+        });
+    </script>
+</body>
+</html>

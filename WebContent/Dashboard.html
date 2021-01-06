@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Site Branding</title>
+   <meta content="" name="author" />
+    <script src="/Script/jsapi.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/app.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/.validate.min.js"></script>
+    <script src="assets/js/unobtrusive.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/bsAlerts.js"></script>
+	<script src="http://49.50.86.152:6004/ProjectTheme/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+	
+    <link href="assets/css/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap-switch.min.css" rel="stylesheet" />
+    <link href="assets/css/daterangepicker.min.css" rel="stylesheet" />
+    <link href="assets/css/morris.css" rel="stylesheet" />
+    <link href="assets/css/fullcalendar.min.css" rel="stylesheet" />
+    <link href="assets/css/jqvmap.css" rel="stylesheet" />
+    <link href="assets/css/components.min.css" rel="stylesheet" />
+    <link href="assets/css/plugins.min.css" rel="stylesheet" />
+    <link href="assets/css/layout.min.css" rel="stylesheet" />
+    <link href="assets/css/default.min.css" rel="stylesheet" />
+    <link href="assets/css/custom.min.css" rel="stylesheet" />
+    <link href="assets/css/light.min.css" rel="stylesheet" />
+    <link href="assets/css/CustomTheme.css" rel="stylesheet" />
+    <link href="http://49.50.86.152:6004/ProjectTheme/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" />
+
+    <style>
+        .AlertCss li {
+            list-style: none !important;
+        }
+
+        .AlertCss ul {
+            padding-left: 0;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo" ng-app="app">
+    <!-- BEGIN HEADER -->
+    <div class="page-header navbar navbar-fixed-top">
+        
+<style>
+    /*#imgCompanyLogo {
+        height: 125% !important;
+        margin-top: -2% !important;
+    }*/
+
+    .defaultAlert {
+        float: left;
+        /* margin-left: 10px; */
+        white-space: normal;
+    }
+
+    .DefaultLogo {
+        width: 75%;
+    }
+    .page-header.navbar .top-menu .navbar-nav > li.dropdown-notification .dropdown-menu .dropdown-menu-list > li a .details .label-icon i {
+        margin-right: 4px;
+    }
+</style>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        debugger;
+        var img = $("#ImageSpan  > img");
+        if ($("#ImageSpan > img").length > 0) {
+            if (img[0].alt != "") {
+                $("#ImageTextSpan").html(img[0].alt);
+                $("#ImageSpan").hide();
+                $("#ImageTextSpan").css('display', 'block');
+                $("#divMenuToggle").hide();
+            }
+            else {
+                $("#ImageSpan").show();
+                $("#ImageTextSpan").hide();
+                $("#divMenuToggle").hide();
+            }
+        } else {
+            if (img[0] != "" && img[0] != undefined) {
+                $("#ImageTextSpan").html(img[0].alt);
+                $("#ImageSpan").hide();
+                $("#ImageTextSpan").css('display', 'block')
+            } else {
+                $("#ImageSpan").hide();
+                $("#ImageTextSpan").hide();
+                $("#divMenuToggle").show();
+            }
+        }
+
+        $('#header_inbox_bar').on('click', function () {
+            
+        });
+    });
+
+
+    function HideColumns() {
+        var IsSeenByUser = getCookie("Notificationseen");
+        if (IsSeenByUser == "false") {
+            setCookie("Notificationseen", "true");
+            $('#spnAlretCounts').text("0");
+            // ViewData["AlertsCount"] = 0;
+        }
+        else {
+            $('#spnAlretCounts').text("0");
+        }
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function setCookie(cname, cvalue) {
+        var d = new Date();
+        //d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        //var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";path=/";
+    }
+</script>
+
+<div class="page-header-inner ">
+    <div class="page-logo" style="width:35% !important">
+        <span class="float-left" href="#">
+            <span id="ImageTextSpan" style="color: #d6d6d6;margin-top: 8px;font-size: 27px;min-width: 185px;"></span>
+            <span class="logo-default text-success" style="color: #d6d6d6;" id="ImageSpan"> <img alt='SMS24HOURS'  style='vertical-align: middle;height: 55px;margin-top:3px;font-size: 30px;'/></span>
+        </span>
+        <div class="menu-toggler sidebar-toggler pull-left" id="divMenuToggle" style="z-index:10000 !important;">
+        </div>
+    </div>
+    <a href="#" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".page-sidebar"> </a>
+    <div class="page-top">
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <li class="separator hide"> </li>
+                <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar" >
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <i class="icon-question"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="external">
+                            <h3>
+                                <span class="bold">Service Support</span>
+                            </h3>
+                        </li>
+                        <li>
+                            <ul class="dropdown-menu-list scroller" style="height: 55px;" data-handle-color="#637283">
+                                <li>
+                                    <a href="/Reseller/Layout/ServiceSupport">
+                                        <span class="details">
+                                            <span class="label label-sm label-icon label-success">
+                                                <i class="fa fa-plus"></i>
+                                            </span>Support Ticket
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="separator hide"> </li>
+                <li class="dropdown dropdown-extended dropdown-notification" id="header_inbox_bar">
+                    <a href="javascript:;" id="CreditBalance" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-placement="bottom" title="Credit Balance" data-close-others="true">
+                        <i class="icon-credit-card"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="external">
+                            <h3>
+                                <span class="bold">Credit Balance</span>
+                            </h3>
+                        </li>
+                        <li>
+                            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto;">
+                                <ul class="dropdown-menu-list scroller" style="overflow: hidden; width: auto;" data-handle-color="#637283" data-initialized="1">
+                                        <li>
+                                            <a href="javascript:;">                                               
+                                                <span class="details">
+                                                   Balance :
+                                                </span>
+                                                <span><b>INR</b> 491.4000</span>
+                                            </a>
+                                        </li>
+                                                                </ul><div class="slimScrollBar" style="background: rgb(99, 114, 131); width: 7px; position: absolute; top: 50px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 121.359px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END INBOX DROPDOWN -->
+                <li class="separator hide"> </li>
+                <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar" onclick="HideColumns();">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <i class="icon-bell" style="width: 0px;"></i>
+                            <span style="position: relative;top: -15px;right: -4px;">&nbsp;</span>
+                    </a>
+                   
+                    <ul class="dropdown-menu">
+                        <li class="external">
+                            <h3>
+                                <span class="bold">Notification</span>
+                            </h3>
+                        </li>
+                        <li>
+                            <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+<li class="alert alert-info defaultAlert" style='margin-bottom: 0px;'><button class="close" data-dismiss="alert">&times;</button><strong>Alert!</strong> You dont have a notification right now! </li>                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                <li class="dropdown dropdown-user" style="padding: 0;">
+                   
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
+                       data-hover="dropdown" data-close-others="true">
+                        <span class="username username-hide-on-mobile"> <i class="icon-user"></i> <span class='hidden-xs'><i class="fa fa-angle-down"></i></span> </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a href="#">
+                                <i class="icon-users"></i>Welcome, ravinder 
+<br />
+                                <span style="font-size: 11px;padding-left: 24px;">  { 1234567890 }</span>
+                                <br />
+                                <span style="font-size: 11px;padding-left: 24px;">Last Login IP: 122.180.29.172</span>
+                                <br />
+                                <span style="font-size: 11px;padding-left: 24px;">Last Login Date: 01/07/2020 08:52:33</span>
+                             
+                            </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                                <a href="/User/UserProfile">
+                                    <i class="icon-user"></i> My Profile
+                                </a>
+
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                                <a href="/Setting/ChangePassword">
+                                    <i class="icon-settings"></i> Change Password
+                                </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                            <a href="/User/Logout">
+                                <i class="icon-key"></i> Log Out
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END PAGE TOP -->
+</div>
+
+    </div>
+    <div class="clearfix"> </div>
+
+    
+<style>
+    .TopMenu > li {
+        margin-left: 9px;
+        border: 1px solid #a79d9d;
+        padding: 10px;
+        text-decoration: none;
+    }
+    i.fa.fa-line-chart {
+        color: white;
+        margin: 0 auto 6px;
+        height: 36px;
+        width: 37px !important;
+        font-size: 20px;
+        padding: 8px 7px;
+        display: block !important;
+        -moz-border-radius: 100px;
+        -webkit-border-radius: 100px;
+        /* border-radius: 100px; */
+        border-radius: 20px;
+        border: 1px solid #36c6d3;
+        background: #36c6d3;
+    }
+</style>
+
+<div class="Main_Menu">
+    <div class="page-header-menu">
+        <div class="container">
+            <div class="hor-menu">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav ">
+
+                        <li class="active">
+                            <a href="/Dashboard/Index" data-toggle="pills" class="0">
+                                <i class="fa fa-line-chart DisplayIcon"></i>
+                                <span class="title">
+                                    DASHBOARD
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Management/ComposeSMS" data-toggle="pills" class="1">
+                                <i class="icon-envelope-open DisplayIcon"></i>
+                                <span class="title">
+                                    SMS MT
+                                </span>
+                            </a>
+                        </li>                        
+
+
+
+                            <li>
+                                <a href="/Reseller/Administration/UserManagement" data-toggle="pills" class="5">
+                                    <i class="icon-user DisplayIcon"></i>
+                                    <span class="title">
+                                        ADMINISTRATION
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                <a href="/Reseller/Permission/PermissionInRole" data-toggle="pills" class="6">
+                    <i class="icon-lock DisplayIcon"></i>
+                    <span class="title">
+                        PERMISSION
+                    </span>
+                </a>
+            </li>
+                        <li>
+                            <a href="/ApiDocument/ApiDocs" data-toggle="pills" class="3">
+                                <i class="icon-docs DisplayIcon"></i>
+                                <span class="title">
+                                    DEVELOPER API
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="visible-xs Mhor-menu" style="overflow: auto;">
+                <ul class="TopMenu" style="display: inline-flex;list-style: none;text-align: center;padding-left: 0;margin-top: 10px;font-size: 10px;">
+                    <li class="active">
+                        <a href="/Dashboard/Index" data-toggle="pills" class="0">
+                            <i class="icon-bar-chart DisplayIcon"></i>
+                            <span class="title">
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Management/ComposeSMS" target="_self" data-toggle="pills" class="1">
+                            <i class="icon-envelope-open DisplayIcon"></i>
+                            <span class="title">
+                            </span>
+                        </a>
+                    </li>
+
+                        <li>
+                            <a href="/Reseller/Administration/UserManagement" data-toggle="pills" class="5">
+                                <i class="icon-user DisplayIcon"></i>
+                                <span class="title">
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Reseller/Permission/PermissionInRole" data-toggle="pills" class="6" style="display:none">
+                                <i class="icon-lock DisplayIcon"></i>
+                                <span class="title">
+                                </span>
+                            </a>
+                        </li>
+                    <li>
+                        <a href="/ApiDocument/ApiDocs" data-toggle="pills" class="3">
+                            <i class="icon-docs DisplayIcon"></i>
+                            <span class="title">
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: #555;
+        background-color: #f9f9f9;
+    }
+</style>
+
+
+
+    <div class="page-container">
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul id="5" class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <li class="nav-item active open ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-user fa-lg"></i>
+                    <span class="title">User Management</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item">
+                        <a href="/Reseller/Administration/UserManagement" class="5">
+                            <i class="fa fa-group"></i>
+                            <span class="title">User Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Reseller/Administration/SiteBranding" class="5">
+                            <i class="fa fa-info-circle"></i>
+                            <span class="title">Site Branding</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Reseller/Administration/ViewUserTreeList" class="5">
+                            <i class="fa fa-sitemap"></i>
+                            <span class="title"> Site User Tree List</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Reseller/Administration/ClientTransactions" class="5">
+                            <i class="fa fa-users"></i>
+                            <span class="title"> Client Transctions</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Reseller/Administration/LiveTrafficReport" class="5">
+                            <i class="fa fa-file"></i>
+                            <span class="title"> SMPP LiveTraffic Report</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Reseller/Administration/EsmeLiveTrafficReport" class="5">
+                            <i class="fa fa-file-archive-o"></i>
+                            <span class="title"> ESME LiveTraffic Report</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Reseller/Administration/ManageSenderId" class="5">
+                            <i class="fa fa-check-circle-o"></i>
+                            <span class="title">All Sender ID Request</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Reseller/Administration/ManageTemplates" class="5">
+                            <i class="fa fa-file"></i>
+                            <span class="title">All Template Request</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Reseller/Administration/ManageRateTemplate" class="1">
+                            <i class=" fa fa-money"></i>
+                            <span class="title">Manage Rate Templates</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+
+
+    <!-- END SIDEBAR -->
+</div>
+
+
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <div class="page-head">
+                    <div class="page-title">
+                        <h1>
+                            Site Branding
+                        </h1>
+                    </div>
+                </div>
+                
+
+
+
+<div class="portlet light bordered">
+    <div class="portlet-body">
+        <div id="dvMessage"></div>
+        <div class="tabbable-line boxless margin-bottom-20">
+            <ul class="nav nav-tabs" id="ResellerTab">
+                <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-globe"></i>&nbsp;Domain Pointing</a></li>
+                    <li class="disabled"><a href="#tab_2" data-toggle="tab"><i class="fa fa-user"></i>&nbsp;Reseller Information</a></li>
+                    <li class="disabled"><a href="#tab_4" data-toggle="tab"><i class="fa fa-gear"></i>&nbsp;SMTP Setting</a></li>
+
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_1">
+<form action="/Reseller/ManagePanel/SaveDomainDetails" enctype="multipart/form-data" method="post" name="DomainDetail">                    <div class="form-inline no-margin">
+                        <div class="form-group" style="padding-right: 20px">
+                            <label>Domain Or Sub-Domain </label>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control input-sm" data-val="true" data-val-required="The Domain URL is required" id="txtDomainUrl" maxlength="50" name="DomainUrl" placeholder="Enter Domain Or Sub-Domain" style="width:290px" type="text" value="" />
+                            <span class="field-validation-valid text-danger" data-valmsg-for="DomainUrl" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <span class="toolTipsReseller">
+                            Before you enter your domain or subdomain, you need to
+                            setup an<strong> A Record</strong> for your domain which should point to our IP
+                            address <strong>
+                                49.50.86.152
+                            </strong>.
+                        </span>
+                    </div>
+                    <button type="submit" class="btn btn-success">Save</button>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8OvOdzIPtRJHhYr3p01t1iqsRBSzfMsHxRE5P5In38PNgVex9Xb0jwfhHn29gbViAfyfimgcsQA4uBHEayxhAzhfZL0sYCvF6lvE4Tu1-h16ABjpKT6HQJghQHHd85hE1dk-x_SrVYMrwEsAKecufx0VFLiik9Omb4MDGfl9QE8bTZzoPDP9XyyRcs_7HkZS4Q" /></form>                </div>
+                <div class="tab-pane" id="tab_2">
+                    <div class="row" style="margin:0">
+
+                        <div class="form-horizontal col-md-9" style="padding-left: 0">
+
+<form action="/Reseller/ManagePanel/saveresellerLogodetails" enctype="multipart/form-data" method="post" name="ResellerDetail">                                <div class="form-group">
+                                    <label class="col-lg-3 col-sm-3">Company Logo :</label>
+                                    <div class="col-sm-4">
+                                        <input type="file" name="fileupload" id="fileupload" required />
+                                    </div>
+                                    <input class=" form-control input-sm" data-val="true" data-val-length="The field EmailID must be a string with a maximum length of 50." data-val-length-max="50" data-val-regex="Invalid Email Address" data-val-regex-pattern="[a-z0-9._%&#x2B;-]&#x2B;@[a-z0-9.-]&#x2B;\.[a-z]{2,4}" data-val-required="The EmailID is required" id="txtCompanyName" maxlength="50" name="EmailID" placeholder="Enter Company Name" type="hidden" value="" />
+                                    <input class=" form-control input-sm" data-val="true" data-val-length="The field CompanyName must be a string with a maximum length of 100." data-val-length-max="100" data-val-required="Company Name is required" id="txtCompanyName" maxlength="50" name="CompanyName" placeholder="Enter Company Name" type="hidden" value="" />
+                                    <div class="col-lg-2 col-sm-2">
+                                        <div class="col-lg-9 col-sm-9 col-md-offset-3">
+                                            <button type="submit" class="btn btn-success">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8OvOdzIPtRJHhYr3p01t1iqsRBSzfMsHxRE5P5In38PNgVex9Xb0jwfhHn29gbViAfyfimgcsQA4uBHEayxhAzhfZL0sYCvF6lvE4Tu1-h16ABjpKT6HQJghQHHd85hE1dk-x_SrVYMrwEsAKecufx0VFLiik9Omb4MDGfl9QE8bTZzoPDP9XyyRcs_7HkZS4Q" /></form>                            <form action="/Reseller/ManagePanel/SaveResellerDetails" enctype="multipart/form-data" method="post" name="ResellerDetail">                                <div class="form-group">
+                                    <label class="col-lg-3  col-sm-3">Official Email-ID &nbsp;<font color="red">*</font> : </label>
+                                    <div class="col-lg-9 col-sm-9">
+                                        <input class=" form-control input-sm" data-val="true" data-val-length="The field EmailID must be a string with a maximum length of 50." data-val-length-max="50" data-val-regex="Invalid Email Address" data-val-regex-pattern="[a-z0-9._%&#x2B;-]&#x2B;@[a-z0-9.-]&#x2B;\.[a-z]{2,4}" data-val-required="The EmailID is required" id="txtEmailId" maxlength="50" name="EmailID" placeholder="Enter Email Id" type="text" value="" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="EmailID" data-valmsg-replace="true"></span>
+                                        <p class="help-block">
+                                            This email-id will be used to send all alerts to your
+                                            users. Your users will be reverting back on same email.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-3 col-sm-3">Company Name &nbsp;<font color="red">*</font> :</label>
+                                    <div class="col-lg-9 col-sm-9">
+                                        <input class=" form-control input-sm" data-val="true" data-val-length="The field CompanyName must be a string with a maximum length of 100." data-val-length-max="100" data-val-required="Company Name is required" id="txtCompanyName" maxlength="50" name="CompanyName" placeholder="Enter Company Name" type="text" value="" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="CompanyName" data-valmsg-replace="true"></span>
+                                        <p class="help-block">Your Company name will be displayed as your logo</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-3 col-sm-3">Support Number :</label>
+                                    <div class="col-lg-9 col-sm-9">
+                                        <input class=" form-control input-sm" id="txtSupportNumber" maxlength="20" name="SupportNumber" placeholder="Enter Support Number" type="text" value="" />
+                                        <p class="help-block">For customer support number</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-3 col-sm-3">Copyright Info :</label>
+                                    <div class="col-lg-9 col-sm-9">
+                                        <input class=" form-control input-sm" data-val="true" data-val-length="The field CopyrightInfo must be a string with a maximum length of 300." data-val-length-max="300" id="CopyrightInfo" maxlength="200" name="CopyrightInfo" placeholder="Enter Company Info" type="text" value="" />
+                                        <p class="help-block">Website Copyright Info will be displayed as footer</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-9 col-sm-9 col-md-offset-3">
+                                        <button type="submit" class="btn btn-success">Save</button>
+                                    </div>
+                                </div>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8OvOdzIPtRJHhYr3p01t1iqsRBSzfMsHxRE5P5In38PNgVex9Xb0jwfhHn29gbViAfyfimgcsQA4uBHEayxhAzhfZL0sYCvF6lvE4Tu1-h16ABjpKT6HQJghQHHd85hE1dk-x_SrVYMrwEsAKecufx0VFLiik9Omb4MDGfl9QE8bTZzoPDP9XyyRcs_7HkZS4Q" /></form>                            </div>
+                            
+                            <div class="form-horizontal col-md-3">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_4">
+<form action="/Reseller/ManagePanel/SaveSmtpSettings" enctype="multipart/form-data" maxlength="50" method="post" name="SmtpSettings">                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-lg-3 col-sm-3">SMTP Host :</label>
+                                    <div class="col-sm-5">
+                                        <input class="form-control input-sm" data-val="true" data-val-length="The field SMTPHost must be a string with a maximum length of 50." data-val-length-max="50" data-val-required="SMTP Host is required" id="txtSMTPHostName" maxlength="50" name="SMTPHost" placeholder="Enter SMTP Host" type="text" value="" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="SMTPHost" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-3 col-sm-3">SMTP Port :</label>
+                                    <div class="col-sm-5">
+                                        <input class="form-control input-sm" data-val="true" data-val-required="SMTP Port is required" id="txtSMTPPort" maxlength="5" name="SMTPPort" placeholder="Enter SMTP Port" type="text" value="0" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="SMTPPort" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-3 col-sm-3">SMTP UserName :</label>
+                                    <div class="col-sm-5">
+                                        <input class="form-control input-sm" data-val="true" data-val-length="The field SMTPUserName must be a string with a maximum length of 50." data-val-length-max="50" data-val-required="Subject is required" id="txtSMPTUserName" maxlength="50" name="SMTPUserName" placeholder="Enter SMTP User Name" type="text" value="" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="SMTPUserName" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-3 col-sm-3">SMTP Password :</label>
+                                    <div class="col-sm-5">
+                                        <input class="form-control input-sm" data-val="true" data-val-length="The field SMTPPassword must be a string with a maximum length of 50." data-val-length-max="50" data-val-required="SMTP Password is required" id="txtSMTPPassword" maxlength="50" name="SMTPPassword" placeholder="Enter SMTP Password" type="text" value="" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="SMTPPassword" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-3 col-sm-3">Enable SSL :</label>
+                                    <div class="col-lg-9 col-sm-9">
+                                        <label class="label-checkbox">
+                                            <input type="checkbox" name="EnableSSL" value="true">
+                                            <span class="custom-checkbox"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-9 col-sm-9 col-md-offset-3">
+                                        <input type="submit" id="btnSaveSmtpSettings" value="Save" class="btn btn-success" />
+                                    </div>
+                                </div>
+                            </div>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8OvOdzIPtRJHhYr3p01t1iqsRBSzfMsHxRE5P5In38PNgVex9Xb0jwfhHn29gbViAfyfimgcsQA4uBHEayxhAzhfZL0sYCvF6lvE4Tu1-h16ABjpKT6HQJghQHHd85hE1dk-x_SrVYMrwEsAKecufx0VFLiik9Omb4MDGfl9QE8bTZzoPDP9XyyRcs_7HkZS4Q" /></form>                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(".numericOnly").bind('keypress ', function (e) {
+
+        if (e.keyCode == '9' || e.keyCode == '16') {
+            return;
+        }
+        var code;
+        if (e.keyCode) code = e.keyCode;
+        else if (e.which) code = e.which;
+        if (e.which == 46)
+            return false;
+        if (code == 8 || code == 46)
+            return true;
+        if (code < 48 || code > 57)
+            return false;
+
+    });
+
+    $(function () {
+
+        var ActiveTab = "";
+        if (ActiveTab != "") {
+
+            $("#ResellerTab > li").each(function (index, value) {
+
+                if ($(this).find("a").attr('href') == ActiveTab) {
+                    $("#ResellerTab > li").removeClass("active");
+                    $(".tab-pane").removeClass("active");
+                    $(ActiveTab).addClass("active");
+                    $(this).addClass("active");
+
+                };
+
+            });
+        }
+
+        $('.tab-bar li a').click(function () {
+            if ($(this).parent().hasClass("disabled")) {
+                var text = "Reseller information can not be configured without proper domain pointing. Go to the domain pointing tab and register your domain."
+                $("#dvMessage").html("");
+                var input = ' <div class="alert alert-warning" style="padding:15px !important" role="alert"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' + text + '</div>'
+                $("#dvMessage").html(input);
+                return false;
+
+            }
+        });
+    })
+
+    </script>
+
+                <div class="modal fade" id="SessionformModal">
+                    <div class="modal-dialog" style="max-width: 480px">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4>Session Expired</h4>
+                            </div>
+                            <form>
+                                <div class="modal-body">
+
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <div class="col-md-8">
+                                                <span>Your session is expired.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="form-group text-right">
+                                        <a href="/User/Login" class="btn btn-info">Ok</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <div class="page-footer-inner" style="margin-bottom:0px !important">
+            © 2020 . All rights reserved.
+                <span><b>Contact Us</b></span>
+                            <span><i class="fa fa-envelope-o"></i> Email : support@sms24hours.com</span>
+                            &nbsp;| &nbsp;<span><i class="fa fa-phone" aria-hidden="true"></i> Phone :&#x2B;91-9872363621</span>
+        </div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    </div>
+    <div class="quick-nav-overlay"></div>
+    <script>
+        $(document).ready(function () {
+            $("#CreditBalance").click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: "/Layout/GetUserCredit",
+                    success: function (data) {
+
+                        $("#NormalBalance")[0].textContent = data.NormalBalance;
+                        $("#TransactionalBalance")[0].textContent = data.TransactionalBalance;
+                    }
+                });
+            });
+            $('[data-toggle="tooltip"]').tooltip();
+            $("#displaySelectTabName").html("Administration")
+            $('.main-menu li').removeClass("active");
+            $(".sidebarMenu_Content").children().eq(0).addClass("active in");
+            $("#main-menu li").eq(0).addClass("active");
+            $(".Mhor-menu li").eq(0).css({ 'border': '1px solid #1e88e5' });
+            var pathname = window.location.pathname;
+            $('.page-sidebar-menu li a').each(function () {
+
+                var h = $(this).attr('href');
+                if (pathname == h) {
+
+                    $(".page-sidebar ul.page-sidebar-menu").hide();
+                    $(this).parent().parent().parent().parent().show();
+                    $(".page-sidebar-menu li").removeClass("active open");
+                    $(this).parent().parent().parent().addClass("active open");
+                    if ($(this).parent().hasClass("start-li")) {
+                        $(this).parent().prev().addClass("active");
+                    }
+                    else {
+                        $(this).parent().addClass("active");
+                    }
+                    var TabClass = $(this)[0].className;
+                    $(".hor-menu li").removeClass("active");
+                    var Activeindex = 0;
+                    $(".hor-menu li a").each(function (i, index) {
+                        if (index.className == TabClass) {
+                            Activeindex = i;
+                            $(this).parent().addClass("active");
+                        }
+                    });
+                    //For Mobile menu Active Class
+
+                    $(".Mhor-menu li").css({ 'border': '1px solid #a79d9d' });
+                    $(".Mhor-menu li").eq([Activeindex]).css({ 'border': '1px solid #3d5869' });
+                    $(".Mhor-menu li").eq([Activeindex]).find('i').css({
+                        'color': 'white',
+                        'margin': '0 auto 6px',
+                        'height': '36px',
+                        'width': '37px',
+                        'font-size': '20px',
+                        'padding': '8px 7px',
+                        'display': 'block',
+                        '- moz - border - radius': '100px',
+                        '-webkit - border - radius': '100px',
+                        'border - radius': '20px',
+                        'border': '1px solid #29b899',
+                        'background': '#29b899'
+                    });
+                }
+            });
+
+            if ($.fn.dataTable != undefined) {
+                $.fn.dataTable.ext.errMode = 'none';
+            }
+            $(document).ajaxError(function (e, xhr) {
+                debugger;
+                if (xhr.status == 401)
+                    $("#SessionformModal").modal();
+                if (xhr.status == 423)
+                    window.location = "/User/Login?UserLock=Account locked, Please contact Your Administrator";
+                else if (xhr.status == 403)
+                    alert("You have no enough permissions to request this resource.");
+            });
+        });
+
+        angular.module('app').config(['$httpProvider', function ($httpProvider) {
+            $httpProvider.interceptors.push('LoadingInterceptor');
+        }]);
+
+        angular.module('app').
+            service('LoadingInterceptor', ['$rootScope',
+                function ($rootScope) {
+                    'use strict';
+                    return {
+                        request: function (config) {
+
+                            $rootScope.loading = true;
+                            return config;
+                        },
+                        requestError: function (rejection) {
+
+                            $rootScope.loading = false;
+                            $log.error('Request error:', rejection);
+                            return $q.reject(rejection);
+                        },
+                        response: function (response) {
+
+                            $rootScope.loading = false;
+                            return response;
+                        },
+                        responseError: function (rejection) {
+
+                            $rootScope.loading = false;
+                            if (rejection.status = 423) {
+                                window.location = "/User/Login?UserLock=Account locked, Please contact Your Administrator";
+                            }
+                        }
+                    };
+                }]);
+
+    </script>
+</body>
+</html>
