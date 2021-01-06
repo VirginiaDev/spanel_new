@@ -69,7 +69,7 @@ public class C3P0DataSource {
       }*/
       try {
        // Class.forName("com.mysql.jdbc.Driver");
-          Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+          Class.forName("com.mysql.jdbc.Driver").newInstance();
   con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo?autoReconnect=true", "root", "");
  //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/chatbot", "root", "root@#123");      
       } catch (Exception ex) {

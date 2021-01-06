@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="manager.UserManager"%>
 <%@page import="user.User"%>
 <%String message = (String)session.getAttribute("message"); 
 User user=(User)request.getAttribute("user");%>
@@ -6,11 +8,13 @@ User user=(User)request.getAttribute("user");%>
 <!DOCTYPE html>
 <html>
 <head>
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" /> 
 <meta
 	content="Preview page of Metronic Admin Theme #4 for statistics, charts, recent events and reports"
 	name="description" />
 <meta content="" name="author" />
-<script src="/Script/jsapi.js"></script>
+<<!-- script src="/Script/jsapi.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/app.min.js"></script>
 <script src="assets/js/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -20,7 +24,7 @@ User user=(User)request.getAttribute("user");%>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/angular.js"></script>
 <script src="assets/js/app.js"></script>
-<script src="assets/js/bsAlerts.js"></script>
+<script src="assets/js/bsAlerts.js"></script> -->
 
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/
 font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
@@ -247,7 +251,7 @@ i.fa.fa-line-chart {
                         <div class="hor-menu">
                             <div id="navbarMenu" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="Administration.jsp" data-toggle="pills" class="2"><i class="fa fa-user" aria-hidden="true"></i><br> ADMINISTRATION</a></li>
+                                    <li><a href="Administration.jsp" data-toggle="pills" class="2" style="margin-left: -75px;"><i class="fa fa-user" aria-hidden="true"></i><br> ADMINISTRATION</a></li>
                                     <li><a href="#" data-toggle="pills" class="3"><i class="fa fa-cog" aria-hidden="true"></i><br>CONFIGURATION</a></li>
 
                                     <li><a href="#" data-toggle="pills" class="5"><i class="fa fa-unlock-alt" aria-hidden="true"></i><br>PERMISSION</a></li>
@@ -457,7 +461,7 @@ i.fa.fa-line-chart {
 										class="form-inline no-margin ng-pristine ng-valid"
 										method="post" novalidate="novalidate">
 										<div class="form-group">
-											<input class="form-control input-sm tb ui-autocomplete-input"
+											<!-- <input class="form-control input-sm tb ui-autocomplete-input"
 												data-val="true"
 												data-val-length="The User Name should not be more than 50 characters long."
 												data-val-length-max="50"
@@ -467,7 +471,21 @@ i.fa.fa-line-chart {
 												name="UserName" placeholder="Enter User Name"
 												required="required" style="width: 225px;" type="text"
 												value="" aria-required="true" autocomplete="off"
-												role="textbox" aria-autocomplete="list" aria-haspopup="true">
+												role="textbox" aria-autocomplete="list" aria-haspopup="true"> -->
+												<div class="row-fluid">
+										      <select class="selectpicker" name="UserName" data-show-subtext="true" data-live-search="true">
+										      <option>Choose User</option>
+										     
+									        <%
+										     UserManager manager = new UserManager();
+										      List<User> e=manager.getAllUsersByUserName();
+										      for(int i=0;i<e.size();i++){
+										      %>
+										        <option value="<%=e.get(i).getUserName() %>" data-subtext=""><%=e.get(i).getUserName() %></option>
+										        <%} %>
+										         </select>
+										    </div>
+												
 										</div>
 										<button type="submit" id="ViewUserProfile"
 											class="btn btn-sm btn-success">
@@ -873,6 +891,9 @@ i.fa.fa-line-chart {
 		</div>
 	</div>
 	<div class="quick-nav-overlay"></div>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 	<script>
 	function submitPassword(){
 	<%if(user!=null){%>
@@ -995,7 +1016,7 @@ i.fa.fa-line-chart {
         <%if(message!=null){%>
         	alert("<%=message%>");
         <% session.removeAttribute("message");}%>
-
+        
     </script>
 
 

@@ -3518,3 +3518,31 @@ bootstrap.min.css
     font-size: 16px;
     margin-bottom: 3px;
 } 
+
+.hor-menu  .fa.fa-paper-plane  {
+    background-color: #62c6d3;
+    border-radius: 50px;
+    padding: 0px;
+    text-align: center;
+    color: white;
+    /* margin-left: 0px; */
+    width: 36px;
+    height: 36px;
+    padding-top: 8px;
+    font-size: 16px;
+    margin-bottom: 3px;
+} 
+
+.hor-menu  .fa.fa-share-square-o  {
+    background-color: #62c6d3;
+    border-radius: 50px;
+    padding: 0px;
+    text-align: center;
+    color: white;
+    /* margin-left: 0px; */
+    width: 36px;
+    height: 36px;
+    padding-top: 8px;
+    font-size: 16px;
+    margin-bottom: 3px;
+} 

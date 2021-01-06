@@ -1,4 +1,6 @@
-<%String userName = (String)request.getParameter("userName"); %>
+<%@page import="user.User"%>
+<%String userName = (String)request.getParameter("userName"); 
+User u = (User)session.getAttribute("user");%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -123,28 +125,28 @@
 <body  class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo" ng-app="app">
  <div class="page-header navbar navbar-fixed-top">
 
-        
-<style>
-    /*#imgCompanyLogo {
+		<style>
+/*#imgCompanyLogo {
         height: 125% !important;
         margin-top: -2% !important;
     }*/
+.defaultAlert {
+	float: left;
+	/* margin-left: 10px; */
+	white-space: normal;
+}
 
-    .defaultAlert {
-        float: left;
-        /* margin-left: 10px; */
-        white-space: normal;
-    }
+.DefaultLogo {
+	width: 75%;
+}
 
-    .DefaultLogo {
-        width: 75%;
-    }
-    .page-header.navbar .top-menu .navbar-nav > li.dropdown-notification .dropdown-menu .dropdown-menu-list > li a .details .label-icon i {
-        margin-right: 4px;
-    }
+.page-header.navbar .top-menu .navbar-nav>li.dropdown-notification .dropdown-menu .dropdown-menu-list>li a .details .label-icon i
+	{
+	margin-right: 4px;
+}
 </style>
 
-<script type="text/javascript">
+		<script type="text/javascript">
 
     $(document).ready(function () {
         debugger;
@@ -214,143 +216,74 @@
     }
 </script>
 
-<div class="page-header-inner ">
-    <div class="page-logo" style="width:35% !important">
-        <span class="float-left" href="#">
-            <span id="ImageTextSpan" style="color: #d6d6d6;margin-top: 8px;font-size: 27px;min-width: 185px;"></span>
-            <span class="logo-default text-success" style="color: #d6d6d6;" id="ImageSpan"> <img alt='SMS24HOURS'  style='vertical-align: middle;height: 55px;margin-top:3px;font-size: 30px;'/></span>
-        </span>
-        <div class="menu-toggler sidebar-toggler pull-left" id="divMenuToggle" style="z-index:10000 !important;">
-        </div>
-    </div>
-    <a href="#" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".page-sidebar"> </a>
-    <div class="page-top">
-        <div class="top-menu">
-            <ul class="nav navbar-nav pull-right">
-                <li class="separator hide"> </li>
-                <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar" >
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <i class="icon-question"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="external">
-                            <h3>
-                                <span class="bold">Service Support</span>
-                            </h3>
-                        </li>
-                        <li>
-                            <ul class="dropdown-menu-list scroller" style="height: 55px;" data-handle-color="#637283">
-                                <li>
-                                    <a href="/Layout/ServiceSupport">
-                                        <span class="details">
-                                            <span class="label label-sm label-icon label-success">
-                                                <i class="fa fa-plus"></i>
-                                            </span>Support Ticket
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="separator hide"> </li>
-                <li class="dropdown dropdown-extended dropdown-notification" id="header_inbox_bar">
-                    <a href="javascript:;" id="CreditBalance" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-placement="bottom" title="Credit Balance" data-close-others="true">
-                        <i class="icon-credit-card"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="external">
-                            <h3>
-                                <span class="bold">Credit Balance</span>
-                            </h3>
-                        </li>
-                        <li>
-                            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto;">
-                                <ul class="dropdown-menu-list scroller" style="overflow: hidden; width: auto;" data-handle-color="#637283" data-initialized="1">
-                                        <li>
-                                            <a href="javascript:;">                                               
-                                                <span class="details">
-                                                   Balance :
-                                                </span>
-                                                <span><b>INR</b> 489.7000</span>
-                                            </a>
-                                        </li>
-                                                                </ul><div class="slimScrollBar" style="background: rgb(99, 114, 131); width: 7px; position: absolute; top: 50px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 121.359px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;"></div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <!-- END INBOX DROPDOWN -->
-                <li class="separator hide"> </li>
-                <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar" onclick="HideColumns();">
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <i class="icon-bell" style="width: 0px;"></i>
-                            <span style="position: relative;top: -15px;right: -4px;">&nbsp;</span>
-                    </a>
-                   
-                    <ul class="dropdown-menu">
-                        <li class="external">
-                            <h3>
-                                <span class="bold">Notification</span>
-                            </h3>
-                        </li>
-                        <li>
-                            <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
-<li class="alert alert-info defaultAlert" style='margin-bottom: 0px;'><button class="close" data-dismiss="alert">&times;</button><strong>Alert!</strong> You dont have a notification right now! </li>                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                <li class="dropdown dropdown-user" style="padding: 0;">
-                   
-                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                       data-hover="dropdown" data-close-others="true">
-                        <span class="username username-hide-on-mobile"> <i class="icon-user"></i> <span class='hidden-xs'><i class="fa fa-angle-down"></i></span> </span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-default">
-                        <li>
-                            <a href="#">
-                                <i class="icon-users"></i>Welcome, ravinder 
-<br />
-                                <span style="font-size: 11px;padding-left: 24px;">  { 1234567890 }</span>
-                                <br />
-                                <span style="font-size: 11px;padding-left: 24px;">Last Login IP: 122.180.29.172</span>
-                                <br />
-                                <span style="font-size: 11px;padding-left: 24px;">Last Login Date: 01/08/2020 08:57:33</span>
-                             
-                            </a>
-                        </li>
-                        <li class="divider"> </li>
-                        <li>
-                                <a href="/User/UserProfile">
-                                    <i class="icon-user"></i> My Profile
-                                </a>
+		<div class="page-header-inner ">
+			<div class="page-logo" style="width: 35% !important">
+				<span class="float-left" href="#"> <span id="ImageTextSpan"
+					style="color: rgb(214, 214, 214); margin-top: 8px; font-size: 27px; min-width: 185px; display: block;">SMS24HOURS</span>
+					<span class="logo-default text-success"
+					style="color: rgb(214, 214, 214); display: none;" id="ImageSpan">
+						<img alt="SMS24HOURS"
+						style="vertical-align: middle; height: 55px; margin-top: 3px; font-size: 30px;">
+				</span>
+				</span>
+				<div class="menu-toggler sidebar-toggler pull-left"
+					id="divMenuToggle"
+					style="z-index: 10000 !important; display: none;"></div>
+			</div>
+			<a href="#" class="menu-toggler responsive-toggler"
+				data-toggle="collapse" data-target=".page-sidebar"> </a>
+			<div class="page-top">
+				<div class="top-menu">
+					<ul class="nav navbar-nav pull-right">
+						<li class="separator hide"></li>
+						
+						<li class="separator hide"></li>
+						<!-- END INBOX DROPDOWN -->
+						<li class="separator hide"></li>
+						
+						<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+						<li class="dropdown dropdown-user" style="padding: 0;"><a
+							href="javascript:void(0);" class="dropdown-toggle"
+							data-toggle="dropdown" data-hover="dropdown"
+							data-close-others="true"> <span
+								class="username username-hide-on-mobile"> <i
+									class="fa fa-user"></i> <span class="hidden-xs"><i
+										class="fa fa-angle-down"></i></span>
+							</span>
+						</a>
+							<ul class="dropdown-menu dropdown-menu-default">
+								<li><a href="#"> Welcome,
+										ravinder <br> <span
+										style="font-size: 11px; padding-left: 24px;"> {
+											1234567890 }</span> <br> <span
+										style="font-size: 11px; padding-left: 24px;">Last Login
+											IP: 122.180.29.172</span> <br> <span
+										style="font-size: 11px; padding-left: 24px;">Last Login
+											Date: 01/08/2020 11:43:14</span>
 
-                        </li>
-                        <li class="divider"> </li>
-                        <li>
-                                <a href="/Setting/ChangePassword">
-                                    <i class="icon-settings"></i> Change Password
-                                </a>
-                        </li>
-                        <li class="divider"> </li>
-                        <li>
-                            <a href="/User/Logout">
-                                <i class="icon-key"></i> Log Out
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+								</a></li>
+								<li class="divider"></li>
+								<li><a href=""> 
+										My Profile
+								</a></li>
+								<li class="divider"></li>
+								<li><a href="">  Change Password
+								</a></li>
+								<li class="divider"></li>
+								<li><a href="index.jsp">
+										Log Out
+								</a></li>
+							</ul></li>
 
 
-            </ul>
-        </div>
-        <!-- END TOP NAVIGATION MENU -->
-    </div>
-    <!-- END PAGE TOP -->
-</div>
+					</ul>
+				</div>
+				<!-- END TOP NAVIGATION MENU -->
+			</div>
+			<!-- END PAGE TOP -->
+		</div>
 
-    </div>
+	</div>
     <div class="clearfix"> </div>
 
     
@@ -386,7 +319,7 @@
                     <ul class="nav navbar-nav ">
 
                         <li class="active">
-                            <a href="#" data-toggle="pills" class="0">
+                            <a href="UserDashboard.jsp" data-toggle="pills" class="0">
                                 <i class="fa fa-line-chart DisplayIcon"></i>
                                 <span class="title">
                                     DASHBOARD
@@ -395,7 +328,7 @@
                         </li>
                         <li>
                             <a href="#" data-toggle="pills" class="1">
-                                <i class="icon-envelope-open DisplayIcon"></i>
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i><br>
                                 <span class="title">
                                     SMS MT
                                 </span>
@@ -405,8 +338,15 @@
 
 
                             <li>
-                                <a href="Administration.jsp" data-toggle="pills" class="5">
-                                    <i class="icon-user DisplayIcon"></i>
+                            <%if(u!=null){
+                            	if(u.getUserType().equals("admin")){%>
+                            		<a href="Administration.jsp" data-toggle="pills" class="5">
+                            	<%}else{%>
+                            		<a href="" data-toggle="pills" class="5">
+                            	<%}%>
+                            <%}%>
+                                
+                                    <i class="fa fa-user" aria-hidden="true"></i><br>
                                     <span class="title">
                                         ADMINISTRATION
                                     </span>
@@ -414,7 +354,7 @@
                             </li>
                             <li>
                 <a href="#" data-toggle="pills" class="6">
-                    <i class="icon-lock DisplayIcon"></i>
+                    <i class="fa fa-unlock-alt" aria-hidden="true"></i><br>
                     <span class="title">
                         PERMISSION
                     </span>
@@ -422,7 +362,7 @@
             </li>
                         <li>
                             <a href="#" data-toggle="pills" class="3">
-                                <i class="icon-docs DisplayIcon"></i>
+                                <i class="fa fa-share-square-o" aria-hidden="true"></i><br>
                                 <span class="title">
                                     DEVELOPER API
                                 </span>
@@ -503,7 +443,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item">
-                            <a href="Compose.jsp" target="_self" class="1">
+                            <a href="#" target="_self" class="1">
                                 <i class="fa fa-envelope"></i>
                                 <span class="title">Compose SMS</span>
                             </a>

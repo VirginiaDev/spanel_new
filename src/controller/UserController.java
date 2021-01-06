@@ -141,16 +141,21 @@ public class UserController extends HttpServlet {
 		m.setMessage(message);
 		m.setTimeZone(timeZone);
 		m.setUserName(userName);
-		
+		User u = (User)request.getSession(false).getAttribute("user");
 		int id = new UserManager().saveSMSInDb(m);
 		//msg go to server
 		gotoServer(m, id);
 		if(id>0) {
 			request.getSession().setAttribute("message", "Message Saved Successfuly");
+			if(u.getUserType().equals("admin")) {
+				request.getRequestDispatcher("/Administration.jsp").forward(request, response);
+			} else {
+				request.getRequestDispatcher("/UserDashboard.jsp").forward(request, response);
+			}
 		} else {
 			request.getSession().setAttribute("message", "An error occured");
 		}
-		request.getRequestDispatcher("/Administration.jsp").forward(request, response);
+		
 	}
 
 	private void gotoServer(Message m, int id) {
@@ -311,7 +316,13 @@ public class UserController extends HttpServlet {
 		request.getSession().setAttribute("user", user);
 		System.out.println("user >>>>>>>>>>>>>>>>>>>>>>>>>>>"+user.getName());
 		if(user.getName() != null) {
-			request.getRequestDispatcher("/Administration.jsp").forward(request, response);
+			if(user.getUserType().equals("admin")) {
+				request.getRequestDispatcher("/Administration.jsp").forward(request, response);
+			} else {
+				request.setAttribute("userName",user.getUserName());
+				request.getRequestDispatcher("/UserDashboard.jsp").forward(request, response);
+			}
+			
 		} else {
 			request.getSession().setAttribute("errorMsg", "Please Enter Valid Email");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);

@@ -14,6 +14,7 @@ public class User {
 	public String email;
 	public String password;
 	public String timeZone;
+	public String userType;
 	public int otp;
 	public String currentTime;
 	public int getId() {
@@ -69,6 +70,12 @@ public class User {
 	}
 	public void setTimeZone(String timeZone) {
 		this.timeZone = timeZone;
+	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 	
 	

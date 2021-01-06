@@ -23,7 +23,9 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Preview page of Metronic Admin Theme #4 for statistics, charts, recent events and reports" name="description" />
     <meta content="" name="author" />
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/
+font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
+crossorigin="anonymous">
       <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
     <link href="assets/css/simple-line-icons.min.css" rel="stylesheet" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -64,14 +66,14 @@
                         <div class="hor-menu">
                             <div id="navbarMenu" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="Administration.jsp" data-toggle="pills" class="2"><i class="icon-user DisplayIcon"></i>&nbsp; ADMINISTRATION</a></li>
-                                    <li><a href="#" data-toggle="pills" class="3"><i class="icon-settings DisplayIcon"></i>&nbsp;CONFIGURATION</a></li>
+                                     <li><a href="Administration.jsp" data-toggle="pills" class="2"><i class="fa fa-user" aria-hidden="true"></i><br> ADMINISTRATION</a></li>
+                                    <li><a href="#" data-toggle="pills" class="3"><i class="fa fa-cog" aria-hidden="true"></i><br>CONFIGURATION</a></li>
 
-                                    <li><a href="" data-toggle="pills" class="5"><i class="icon-lock DisplayIcon"></i>&nbsp;PERMISSION</a></li>
-                                    <li><a href="LiveTrafficReport.jsp" data-toggle="pills" class="6"><i class="icon-layers DisplayIcon"></i>&nbsp;REPORTING</a></li>
-                                    <li><a href="#" data-toggle="pills" class="7"><i class="icon-screen-desktop DisplayIcon"></i>&nbsp;MONITORING</a></li>
-                                    <li><a href="#" data-toggle="pills" class="8"><i class="icon-wallet DisplayIcon"></i>&nbsp;BILLING</a></li>
-                                    <li><a href="#" data-toggle="pills" class="12"><i class="icon-docs DisplayIcon"></i>&nbsp;UTILITY</a></li>
+                                    <li><a href="#" data-toggle="pills" class="5"><i class="fa fa-unlock-alt" aria-hidden="true"></i><br>PERMISSION</a></li>
+                                    <li><a href="LiveTrafficReport.jsp" data-toggle="pills" class="6"><i class="fa fa-dropbox" aria-hidden="true"></i><br>REPORTING</a></li>
+                                    <li><a href="#" data-toggle="pills" class="7"><i class="fa fa-television" aria-hidden="true"></i><br>MONITORING</a></li>
+                                    <li><a href="#" data-toggle="pills" class="8"><i class="fa fa-credit-card-alt" aria-hidden="true"></i><br>BILLING</a></li>
+                                    <li><a href="#" data-toggle="pills" class="12"><i class="fa fa-folder-open" aria-hidden="true"></i><br>UTILITY</a></li>
                                 </ul>
                             </div><!--/.nav-collapse -->
                         </div><!--/.container-fluid -->
@@ -92,13 +94,13 @@
                 </nav>
             </div>
         </div>
-<div class="page-container">
+        <div class="page-container">
             <div class="page-sidebar-wrapper">
                 <div class="page-sidebar navbar-collapse collapse">
                     <ul class="page-sidebar-menu" id="2" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                         <li class="nav-item start active open">
                             <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="icon-doc"></i>
+                                <i class="fa fa-folder-open" aria-hidden="true"></i>
                                 <span class="title">SMPP Reporting</span>
                                 <span class="selected"></span>
                                 <span class="arrow open"></span>
@@ -107,7 +109,7 @@
 
                                 <li class="nav-item start active open">
                                     <a href="#" class="6">
-                                        <i class="icon-graph"></i>
+                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
                                         <span class="title">Live Web Traffic Report</span>
                                         <span class="selected"></span>
                                     </a>
@@ -115,7 +117,7 @@
 
                                 <li class="nav-item start active open">
                                     <a href="#" class="6">
-                                        <i class="icon-docs"></i>
+                                       <i class="fa fa-folder-open" aria-hidden="true"></i>
                                         <span class="title">Gateway Queue</span>
                                         <span class="selected"></span>
                                     </a>
@@ -123,14 +125,14 @@
 
                                 <li class="nav-item start active open">
                                     <a href="getMessageList.jsp" class="6">
-                                        <i class="icon-docs"></i>
+                                        <i class="fa fa-folder-open" aria-hidden="true"></i>
                                         <span class="title">Sent Report</span>
                                         <span class="selected"></span>
                                     </a>
                                 </li>
                                 <li class="nav-item start active open">
                                     <a href="#" class="6">
-                                        <i class="icon-envelope-open"></i>
+                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
                                         <span class="title">Sent Count</span>
                                         <span class="selected"></span>
                                     </a>
@@ -146,86 +148,25 @@
                         </li>
                         <li class="nav-item start">
                             <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="icon-docs"></i>
+                                 <i class="fa fa-folder-open" aria-hidden="true"></i>
                                 <span class="title">ESME Reporting</span>
                                 <span class="selected"></span>
                                 <span class="arrow open"></span>
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item start active open">
-                                    <a href="#" class="6">
-                                        <i class="icon-graph"></i>
-                                        <span class="title">Live Web Traffic Report</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-                                <li class="nav-item start active open">
-                                    <a href="#" class="6">
-                                        <i class="icon-envelope-open"></i>
-                                        <span class="title">Sent Count</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-                            </ul>
 
                         <li class="nav-item start">
                             <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="icon-docs"></i>
+                                 <i class="fa fa-folder-open" aria-hidden="true"></i>
                                 <span class="title">Business Insight</span>
                                 <span class="selected"></span>
                                 <span class="arrow open"></span>
                             </a>
-                            <ul class="sub-menu">
-
-                                <li class="nav-item start active open">
-                                    <a href="#" class="6">
-                                        <i class="icon-bar-chart"></i>
-                                        <span class="title">Top 10 Senders</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item start">
-                                    <a href="#" class="6">
-                                        <i class="icon-calculator"></i>
-                                        <span class="title">Gateway Wise Count</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-
-
-                                <li class="nav-item start active open">
-                                    <a href="#" class="6">
-                                        <i class="icon-docs"></i>
-                                        <span class="title">Gateway Wise Profit</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item start active open" style="display:none;">
-                                    <a href="#" class="6">
-                                        <i class="icon-docs"></i>
-                                        <span class="title">MarginDetailReport</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-
-
-                                <li class="nav-item start active open">
-                                    <a href="#" class="6">
-                                        <i class="icon-docs"></i>
-                                        <span class="title">Gateway Status Report</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-
-
-                            </ul>
+                          
                         </li>
 
                         <li class="nav-item start">
                             <a href="#" class="6">
-                                <i class="icon-share-alt"></i>
+                                 <i class="fa fa-folder-open" aria-hidden="true"></i>
                                 <span class="title">View Alert(s)</span>
                                 <span class="selected"></span>
                             </a>

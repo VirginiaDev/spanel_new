@@ -39,9 +39,10 @@ public class UserManager {
 		Statement ps = null;
 		ResultSet rs = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
-			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");      
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");  
+			con=DbConnection.getInstance().getConnection();
 			ps = con.createStatement();
 			String query = "Update clients set status = 0 where id="+id;
 			ps.executeUpdate(query);
@@ -73,10 +74,11 @@ public class UserManager {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
-			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");      
-			String query = "insert into user (name, user_name, email, mobile, password, time_zone) values (?,?,?,?,?,?)";
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");   
+			con=DbConnection.getInstance().getConnection();
+			String query = "insert into user (name, user_name, email, mobile, password, time_zone, user_type) values (?,?,?,?,?,?,?)";
 			ps = con.prepareStatement(query);
 			ps.setString(1, user.getName());
 			ps.setString(2, user.getUserName());
@@ -84,6 +86,7 @@ public class UserManager {
 			ps.setString(4, user.getMobile());
 			ps.setString(5, user.getPassword());
 			ps.setString(6, user.getTimeZone());
+			ps.setString(7, "user");
 			ps.executeUpdate();
 			
 			status = true;
@@ -120,10 +123,10 @@ public class UserManager {
 	    System.out.println("submission_time=>>"+submission_time);
 	    
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
 			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");      
-
+			con=DbConnection.getInstance().getConnection();
 			String query = "insert into clients (campaign, sender_details, contacts, message, time_zone, status, user_name, submission_date) values (?,?,?,?,?,?,?,?)";
 			ps = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, message.getCampaignName());
@@ -169,9 +172,10 @@ public class UserManager {
 		Statement st = null;
 		ResultSet rs = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
-			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");      
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123"); 
+			con=DbConnection.getInstance().getConnection();
 			st = con.createStatement();
 			String query = "select * from user where email='"+email+"' and password= '"+password+"' ";
 			rs = st.executeQuery(query);
@@ -180,7 +184,8 @@ public class UserManager {
 				user.setName(rs.getString("name"));
 				user.setEmail(rs.getString("email"));
 				user.setMobile(rs.getString("mobile"));
-				
+				user.setUserType(rs.getString("user_type"));
+				user.setUserName(rs.getString("user_name"));
 			}
 		} catch(Exception e) {
 			log.info(e.toString());
@@ -201,6 +206,45 @@ public class UserManager {
 		return user;
 	}
 	
+	public List<User> getAllUsersByUserName() {
+		List<User> list = new ArrayList<User>();
+		User user = new User();
+		Connection con = null;
+		Statement st = null;
+		ResultSet rs = null;
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123"); 
+			con=DbConnection.getInstance().getConnection();
+			st = con.createStatement();
+			String query = "SELECT user_name FROM user WHERE user_name!='' ";
+			rs = st.executeQuery(query);
+			while(rs.next()) {
+				User u = new User();
+				u.setUserName(rs.getString("user_name"));
+				
+				list.add(u);
+			}
+		} catch(Exception e) {
+			log.info(e.toString());
+		}  finally {
+			try {
+				if(con!=null) {
+					con.close();
+				}if(rs!=null) {
+					rs.close();
+				}if(st!=null) {
+					st.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			e2.printStackTrace();
+			}
+		} 
+		return list;
+	}
+	
 	
 	
 	
@@ -211,9 +255,10 @@ public class UserManager {
 		Statement st = null;
 		ResultSet rs = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
 			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");      
+			con=DbConnection.getInstance().getConnection();
 			st = con.createStatement();
 			String query = "select * from user where user_name='"+userName+"' ";
 			rs = st.executeQuery(query);
@@ -252,9 +297,10 @@ public class UserManager {
 		Statement st = null;
 		ResultSet rs = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
-			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");      
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");    
+			con=DbConnection.getInstance().getConnection();
 			st = con.createStatement();
 			String query = "select * from clients where user_name='"+userName+"' ";
 			rs = st.executeQuery(query);
@@ -297,9 +343,10 @@ public class UserManager {
 		Statement st = null;
 		ResultSet rs = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
-			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");      
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");     
+			con=DbConnection.getInstance().getConnection();
 			st = con.createStatement();
 			String query = "select * from user where password ='"+password+"' ";
 			rs = st.executeQuery(query);

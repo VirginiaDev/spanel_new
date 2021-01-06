@@ -55,7 +55,7 @@
                 <span class="field-validation-valid field-validation-valid text-danger" data-valmsg-for="UserName" data-valmsg-replace="true"></span>              
             </div>
             <div class="form-group">
-                <label >Password :</label> <a href="ForgotPassword.html" data-toggle="modal" style="text-decoration:none; float:right;">Forgot Password?</a>
+                <label >Password :</label> <a href="#" data-toggle="modal" style="text-decoration:none; float:right;">Forgot Password?</a>
                 <div class="input-icon">
                     <i class="fa fa-lock"></i>
                     <input class="form-control placeholder-no-fix" data-val="true" data-val-regex="Password is Case sensitive.Password length should be greater than 8 character.Including, password must have 1 numeric character, 1 special character, 1 upper case alphabet and 1 lower case alphabet." data-val-regex-pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\]*&#x2B;\\/|!\£$%^ &amp;*()#[@~&#x27;?&gt;&lt;,.=_-]).{9,}$" data-val-required="Password is required" id="Password" name="password" placeholder="Enter Password" type="Password" value="" />
