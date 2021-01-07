@@ -1,3 +1,5 @@
+<%@page import="user.User"%>
+<%@page import="manager.UserManager"%>
 <%@page import="java.util.List"%>
 <%@page import="user.Message"%>
 <%List<Message> list = (List<Message>)request.getAttribute("messageList"); %>
@@ -6,8 +8,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" /> 
 <meta charset="utf-8" />
- <script src="/Script/jsapi.js"></script>
+ <!-- <script src="/Script/jsapi.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/app.min.js"></script>
 <script src="assets/js/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -17,7 +21,7 @@
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/angular.js"></script>
 <script src="assets/js/app.js"></script>
-<script src="assets/js/bsAlerts.js"></script>
+<script src="assets/js/bsAlerts.js"></script> -->
     <title>ViewUserTreeList</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -58,7 +62,196 @@ crossorigin="anonymous">
     </style>
 </head>
 <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo" ng-app="app">
-<div class="page-header navbar navbar-fixed-top">
+	<div class="page-header navbar navbar-fixed-top">
+
+		<style>
+/*#imgCompanyLogo {
+        height: 125% !important;
+        margin-top: -2% !important;
+    }*/
+.defaultAlert {
+	float: left;
+	/* margin-left: 10px; */
+	white-space: normal;
+}
+
+.DefaultLogo {
+	width: 75%;
+}
+
+.page-header.navbar .top-menu .navbar-nav>li.dropdown-notification .dropdown-menu .dropdown-menu-list>li a .details .label-icon i
+	{
+	margin-right: 4px;
+}
+</style>
+
+		<script type="text/javascript">
+
+    $(document).ready(function () {
+        debugger;
+        var img = $("#ImageSpan  > img");
+        if ($("#ImageSpan > img").length > 0) {
+            if (img[0].alt != "") {
+                $("#ImageTextSpan").html(img[0].alt);
+                $("#ImageSpan").hide();
+                $("#ImageTextSpan").css('display', 'block');
+                $("#divMenuToggle").hide();
+            }
+            else {
+                $("#ImageSpan").show();
+                $("#ImageTextSpan").hide();
+                $("#divMenuToggle").hide();
+            }
+        } else {
+            if (img[0] != "" && img[0] != undefined) {
+                $("#ImageTextSpan").html(img[0].alt);
+                $("#ImageSpan").hide();
+                $("#ImageTextSpan").css('display', 'block')
+            } else {
+                $("#ImageSpan").hide();
+                $("#ImageTextSpan").hide();
+                $("#divMenuToggle").show();
+            }
+        }
+
+        $('#header_inbox_bar').on('click', function () {
+            
+        });
+    });
+
+
+    function HideColumns() {
+        var IsSeenByUser = getCookie("Notificationseen");
+        if (IsSeenByUser == "false") {
+            setCookie("Notificationseen", "true");
+            $('#spnAlretCounts').text("0");
+            // ViewData["AlertsCount"] = 0;
+        }
+        else {
+            $('#spnAlretCounts').text("0");
+        }
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function setCookie(cname, cvalue) {
+        var d = new Date();
+        //d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        //var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";path=/";
+    }
+</script>
+
+		<div class="page-header-inner ">
+			<div class="page-logo" style="width: 35% !important">
+				<span class="float-left" href="#"> <span id="ImageTextSpan"
+					style="color: rgb(214, 214, 214); margin-top: 8px; font-size: 27px; min-width: 185px; display: block;">SMS24HOURS</span>
+					<span class="logo-default text-success"
+					style="color: rgb(214, 214, 214); display: none;" id="ImageSpan">
+						<img alt="SMS24HOURS"
+						style="vertical-align: middle; height: 55px; margin-top: 3px; font-size: 30px;">
+				</span>
+				</span>
+				<div class="menu-toggler sidebar-toggler pull-left"
+					id="divMenuToggle"
+					style="z-index: 10000 !important; display: none;"></div>
+			</div>
+			<a href="#" class="menu-toggler responsive-toggler"
+				data-toggle="collapse" data-target=".page-sidebar"> </a>
+			<div class="page-top">
+				<div class="top-menu">
+					<ul class="nav navbar-nav pull-right">
+						<li class="separator hide"></li>
+						
+						<li class="separator hide"></li>
+						<!-- END INBOX DROPDOWN -->
+						<li class="separator hide"></li>
+						
+						<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+						<li class="dropdown dropdown-user" style="padding: 0;"><a
+							href="javascript:void(0);" class="dropdown-toggle"
+							data-toggle="dropdown" data-hover="dropdown"
+							data-close-others="true"> <span
+								class="username username-hide-on-mobile"> <i
+									class="fa fa-user"></i> <span class="hidden-xs"><i
+										class="fa fa-angle-down"></i></span>
+							</span>
+						</a>
+							<ul class="dropdown-menu dropdown-menu-default">
+								<li><a href="#"> Welcome,
+										ravinder <br> <span
+										style="font-size: 11px; padding-left: 24px;"> {
+											1234567890 }</span> <br> <span
+										style="font-size: 11px; padding-left: 24px;">Last Login
+											IP: 122.180.29.172</span> <br> <span
+										style="font-size: 11px; padding-left: 24px;">Last Login
+											Date: 01/08/2020 11:43:14</span>
+
+								</a></li>
+								<li class="divider"></li>
+								<li><a href=""> 
+										My Profile
+								</a></li>
+								<li class="divider"></li>
+								<li><a href="">  Change Password
+								</a></li>
+								<li class="divider"></li>
+								<li><a href="index.jsp">
+										Log Out
+								</a></li>
+							</ul></li>
+
+
+					</ul>
+				</div>
+				<!-- END TOP NAVIGATION MENU -->
+			</div>
+			<!-- END PAGE TOP -->
+		</div>
+
+	</div>
+	<div class="clearfix"></div>
+
+
+	<style>
+.TopMenu>li {
+	margin-left: 9px;
+	border: 1px solid #a79d9d;
+	padding: 10px;
+	text-decoration: none;
+}
+
+i.fa.fa-line-chart {
+	color: white;
+	margin: 0 auto 6px;
+	height: 36px;
+	width: 37px !important;
+	font-size: 20px;
+	padding: 8px 7px;
+	display: block !important;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	/* border-radius: 100px; */
+	border-radius: 20px;
+	border: 1px solid #36c6d3;
+	background: #36c6d3;
+}
+</style>
+
+<div class="Main_Menu">
 <div class="page-header-menu">
             <div class="container">
                 <nav class="navbar">
@@ -66,7 +259,7 @@ crossorigin="anonymous">
                         <div class="hor-menu">
                             <div id="navbarMenu" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
-                                     <li><a href="Administration.jsp" data-toggle="pills" class="2"><i class="fa fa-user" aria-hidden="true"></i><br> ADMINISTRATION</a></li>
+                                     <li><a href="Administration.jsp" data-toggle="pills" class="2" style="margin-left: -75px;"><i class="fa fa-user" aria-hidden="true"></i><br> ADMINISTRATION</a></li>
                                     <li><a href="#" data-toggle="pills" class="3"><i class="fa fa-cog" aria-hidden="true"></i><br>CONFIGURATION</a></li>
 
                                     <li><a href="#" data-toggle="pills" class="5"><i class="fa fa-unlock-alt" aria-hidden="true"></i><br>PERMISSION</a></li>
@@ -94,6 +287,9 @@ crossorigin="anonymous">
                 </nav>
             </div>
         </div>
+        </div>
+        
+        
         <div class="page-container">
             <div class="page-sidebar-wrapper">
                 <div class="page-sidebar navbar-collapse collapse">
@@ -679,12 +875,10 @@ crossorigin="anonymous">
                             </a>
                         </li>
                     </ul>
-
-
-
                     <!-- END SIDEBAR MENU -->
                 </div>
                 <!-- END SIDEBAR -->
+            </div>
             </div>
             <div class="col-md-02">
 							<div class="portlet light bordered" style="margin-left: 20%;margin-top: 1%;">
@@ -695,7 +889,7 @@ crossorigin="anonymous">
 										method="post" novalidate="novalidate" name="uForm">
 										<input type="hidden" name="userAction" value="14">
 										<div class="form-group">
-											<input class="form-control input-sm tb ui-autocomplete-input"
+											<!-- <input class="form-control input-sm tb ui-autocomplete-input"
 												data-val="true"
 												data-val-length="The User Name should not be more than 50 characters long."
 												data-val-length-max="50"
@@ -705,7 +899,20 @@ crossorigin="anonymous">
 												name="UserName" placeholder="Enter User Name"
 												required="required" style="width: 225px;" type="text"
 												value="" aria-required="true" autocomplete="off"
-												role="textbox" aria-autocomplete="list" aria-haspopup="true">
+												role="textbox" aria-autocomplete="list" aria-haspopup="true"> -->
+												<div class="row-fluid">
+										      <select class="selectpicker" name="UserName" data-show-subtext="true" data-live-search="true">
+										      <option>Choose User</option>
+										     
+									        <%
+										     UserManager manager = new UserManager();
+										      List<User> e=manager.getAllUsersByUserName();
+										      for(int i=0;i<e.size();i++){
+										      %>
+										        <option value="<%=e.get(i).getUserName() %>" data-subtext=""><%=e.get(i).getUserName() %></option>
+										        <%} %>
+										         </select>
+										    </div>
 										</div>
 										<input type="submit"
 											class="btn btn-sm btn-success" value="Submit">
@@ -728,6 +935,9 @@ crossorigin="anonymous">
 							<th style="border: 1px solid #c2cad8">Sender Id</th>
 							<th style="border: 1px solid #c2cad8">Message</th>
 							<th style="border: 1px solid #c2cad8">Status</th>
+							<th style="border: 1px solid #c2cad8">SMS COST</th>
+							<th style="border: 1px solid #c2cad8">Gateway Id</th>
+							<th style="border: 1px solid #c2cad8">Error Code</th>
 							<%for(int i=0;i<list.size();i++){
 								Message m = list.get(i);%>
 								<tr>
@@ -742,6 +952,9 @@ crossorigin="anonymous">
 									status="Deliver";
 								} %>
 								<td style="border: 1px solid #c2cad8"><%=status%></td>
+								<td style="border: 1px solid #c2cad8">0.1</td>
+								<td style="border: 1px solid #c2cad8">2</td>
+								<td style="border: 1px solid #c2cad8">056</td>
 								</tr>
 							<%}%>
 							</table>
@@ -754,7 +967,10 @@ crossorigin="anonymous">
 
 
 
-</div>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <script type="text/javascript">
 function submit(){
 	alert("hello");

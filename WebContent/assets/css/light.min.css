@@ -3546,3 +3546,20 @@ bootstrap.min.css
     font-size: 16px;
     margin-bottom: 3px;
 } 
+.Portlet-body, tr, th {
+    padding: 10px 25px;
+    /* font-size: 15px; */
+}
+.Portlet-body, td {
+    padding: 7px 25px;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.page-sidebar, .page-sidebar .page-sidebar-menu {
+    /* margin-bottom: 10px; */
+    border-right: 1px solid #e6e6e6;
+    background-color: #fff;
+    height:600px;
+}

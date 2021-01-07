@@ -556,7 +556,7 @@ if(userName == null){
                     <small>SMS Sent Today</small>
                 </div>
                 <div class="icon">
-                    <i class="icon-envelope"></i>
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="progress-info" style="">
@@ -585,7 +585,7 @@ if(userName == null){
                     <small>Delivered Today</small>
                 </div>
                 <div class="icon">
-                    <i class="icon-globe"></i>
+                    <i class="fa fa-globe" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="progress-info" style="">
@@ -614,7 +614,7 @@ if(userName == null){
                     <small>SMS Sent Yesterday</small>
                 </div>
                 <div class="icon">
-                    <i class="icon-globe"></i>
+                    <i class="fa fa-globe" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="progress-info" style="">
@@ -643,7 +643,7 @@ if(userName == null){
                     <small>Delivered Yesterday</small>
                 </div>
                 <div class="icon">
-                    <i class="icon-globe"></i>
+                    <i class="fa fa-globe" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="progress-info" style="">
