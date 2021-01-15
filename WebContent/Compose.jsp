@@ -1,6 +1,8 @@
 <%@page import="user.User"%>
 <%String userName = (String)request.getParameter("userName"); 
-User u = (User)session.getAttribute("user");%>
+String route = (String)request.getParameter("route"); 
+User u = (User)session.getAttribute("user");
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -41,6 +43,9 @@ User u = (User)session.getAttribute("user");%>
     }
 </style>
 <script>
+<%if(route.equals("null")){%>
+	alert("Please Choose a route first. Then send Sms");
+<%}%>
     google.load("elements", "1", { packages: "transliteration" });
     //var transliterationControl;
 
@@ -693,7 +698,7 @@ User u = (User)session.getAttribute("user");%>
                                     <form action="UserController" method="POST" name="uForm">
                                     	<input type="hidden" name="userAction" value="13">
                                     	<input type="hidden" name="userName" value="<%=userName%>">
-                                    	
+                                    	<input type="hidden" name="route" value="<%=route%>">
                                         <div class="form-group">
                                             <label for="Campaign Name">Campaign Name</label>
                                             <input class="form-control input-sm" data-val="true" data-val-length="The field CampaignName must be a string with a maximum length of 50." data-val-length-max="50" data-val-required="Campaign name is required" id="CampaignName" maxlength="50" name="CampaignName" ng-model="ComposeSMS.CampaignName" type="text" value="Camp_05-Jan-2021" />

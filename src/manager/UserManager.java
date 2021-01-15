@@ -22,6 +22,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import connection.DbConnection;
 import jxl.Workbook;
 import user.Message;
+import user.Routes;
 import user.User;
 
 public class UserManager {
@@ -110,6 +111,88 @@ public class UserManager {
 		return status;
 	}
 	
+	public boolean saveGateway(Routes r) {
+		boolean status = false;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");   
+			con=DbConnection.getInstance().getConnection();
+			String query = "insert into route (name, ip_address, system_id, password, tx_port, rx_port, tx_rx_port, system_type) values (?,?,?,?,?,?,?,?)";
+			ps = con.prepareStatement(query);
+			ps.setString(1, r.getName());
+			ps.setString(2, r.getIpAddress());
+			ps.setString(3, r.getSystemId());
+			ps.setString(4, r.getPassword());
+			ps.setString(5, r.getTxPort());
+			ps.setString(6, r.getRxPort());
+			ps.setString(7, r.getTxRxPort());
+			ps.setString(8, r.getSystemType());
+			ps.executeUpdate();
+			
+			status = true;
+		} catch(Exception e) {
+			e.printStackTrace();
+		}  finally {
+			try {
+				if(con!=null) {
+					con.close();
+				}if(rs!=null) {
+					rs.close();
+				}if(ps!=null) {
+					ps.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			e2.printStackTrace();
+			}
+		} 
+		
+		return status;
+	}
+
+
+	
+	public boolean saveRouteForUser(String name, int id) {
+		boolean status = false;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");   
+			con=DbConnection.getInstance().getConnection();
+			String query = "update user set route_name = ? where id="+id;
+			ps = con.prepareStatement(query);
+			ps.setString(1, name);
+			ps.executeUpdate();
+			
+			status = true;
+		} catch(Exception e) {
+			e.printStackTrace();
+		}  finally {
+			try {
+				if(con!=null) {
+					con.close();
+				}if(rs!=null) {
+					rs.close();
+				}if(ps!=null) {
+					ps.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			e2.printStackTrace();
+			}
+		} 
+		
+		return status;
+	}
+
+	
 	public int saveSMSInDb(Message message) {
 		boolean status = false;
 		int id=0;
@@ -186,6 +269,7 @@ public class UserManager {
 				user.setMobile(rs.getString("mobile"));
 				user.setUserType(rs.getString("user_type"));
 				user.setUserName(rs.getString("user_name"));
+				user.setRouteName(rs.getString("route_name"));
 			}
 		} catch(Exception e) {
 			log.info(e.toString());
@@ -245,6 +329,128 @@ public class UserManager {
 		return list;
 	}
 	
+	public List<Routes> getRouteList() {
+		List<Routes> list = new ArrayList<Routes>();
+		Connection con = null;
+		Statement st = null;
+		ResultSet rs = null;
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123"); 
+			con=DbConnection.getInstance().getConnection();
+			st = con.createStatement();
+			String query = "SELECT name FROM route ";
+			rs = st.executeQuery(query);
+			while(rs.next()) {
+				Routes u = new Routes();
+				u.setName(rs.getString("name"));
+				
+				list.add(u);
+			}
+		} catch(Exception e) {
+			log.info(e.toString());
+		}  finally {
+			try {
+				if(con!=null) {
+					con.close();
+				}if(rs!=null) {
+					rs.close();
+				}if(st!=null) {
+					st.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			e2.printStackTrace();
+			}
+		} 
+		return list;
+	}
+	
+	public Routes getRouteByName(String routeName) {
+		Routes u = new Routes();
+		Connection con = null;
+		Statement st = null;
+		ResultSet rs = null;
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123"); 
+			con=DbConnection.getInstance().getConnection();
+			st = con.createStatement();
+			String query = "SELECT * FROM route where name='"+routeName+"' ";
+			rs = st.executeQuery(query);
+			while(rs.next()) {
+				
+				u.setIpAddress(rs.getString("ip_address"));
+				u.setPassword(rs.getString("password"));
+				u.setSystemId(rs.getString("system_id"));
+				u.setTxPort(rs.getString("tx_port"));
+				u.setSystemType(rs.getString("system_type"));
+				
+			}
+		} catch(Exception e) {
+			log.info(e.toString());
+		}  finally {
+			try {
+				if(con!=null) {
+					con.close();
+				}if(rs!=null) {
+					rs.close();
+				}if(st!=null) {
+					st.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			e2.printStackTrace();
+			}
+		} 
+		return u;
+	}
+	
+	public List<Routes> getRoutesList() {
+		List<Routes> list = new ArrayList<Routes>();
+		Connection con = null;
+		Statement st = null;
+		ResultSet rs = null;
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123"); 
+			con=DbConnection.getInstance().getConnection();
+			st = con.createStatement();
+			String query = "SELECT * FROM route ";
+			rs = st.executeQuery(query);
+			while(rs.next()) {
+				Routes u = new Routes();
+				u.setName(rs.getString("name"));
+				u.setId(rs.getInt("id"));
+				u.setIpAddress(rs.getString("ip_address"));
+				u.setSystemId(rs.getString("system_id"));
+				u.setTxPort(rs.getString("tx_port"));
+				u.setRxPort(rs.getString("rx_port"));
+				u.setTxRxPort(rs.getString("tx_rx_port"));
+				
+				list.add(u);
+			}
+		} catch(Exception e) {
+			log.info(e.toString());
+		}  finally {
+			try {
+				if(con!=null) {
+					con.close();
+				}if(rs!=null) {
+					rs.close();
+				}if(st!=null) {
+					st.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			e2.printStackTrace();
+			}
+		} 
+		return list;
+	}
 	
 	
 	
@@ -269,7 +475,9 @@ public class UserManager {
 				user.setMobile(rs.getString("mobile"));
 				user.setPassword(rs.getString("password"));
 				user.setTimeZone(rs.getString("time_zone"));
+				user.setRouteName(rs.getString("route_name"));
 				user.setUserName(userName);
+				user.setRouteName(rs.getString("route_name"));
 				
 			}
 		} catch(Exception e) {
@@ -358,6 +566,7 @@ public class UserManager {
 				user.setPassword(rs.getString("password"));
 				user.setTimeZone(rs.getString("time_zone"));
 				user.setUserName(rs.getString("user_name"));
+				user.setRouteName(rs.getString("route_name"));
 			}
 		} catch(Exception e) {
 			log.info(e.toString());

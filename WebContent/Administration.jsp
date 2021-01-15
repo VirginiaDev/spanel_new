@@ -1,3 +1,4 @@
+<%@page import="user.Routes"%>
 <%@page import="java.util.List"%>
 <%@page import="manager.UserManager"%>
 <%@page import="user.User"%>
@@ -252,7 +253,7 @@ i.fa.fa-line-chart {
                             <div id="navbarMenu" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <li><a href="Administration.jsp" data-toggle="pills" class="2" style="margin-left: -75px;"><i class="fa fa-user" aria-hidden="true"></i><br> ADMINISTRATION</a></li>
-                                    <li><a href="#" data-toggle="pills" class="3"><i class="fa fa-cog" aria-hidden="true"></i><br>CONFIGURATION</a></li>
+                                    <li><a href="ManageSmppGateway.jsp" data-toggle="pills" class="3"><i class="fa fa-cog" aria-hidden="true"></i><br>CONFIGURATION</a></li>
 
                                     <li><a href="#" data-toggle="pills" class="5"><i class="fa fa-unlock-alt" aria-hidden="true"></i><br>PERMISSION</a></li>
                                     <li><a href="LiveTrafficReport.jsp" data-toggle="pills" class="6"><i class="fa fa-dropbox" aria-hidden="true"></i><br>REPORTING</a></li>
@@ -504,7 +505,9 @@ i.fa.fa-line-chart {
 									<%if(user!=null){
 									if(user.getName()!=null){%>
 									<a href="" data-toggle="modal" data-target="#myModalLink">
-										Impersonate User </a><br>
+										Impersonate User </a>
+										<a style="margin-left: 15px;" href="" data-toggle="modal" data-target="#myModalLink1">
+										MT Routing </a><br>
 									<div style="margin-top: 25px;">
 										UserName:&nbsp;&nbsp;<input type="text" class="form-control"
 											value="<%=user.getUserName()%>"
@@ -540,7 +543,7 @@ i.fa.fa-line-chart {
 														<input type="hidden" name="id" value="">
 														<input type="hidden" name="user_name">
 														 <input type="hidden" name="userAction" value="12">
-
+														<input type="hidden" name="route">
 														<div class="form-group">
 															<div class="col-md-12 col-sm-9 col-xs-12 pb-10">
 																Enter Password <input type="password" class="form-control"
@@ -562,6 +565,62 @@ i.fa.fa-line-chart {
 										</div>
 									</div>
 
+									<div class="modal fade" id="myModalLink1" role="dialog">
+										<div class="modal-dialog">
+
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<p>All the traffic is routed based on routing rules. However you can create a rule to route all the traffic of this
+														user from a fixed gateway.
+														Adding this rule will automatically populate an entry in main routing table.</p>
+												</div>
+												<div class="modal-body">
+													<form action="UserController" class="form-horizontal"
+														method="post">
+														<%if(user!=null){%>
+															<input type="hidden" name="user_id" value="<%=user.getId()%>">															
+														<%}%>
+														 <input type="hidden" name="userAction" value="15">
+
+														<div class="form-group">
+															<div class="col-md-12 col-sm-9 col-xs-12 pb-10">
+															 <select class="selectpicker" name="route_name" data-show-subtext="true" data-live-search="true">
+														      <option>Choose Route</option>
+														      <%if(user!=null){
+														      if(user.getRouteName()!=null){%>
+														    	  <option selected value="<%=user.getRouteName() %>" data-subtext=""><%=user.getRouteName()%></option>
+														      <%} else{%>
+													        <%
+														      List<Routes> list=manager.getRouteList();
+													        	
+														      for(int i=0;i<list.size();i++){
+														      %>
+														    	<option value="<%=list.get(i).getName() %>" data-subtext=""><%=list.get(i).getName() %></option>  
+														      <%}%>
+														    	  
+														      <%}%>
+														        
+														        <%} %>
+														         </select>
+																<!-- Choose Route <input type="password" class="form-control"
+																	id="password" name="password" value=""> -->
+															</div>
+														</div>
+
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary"
+																data-dismiss="modal">Close</button>
+															<input type="submit" value="Update" class="btn btn-primary">
+
+														</div>
+													</form>
+												</div>
+
+											</div>
+
+										</div>
+									</div>
 
 								</div>
 							</div>
@@ -898,6 +957,7 @@ i.fa.fa-line-chart {
 	function submitPassword(){
 	<%if(user!=null){%>
 	document.uForm.user_name.value="<%=user.getUserName()%>";
+	document.uForm.route.value="<%=user.getRouteName()%>";
 	<%}%>
 	document.uForm.submit();
 	}

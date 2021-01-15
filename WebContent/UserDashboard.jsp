@@ -3,9 +3,13 @@
 <%User user = (User)request.getAttribute("user"); 
 String message = (String)session.getAttribute("message"); 
 String userName = (String)request.getAttribute("userName");
+String routeName = (String)request.getAttribute("routeName");
 User u = (User)session.getAttribute("user");
 if(userName == null){
 	userName = u.getUserName();
+}
+if(routeName==null){
+	routeName=u.getRouteName();
 }
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -363,7 +367,7 @@ if(userName == null){
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item">
-                            <a href="Compose.jsp?userName=<%=userName%>" target="_self" class="1">
+                            <a href="Compose.jsp?userName=<%=userName%>&route=<%=routeName %>" target="_self" class="1">
                                 <i class="fa fa-envelope"></i>
                                 <span class="title">Compose SMS</span>
                             </a>

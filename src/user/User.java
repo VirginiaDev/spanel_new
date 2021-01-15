@@ -17,6 +17,7 @@ public class User {
 	public String userType;
 	public int otp;
 	public String currentTime;
+	private String routeName;
 	public int getId() {
 		return id;
 	}
@@ -76,6 +77,12 @@ public class User {
 	}
 	public void setUserType(String userType) {
 		this.userType = userType;
+	}
+	public String getRouteName() {
+		return routeName;
+	}
+	public void setRouteName(String routeName) {
+		this.routeName = routeName;
 	}
 	
 	

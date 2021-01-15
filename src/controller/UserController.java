@@ -45,6 +45,7 @@ import com.mashape.unirest.http.Unirest;
 import manager.UserManager;
 import user.User;
 import user.Message;
+import user.Routes;
 
 @WebServlet("/UserController")
 public class UserController extends HttpServlet {
@@ -113,7 +114,54 @@ public class UserController extends HttpServlet {
 		case 14:
 			getMessageListByUser(request, response);
 			break;
+		case 15:
+			updateRoute(request, response);
+			break;
+		case 16:
+			addGateway(request, response);
+			break;
 		}
+		
+	}
+
+	private void addGateway(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String gatewayName = request.getParameter("GatewayName");
+		String IPAddress = request.getParameter("IPAddress");
+		String SystemId = request.getParameter("SystemId");
+		String Password = request.getParameter("Password");
+		String TxPort = request.getParameter("TxPort");
+		String RxPort = request.getParameter("RxPort");
+		String TxRxPort = request.getParameter("TxRxPort");
+		String SystemType = request.getParameter("SystemType");
+		
+		Routes r = new Routes();
+		r.setName(gatewayName);
+		r.setIpAddress(IPAddress);
+		r.setSystemId(SystemId);
+		r.setPassword(Password);
+		r.setTxPort(TxPort);
+		r.setRxPort(RxPort);
+		r.setTxRxPort(TxRxPort);
+		r.setSystemType(SystemType);
+		boolean status = new UserManager().saveGateway(r);
+		if(status == true) {
+			request.getSession().setAttribute("message", "Gateway saved successfully");
+		} else {
+			request.getSession().setAttribute("message", "No gateway added");
+		}
+		response.sendRedirect("ManageSmppGateway.jsp");
+	}
+
+	private void updateRoute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		String name=request.getParameter("route_name");
+		String id=request.getParameter("user_id");
+		boolean status = new UserManager().saveRouteForUser(name, Integer.parseInt(id));
+		if(status == true) {
+			request.getSession().setAttribute("message", "User Route Successfully");
+		} else {
+			request.getSession().setAttribute("message", "No Route Added");
+		}
+		response.sendRedirect("Administration.jsp");
 		
 	}
 
@@ -133,6 +181,8 @@ public class UserController extends HttpServlet {
 		String message = request.getParameter("Message");
 		String timeZone = request.getParameter("TimeZone");
 		String userName = request.getParameter("userName");
+		String routeName = request.getParameter("route");
+		
 		
 		Message m = new Message();
 		m.setCampaignName(campaignName);
@@ -143,8 +193,9 @@ public class UserController extends HttpServlet {
 		m.setUserName(userName);
 		User u = (User)request.getSession(false).getAttribute("user");
 		int id = new UserManager().saveSMSInDb(m);
+		Routes r = new UserManager().getRouteByName(routeName);
 		//msg go to server
-		gotoServer(m, id);
+		gotoServer(m, id, r);
 		if(id>0) {
 			request.getSession().setAttribute("message", "Message Saved Successfuly");
 			if(u.getUserType().equals("admin")) {
@@ -158,11 +209,11 @@ public class UserController extends HttpServlet {
 		
 	}
 
-	private void gotoServer(Message m, int id) {
+	private void gotoServer(Message m, int id, Routes r) {
 		SMPPSession session = new SMPPSession();
 		  try {
 	            System.out.println("Connecting");
-	            String systemId = session.connectAndBind("182.18.144.246", 8585, new BindParameter(BindType.BIND_TX, "Saless", "Sales12", "cp", TypeOfNumber.UNKNOWN, NumberingPlanIndicator.UNKNOWN, null));
+	            String systemId = session.connectAndBind(r.getIpAddress(), Integer.parseInt(r.getTxPort()), new BindParameter(BindType.BIND_TRX, r.getSystemId(), r.getPassword(), r.getSystemType(), TypeOfNumber.UNKNOWN, NumberingPlanIndicator.UNKNOWN, null));
 	            System.out.println("Connected with SMSC with system id {}"+systemId);
 
 	            try {
@@ -202,6 +253,7 @@ public class UserController extends HttpServlet {
 	private void checkPanelPassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String password = request.getParameter("password");
 		String userName = request.getParameter("user_name");
+		String routeName = request.getParameter("route");
 		User user = new UserManager().checkPassword(password);
 		
 		if(user.getName()!=null) {
@@ -210,6 +262,7 @@ public class UserController extends HttpServlet {
 			sessionObj.setAttribute("sms_user", user);
 			sessionObj.setMaxInactiveInterval(10*60);
 			request.setAttribute("userName", userName);
+			request.setAttribute("routeName", routeName);
 			request.getRequestDispatcher("/UserDashboard.jsp").forward(request, response);
 		} else {
 			request.getSession().setAttribute("message", "You are not authorized to view this page");
