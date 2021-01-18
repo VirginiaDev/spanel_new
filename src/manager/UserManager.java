@@ -249,7 +249,7 @@ public class UserManager {
 		return id;
 	}
 	
-	public User getUserByEmail(String email, String password) {
+	public User getUserByEmail(String email, String password, String userType) {
 		User user = new User();
 		Connection con = null;
 		Statement st = null;
@@ -260,7 +260,7 @@ public class UserManager {
 			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123"); 
 			con=DbConnection.getInstance().getConnection();
 			st = con.createStatement();
-			String query = "select * from user where email='"+email+"' and password= '"+password+"' ";
+			String query = "select * from user where email='"+email+"' and password= '"+password+"' and user_type='"+userType+"' ";
 			rs = st.executeQuery(query);
 			while(rs.next()) {
 				user.setId(rs.getInt("id"));

@@ -1283,8 +1283,8 @@ i.fa.fa-line-chart {
                     <td><%=list.get(i).getTxRxPort() %></td>
                     <td><span class="label label-sm label-danger" style="font-size: 100%; border-radius: 0px; font-weight: 300;">No</span></td>
                     <td><span class="label label-sm label-danger" style="font-size: 100%; border-radius: 0px; font-weight: 300;">Not active</span></td>
-                    <!-- <td><span class="badge badge-info" style="border-radius: 0">No Connection</span></td> -->
-                    <td><div data-ng-bind-html="trust"></div></td>
+                    <td><span class="badge badge-info" style="border-radius: 0">No Connection</span></td>
+                    <!-- <td><div data-ng-bind-html="trust"></div></td> -->
                     <td><a href="javascript:;" class="edit editor_edit"><i class="fa fa-edit"></i> Edit</a> | 
                     <a href="javascript:;" class="delete"><i class="fa fa-trash-o"></i> Delete</a></td>
                     </tr>

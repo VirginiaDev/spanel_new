@@ -363,9 +363,10 @@ public class UserController extends HttpServlet {
 	private void checkEmail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		String userType= request.getParameter("userType");
 		
 		UserManager manager = new UserManager();
-		User user = manager.getUserByEmail(email, password);
+		User user = manager.getUserByEmail(email, password, userType);
 		request.getSession().setAttribute("user", user);
 		System.out.println("user >>>>>>>>>>>>>>>>>>>>>>>>>>>"+user.getName());
 		if(user.getName() != null) {

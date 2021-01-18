@@ -587,15 +587,21 @@ i.fa.fa-line-chart {
 															<div class="col-md-12 col-sm-9 col-xs-12 pb-10">
 															 <select class="selectpicker" name="route_name" data-show-subtext="true" data-live-search="true">
 														      <option>Choose Route</option>
-														      <%if(user!=null){
-														      if(user.getRouteName()!=null){%>
-														    	  <option selected value="<%=user.getRouteName() %>" data-subtext=""><%=user.getRouteName()%></option>
-														      <%} else{%>
+														     
+														     <%if(user!=null){%>
+														     <%if(user.getRouteName()!=null){%>
+															 	<option selected value="<%=user.getRouteName() %>" data-subtext=""><%=user.getRouteName()%></option>
+															 <%}%>
+														     <%}%>
 													        <%
 														      List<Routes> list=manager.getRouteList();
 													        	
 														      for(int i=0;i<list.size();i++){
 														      %>
+														       <%if(user!=null){
+														      if(user.getRouteName()!=null){%>
+														    	  <option value="<%=list.get(i).getName() %>" data-subtext=""><%=list.get(i).getName() %></option>  
+														      <%} else{%>
 														    	<option value="<%=list.get(i).getName() %>" data-subtext=""><%=list.get(i).getName() %></option>  
 														      <%}%>
 														    	  
