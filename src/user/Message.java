@@ -3,6 +3,7 @@ package user;
 public class Message {
 
 	private int id;
+	private int gatewayId;
 	private String userName;
 	private String campaignName;
 	private String senderId;
@@ -11,6 +12,22 @@ public class Message {
 	private String timeZone;
 	private String status;
 	private String submissionDate;
+	private String reportStatus;
+	private String errorCode;
+	
+	
+	public String getReportStatus() {
+		return reportStatus;
+	}
+	public void setReportStatus(String reportStatus) {
+		this.reportStatus = reportStatus;
+	}
+	public String getErrorCode() {
+		return errorCode;
+	}
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
+	}
 	public int getId() {
 		return id;
 	}
@@ -65,5 +82,13 @@ public class Message {
 	public void setSubmissionDate(String submissionDate) {
 		this.submissionDate = submissionDate;
 	}
+	public int getGatewayId() {
+		return gatewayId;
+	}
+	public void setGatewayId(int gatewayId) {
+		this.gatewayId = gatewayId;
+	}
+
+	
 	
 }

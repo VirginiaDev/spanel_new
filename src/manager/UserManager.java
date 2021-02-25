@@ -79,7 +79,7 @@ public class UserManager {
 			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
 			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");   
 			con=DbConnection.getInstance().getConnection();
-			String query = "insert into user (name, user_name, email, mobile, password, time_zone, user_type) values (?,?,?,?,?,?,?)";
+			String query = "insert into user (name, user_name, email, mobile, password, time_zone, user_type, route_name) values (?,?,?,?,?,?,?,?)";
 			ps = con.prepareStatement(query);
 			ps.setString(1, user.getName());
 			ps.setString(2, user.getUserName());
@@ -88,6 +88,7 @@ public class UserManager {
 			ps.setString(5, user.getPassword());
 			ps.setString(6, user.getTimeZone());
 			ps.setString(7, "user");
+			ps.setString(8, "Saless");
 			ps.executeUpdate();
 			
 			status = true;
@@ -510,7 +511,12 @@ public class UserManager {
 			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");    
 			con=DbConnection.getInstance().getConnection();
 			st = con.createStatement();
-			String query = "select * from clients where user_name='"+userName+"' ";
+			String query = "SELECT c.id, c.sender_details, c.contacts, c.message, c.campaign, "
+					+ "c.`status`, c.time_zone, c.submission_date, c.report_status, c.error_code,  "
+					+ "(SELECT r.id)AS gateway_id "
+					+ " FROM clients c, user u, route r WHERE u.user_name=c.user_name AND u.route_name=r.name AND c.user_name='"+userName+"' ";
+			//String query="select * from clients where user_name='"+userName+"'";
+			System.out.println("query is"+query);
 			rs = st.executeQuery(query);
 			while(rs.next()) {
 				Message m = new Message();
@@ -523,6 +529,9 @@ public class UserManager {
 				m.setStatus(rs.getString("status"));
 				m.setTimeZone(rs.getString("time_zone"));
 				m.setSubmissionDate(rs.getString("submission_date"));
+				m.setGatewayId(rs.getInt("gateway_id"));
+				m.setReportStatus(rs.getString("report_status"));
+				m.setErrorCode(rs.getString("error_code"));
 				list.add(m);
 			}
 		} catch(Exception e) {
@@ -541,6 +550,7 @@ public class UserManager {
 			e2.printStackTrace();
 			}
 		} 
+		System.out.println("Db list................................................."+list.size());
 		return list;
 	}
 	

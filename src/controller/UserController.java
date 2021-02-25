@@ -17,7 +17,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
+
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.log4j.Logger;
 import org.jsmpp.InvalidResponseException;
@@ -146,6 +149,7 @@ public class UserController extends HttpServlet {
 		boolean status = new UserManager().saveGateway(r);
 		if(status == true) {
 			request.getSession().setAttribute("message", "Gateway saved successfully");
+			bindServer(r);
 		} else {
 			request.getSession().setAttribute("message", "No gateway added");
 		}
@@ -178,6 +182,8 @@ public class UserController extends HttpServlet {
 		String campaignName = request.getParameter("CampaignName");
 		String senderId = request.getParameter("SenderId");
 		String contactNumber = request.getParameter("ContactNumber");
+		String contacts[]=contactNumber.split(",");
+		
 		String message = request.getParameter("Message");
 		String timeZone = request.getParameter("TimeZone");
 		String userName = request.getParameter("userName");
@@ -187,15 +193,21 @@ public class UserController extends HttpServlet {
 		Message m = new Message();
 		m.setCampaignName(campaignName);
 		m.setSenderId(senderId);
-		m.setContacts(contactNumber);
+		//m.setContacts(contactNumber);
 		m.setMessage(message);
 		m.setTimeZone(timeZone);
 		m.setUserName(userName);
 		User u = (User)request.getSession(false).getAttribute("user");
-		int id = new UserManager().saveSMSInDb(m);
+		int id=0;
+		for(String c :contacts) {
+			m.setContacts(c);
+			//id = new UserManager().saveSMSInDb(m);
+
+		}
+		//int id = new UserManager().saveSMSInDb(m, contacts);
 		Routes r = new UserManager().getRouteByName(routeName);
 		//msg go to server
-		gotoServer(m, id, r);
+		//gotoServer(m, id, r);
 		if(id>0) {
 			request.getSession().setAttribute("message", "Message Saved Successfuly");
 			if(u.getUserType().equals("admin")) {
@@ -257,7 +269,6 @@ public class UserController extends HttpServlet {
 		User user = new UserManager().checkPassword(password);
 		
 		if(user.getName()!=null) {
-			System.out.println("In check panel............................."+user.getUserName());
 			HttpSession sessionObj = request.getSession(true);
 			sessionObj.setAttribute("sms_user", user);
 			sessionObj.setMaxInactiveInterval(10*60);
@@ -333,6 +344,18 @@ public class UserController extends HttpServlet {
 		
 	}
 	
+	private void bindServer(Routes r) {
+		final AtomicInteger counter = new AtomicInteger();
+        final SMPPSession session = new SMPPSession();
+        try {
+            System.out.println("Connecting");
+            String systemId = session.connectAndBind(r.getIpAddress(), 8585, new BindParameter(BindType.BIND_TRX, r.getSystemId(), r.getPassword(), "cp", TypeOfNumber.UNKNOWN, NumberingPlanIndicator.UNKNOWN, null));
+            System.out.println("Connected with SMSC with system id {}"+systemId);
+        } catch (IOException e) {
+            System.out.println("Failed connect and bind to host"+e);
+     }
+	}
+
 	private void getAllUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 	

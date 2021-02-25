@@ -1,8 +1,6 @@
 <%@page import="user.User"%>
-<%@page import="manager.UserManager"%>
 <%@page import="java.util.List"%>
-<%@page import="user.Message"%>
-<%List<Message> list = (List<Message>)request.getAttribute("messageList"); %>
+<%@page import="manager.UserManager"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -10,58 +8,31 @@
 <head>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" /> 
-<meta charset="utf-8" />
- <!-- <script src="/Script/jsapi.js"></script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/app.min.js"></script>
-<script src="assets/js/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="assets/js/layout.js"></script>
-<script src="assets/js/.validate.min.js"></script>
-<script src="assets/js/unobtrusive.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/angular.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/bsAlerts.js"></script> -->
-    <title>ViewUserTreeList</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Preview page of Metronic Admin Theme #4 for statistics, charts, recent events and reports" name="description" />
-    <meta content="" name="author" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/
 font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
 crossorigin="anonymous">
-      <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="assets/css/simple-line-icons.min.css" rel="stylesheet" />
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/bootstrap-switch.min.css" rel="stylesheet" />
-    <link href="assets/css/daterangepicker.min.css" rel="stylesheet" />
-    <link href="assets/css/morris.css" rel="stylesheet" />
-    <link href="assets/css/fullcalendar.min.css" rel="stylesheet" />
-    <link href="assets/css/jqvmap.css" rel="stylesheet" />
-    <link href="assets/css/components.min.css" rel="stylesheet" />
-    <link href="assets/css/plugins.min.css" rel="stylesheet" />
-    <link href="assets/css/layout.min.css" rel="stylesheet" />
-    <link href="assets/css/default.min.css" rel="stylesheet" />
-    <link href="assets/css/custom.min.css" rel="stylesheet" />
-    <link href="assets/css/CustomTheme.css" rel="stylesheet" />
-    <link href="assets/css/light.min.css" rel="stylesheet" />
-    <!--<link href="/css/AssistanceSystem.css" rel="stylesheet" />-->
-	<link href="assets/css/angularcu.css" rel="stylesheet" />
-    <link href="/css/AssistanceSystem.css" rel="stylesheet" />
- <style>
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-            display: none !important;
-        }
 
-        .TopMenu > li {
-            margin-left: 9px;
-            border: 1px solid #a79d9d;
-            padding: 10px;
-            text-decoration: none;
-        }
-    </style>
+<link href="assets/css/simple-line-icons.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-switch.min.css" rel="stylesheet" />
+<link href="assets/css/daterangepicker.min.css" rel="stylesheet" />
+<link href="assets/css/morris.css" rel="stylesheet" />
+<link href="assets/css/fullcalendar.min.css" rel="stylesheet" />
+<link href="assets/css/jqvmap.css" rel="stylesheet" />
+<link href="assets/css/components.min.css" rel="stylesheet" />
+<link href="assets/css/plugins.min.css" rel="stylesheet" />
+<link href="assets/css/layout.min.css" rel="stylesheet" />
+<link href="assets/css/default.min.css" rel="stylesheet" />
+<link href="assets/css/custom.min.css" rel="stylesheet" />
+<link href="assets/css/light.min.css" rel="stylesheet" />
+<link href="assets/css/CustomTheme.css" rel="stylesheet" />
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 </head>
-<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo" ng-app="app">
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo ng-scope"
+	ng-app="app">
+		<!-- BEGIN HEADER -->
 	<div class="page-header navbar navbar-fixed-top">
 
 		<style>
@@ -251,16 +222,16 @@ i.fa.fa-line-chart {
 }
 </style>
 
-<div class="Main_Menu">
-<div class="page-header-menu">
-            <div class="container">
-                <nav class="navbar">
+	<div class="Main_Menu">
+		<div class="page-header-menu">
+			<div class="container">
+				 <nav class="navbar">
                     <div class="container-fluid">
                         <div class="hor-menu">
                             <div id="navbarMenu" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
-                                     <li><a href="Administration.jsp" data-toggle="pills" class="2" style="margin-left: -75px;"><i class="fa fa-user" aria-hidden="true"></i><br> ADMINISTRATION</a></li>
-                                    <li><a href="#" data-toggle="pills" class="3"><i class="fa fa-cog" aria-hidden="true"></i><br>CONFIGURATION</a></li>
+                                    <li><a href="Administration.jsp" data-toggle="pills" class="2" style="margin-left: -75px;"><i class="fa fa-user" aria-hidden="true"></i><br> ADMINISTRATION</a></li>
+                                    <li><a href="ManageSmppGateway.jsp" data-toggle="pills" class="3"><i class="fa fa-cog" aria-hidden="true"></i><br>CONFIGURATION</a></li>
 
                                     <li><a href="#" data-toggle="pills" class="5"><i class="fa fa-unlock-alt" aria-hidden="true"></i><br>PERMISSION</a></li>
                                     <li><a href="LiveTrafficReport.jsp" data-toggle="pills" class="6"><i class="fa fa-dropbox" aria-hidden="true"></i><br>REPORTING</a></li>
@@ -285,115 +256,224 @@ i.fa.fa-line-chart {
                     </div>
 
                 </nav>
-            </div>
-        </div>
-        </div>
-        
-        
+
+				<div class="visible-xs Mhor-menu" style="overflow: auto;">
+					<ul class="TopMenu"
+						style="display: inline-flex; list-style: none; text-align: center; padding-left: 0; margin-top: 10px; font-size: 10px;">
+						<li class="active" style="border: 1px solid rgb(167, 157, 157);">
+							<a href="/Dashboard/Index" data-toggle="pills" class="0"> <i
+								class="icon-bar-chart DisplayIcon"></i> <span class="title">
+							</span>
+						</a>
+						</li>
+						<li style="border: 1px solid rgb(167, 157, 157);"><a
+							href="/Management/ComposeSMS" target="_self" data-toggle="pills"
+							class="1"> <i class="icon-envelope-open DisplayIcon"></i> <span
+								class="title"> </span>
+						</a></li>
+
+						<li style="border: 1px solid rgb(61, 88, 105);"><a
+							href="/Reseller/Administration/UserManagement"
+							data-toggle="pills" class="5"> <i
+								class="icon-user DisplayIcon"
+								style="color: white; margin: 0px auto 6px; height: 36px; width: 37px; font-size: 20px; padding: 8px 7px; display: block; border: 1px solid rgb(41, 184, 153); background: rgb(41, 184, 153);"></i>
+								<span class="title"> </span>
+						</a></li>
+						<li style="border: 1px solid rgb(167, 157, 157);"><a
+							href="/Reseller/Permission/PermissionInRole" data-toggle="pills"
+							class="6" style="display: none"> <i
+								class="icon-lock DisplayIcon"></i> <span class="title"> </span>
+						</a></li>
+						<li style="border: 1px solid rgb(167, 157, 157);"><a
+							href="/ApiDocument/ApiDocs" data-toggle="pills" class="3"> <i
+								class="icon-docs DisplayIcon"></i> <span class="title"> </span>
+						</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+		<style>
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover,
+	.navbar-default .navbar-nav>.active>a:focus {
+	color: #555;
+	background-color: #f9f9f9;
+}
+</style>
         <div class="page-container">
             <div class="page-sidebar-wrapper">
                 <div class="page-sidebar navbar-collapse collapse">
-                    <ul class="page-sidebar-menu" id="2" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-                        <li class="nav-item start active open">
+                    <ul class="page-sidebar-menu" id="2" style="display: none" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start">
                             <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                <span class="title">SMPP Reporting</span>
+                                <i class="icon-user"></i>
+                                <span class="title">User Administration</span>
                                 <span class="selected"></span>
                                 <span class="arrow open"></span>
                             </a>
                             <ul class="sub-menu">
-
-                                <li class="nav-item start active open">
-                                    <a href="#" class="6">
-                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                        <span class="title">Live Web Traffic Report</span>
+                                <li class="nav-item start">
+                                    <a href="UserManagement.html" class="2">
+                                        <i class="icon-users"></i>
+                                        <span class="title"> User Management</span>
                                         <span class="selected"></span>
                                     </a>
                                 </li>
-
-                                <li class="nav-item start active open">
-                                    <a href="#" class="6">
-                                       <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                        <span class="title">Gateway Queue</span>
-                                        <span class="selected"></span>
+                                <li class="nav-item start">
+                                    <a href="ViewUserTreeList.html" class="2">
+                                        <i class="icon-layers"></i>
+                                        <span class="title">Site User Tree List</span>
                                     </a>
                                 </li>
-
-                                <li class="nav-item start active open">
-                                    <a href="getMessageList.jsp" class="6">
-                                        <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                        <span class="title">Sent Report</span>
-                                        <span class="selected"></span>
+                                <li class="nav-item start">
+                                    <a href="GetClientList.html" class="2">
+                                        <i class="icon-users"></i>
+                                        <span class="title">Client Detail List</span>
                                     </a>
                                 </li>
-                                <li class="nav-item start active open">
-                                    <a href="#" class="6">
-                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                        <span class="title">Sent Count</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-                                <li class="nav-item start active open">
-                                    <a href="#" class="6">
-                                        <i class="fa fa-download"></i>
-                                        <span class="title">Download Report</span>
-                                        <span class="selected"></span>
+                                <li class="nav-item start">
+                                    <a href="ClientTransactions.html" class="2">
+                                        <i class="icon-note"></i>
+                                        <span class="title">Client Transactions</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item start">
+                        <li class="nav-item  ">
                             <a href="javascript:;" class="nav-link nav-toggle">
-                                 <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                <span class="title">ESME Reporting</span>
-                                <span class="selected"></span>
-                                <span class="arrow open"></span>
+                                <i class="icon-check"></i>
+                                <span class="title">Approvals</span>
+                                <span class="arrow"></span>
                             </a>
-
-                        <li class="nav-item start">
+                            <ul class="sub-menu">
+                                <li class="nav-item  ">
+                                    <a href="ManageSenderId.html" class="2">
+                                        <i class="icon-call-in"></i>
+                                        <span class="title">  All SenderId Request</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ManageTemplates.html" class="2">
+                                        <i class="fa fa-clone"></i>
+                                        <span class="title">  All Template Request</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item  ">
                             <a href="javascript:;" class="nav-link nav-toggle">
-                                 <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                <span class="title">Business Insight</span>
-                                <span class="selected"></span>
-                                <span class="arrow open"></span>
+                                <i class="icon-settings"></i>
+                                <span class="title">Settings</span>
+                                <span class="arrow"></span>
                             </a>
-                          
+                            <ul class="sub-menu">
+                                <li class="nav-item  ">
+                                    <a href="BlackListNumber.html" class="2">
+                                        <i class="fa fa-ban"></i>
+                                        <span class="title">  Black List Numbers</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ManageSpamKeyword.html" class="2">
+                                        <i class="icon-key"></i>
+                                        <span class="title">  Global Spam Keywords</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ManageUserSpamKeyword.html" class="2">
+                                        <i class="icon-key"></i>
+                                        <span class="title">  User Spam Keywords</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="SiteBranding.html" class="2">
+                                        <i class="icon-notebook"></i>
+                                        <span class="title">  Site Branding</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ManageNotification.html" class="2">
+                                        <i class="icon-info"></i>
+                                        <span class="title">  Manage Notification</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ChangePassword.html" class="2">
+                                        <i class="icon-note"></i>
+                                        <span class="title">  Change Password</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
-
-                        <li class="nav-item start">
-                            <a href="#" class="6">
-                                 <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                <span class="title">View Alert(s)</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul class="page-sidebar-menu" id="3" style="display:none" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-                        <li class="nav-item start active open">
+                        <li class="nav-item  ">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-list"></i>
+                                <span class="title">General Setting</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item ">
+                                    <a href="GeneralSetting.html" class="2">
+                                        <i class="icon-bag"></i>
+                                        <span class="title">
+                                            Manage General Setting
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display:none;">
+                                    <a href="BusinessAccount.html" class="2">
+                                        <i class="icon-bag"></i>
+                                        <span class="title">
+                                            Manage Business Account
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ForcePasswordChange.html" class="2">
+                                        <i class="icon-close"></i>
+                                        <span class="title">
+                                            Force Password Change
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ForceLockDown.html" class="2">
+                                        <i class="icon-lock"></i>
+                                        <span class="title">
+                                            Force Lock Down
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                    <ul class="page-sidebar-menu" id="3" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start active open">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa fa-list" aria-hidden="true"></i>
                                 <span class="title">Gateway Configuration</span>
                                 <span class="selected"></span>
                                 <span class="arrow open"></span>
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item start active open">
-                                    <a href="ManageSmppGateway.html" class="3">
+                                    <a href="#" class="3">
                                         <i class="fa fa-sliders"></i>
                                         <span class="title">Manage Gateway/Handler</span>
                                         <span class="selected"></span>
                                     </a>
                                 </li>
                                 <li class="nav-item start ">
-                                    <a href="ManageGatewayErrorCodes.html" class="3">
+                                    <a href="#" class="3">
                                         <i class="fa fa-code"></i>
                                         <span class="title"> Mange Gateway Error Codes</span>
                                     </a>
                                 </li>
 
                                 <li class="nav-item start ">
-                                    <a href="index.html" class="3">
+                                    <a href="#" class="3">
                                         <i class="fa fa-gavel"></i>
                                         <span class="title"> OA/DA Normalization Rules</span>
                                     </a>
@@ -404,29 +484,29 @@ i.fa.fa-line-chart {
                         </li>
                             <li class="nav-item start ">
                                 <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="icon-list"></i>
+                                    <i class="fa fa-list" aria-hidden="true"></i>
                                     <span class="title"> Interface Configuration</span>
                                     <span class="selected"></span>
                                     <span class="arrow open"></span>
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="nav-item start active open">
-                                        <a href="index.html" class="3">
-                                            <i class="icon-user"></i>
+                                        <a href="ManageInterface.jsp" class="3">
+                                            <i class="fa fa-sliders"></i>
                                             <span class="title"> Manage Interface</span>
                                             <span class="selected"></span>
                                         </a>
                                     </li>
                                     <li class="nav-item start active">
                                         <a href="EsmeBlackListRule.html" class="3">
-                                            <i class="icon-lock"></i>
+                                            <i class="fa fa-sliders"></i>
                                             <span class="title"> Esme Blacklist Rule</span>
                                             <span class="selected"></span>
                                         </a>
                                     </li>
                                     <li class="nav-item start active">
                                         <a href="EsmeClientList.html" class="3">
-                                            <i class="icon-user"></i>
+                                             <i class="fa fa-sliders"></i>
                                             <span class="title"> Esme Client List</span>
                                             <span class="selected"></span>
                                         </a>
@@ -435,11 +515,11 @@ i.fa.fa-line-chart {
                             </li>
                         <li class="nav-item start ">
                             <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="icon-list"></i>
+                                <i class="fa fa-list" aria-hidden="true"></i>
                                 <span class="title">Routing Rule Manager</span>
                                 <span class="arrow "></span>
                             </a>
-                            <ul class="sub-menu">
+                          <!--   <ul class="sub-menu">
                                 <li class="nav-item ">
                                     <a href="ManageMtRules.html" class="8">
                                         <i class="icon-paper-plane"></i>
@@ -465,23 +545,23 @@ i.fa.fa-line-chart {
                                         <span class="selected"></span>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> -->
                         </li>
                         <li class="nav-item start ">
                             <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="icon-list"></i>
+                               <i class="fa fa-list" aria-hidden="true"></i>
                                 <span class="title"> Deamon/Services</span>
                                 <span class="selected"></span>
                                 <span class="arrow open"></span>
                             </a>
-                            <ul class="sub-menu">
+                           <!--  <ul class="sub-menu">
                                 <li class="nav-item start ">
                                     <a href="ManageService.html" class="3">
                                         <i class="icon-settings"></i>
                                         <span class="title">  Manage Services</span>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> -->
                         </li>
                         <li class="nav-item start" style="display:none">
                             <a href="QuickConfiguration.html" class="8">
@@ -491,8 +571,8 @@ i.fa.fa-line-chart {
                             </a>
                         </li>
                         <li class="nav-item start">
-                            <a href="Housekeeping.html" class="8">
-                                <i class="icon-notebook"></i>
+                            <a href="#" class="8">
+                               <i class="fa fa-list" aria-hidden="true"></i>
                                 <span class="title">Housekeeping</span>
                                 <span class="selected"></span>
                             </a>
@@ -509,7 +589,7 @@ i.fa.fa-line-chart {
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item start active open">
-                                    <a href="ApiDocs" class="4">
+                                    <a href="ApiDocs.html" class="4">
                                         <i class="icon-doc"></i>
                                         <span class="title">  API Documents</span>
                                         <span class="selected"></span>
@@ -520,7 +600,142 @@ i.fa.fa-line-chart {
                     </ul>
 
 
-                    
+                    <ul class="page-sidebar-menu" id="6" style="display:none" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start active open">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-doc"></i>
+                                <span class="title">SMPP Reporting</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+                                <li class="nav-item start active open">
+                                    <a href="LiveTrafficReport.html" class="6">
+                                        <i class="icon-graph"></i>
+                                        <span class="title">Live Web Traffic Report</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item start active open">
+                                    <a href="GatewayMessageCount.html" class="6">
+                                        <i class="icon-docs"></i>
+                                        <span class="title">Gateway Queue</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item start active open">
+                                    <a href="index.html" class="6">
+                                        <i class="icon-docs"></i>
+                                        <span class="title">Sent Report</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start active open">
+                                    <a href="MessageUsageCount.html" class="6">
+                                        <i class="icon-envelope-open"></i>
+                                        <span class="title">Sent Count</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start active open">
+                                    <a href="DownloadReport.html" class="6">
+                                        <i class="fa fa-download"></i>
+                                        <span class="title">Download Report</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item start">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-docs"></i>
+                                <span class="title">ESME Reporting</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item start active open">
+                                    <a href="EsmeLiveTrafficReport.html" class="6">
+                                        <i class="icon-graph"></i>
+                                        <span class="title">Live Web Traffic Report</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start active open">
+                                    <a href="EsmeMessageUsageCount.html" class="6">
+                                        <i class="icon-envelope-open"></i>
+                                        <span class="title">Sent Count</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        <li class="nav-item start">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-docs"></i>
+                                <span class="title">Business Insight</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+                                <li class="nav-item start active open">
+                                    <a href="Senders.html" class="6">
+                                        <i class="icon-bar-chart"></i>
+                                        <span class="title">Top 10 Senders</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item start">
+                                    <a href="GatewayReport.html" class="6">
+                                        <i class="icon-calculator"></i>
+                                        <span class="title">Gateway Wise Count</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item start active open">
+                                    <a href="GatewayWiseMarginReport.html" class="6">
+                                        <i class="icon-docs"></i>
+                                        <span class="title">Gateway Wise Profit</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item start active open" style="display:none;">
+                                    <a href="MarginDetailReport.html" class="6">
+                                        <i class="icon-docs"></i>
+                                        <span class="title">MarginDetailReport</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item start active open">
+                                    <a href="GatewayMessageReport.html" class="6">
+                                        <i class="icon-docs"></i>
+                                        <span class="title">Gateway Status Report</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item start">
+                            <a href="AlertNotification.html" class="6">
+                                <i class="icon-share-alt"></i>
+                                <span class="title">View Alert(s)</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    </ul>
 
 
 
@@ -623,14 +838,14 @@ i.fa.fa-line-chart {
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item start">
-                                    <a href="ManageCountry.html" class="8">
+                                    <a href="/WebAdmin/Billing/ManageCountry" class="8">
                                         <i class="icon-globe"></i>
                                         <span class="title"> Manage Countries </span>
                                         <span class="selected"></span>
                                     </a>
                                     <ul>
                                         <li class="nav-item start-li" style="display:none">
-                                            <a href="ImportCountries.html" class="8">
+                                            <a href="/WebAdmin/Billing/ImportCountries" class="8">
                                                 <i class="icon-globe"></i>
                                                 <span class="title"> Import Countries </span>
                                                 <span class="selected"></span>
@@ -640,13 +855,13 @@ i.fa.fa-line-chart {
                                 </li>
 
                                 <li class="nav-item start ">
-                                    <a href="ManageMCCMNC.html" class="8">
+                                    <a href="/WebAdmin/Billing/ManageMCCMNC" class="8">
                                         <i class="icon-pointer"></i>
                                         <span class="title"> Manage MCC/MNC </span>
                                     </a>
                                     <ul>
                                         <li class="nav-item start-li" style="display:none">
-                                            <a href="ImportMCCMNC.html" class="8">
+                                            <a href="/WebAdmin/Billing/ImportMCCMNC" class="8">
                                                 <i class="icon-pointer"></i>
                                                 <span class="title"> Import MCC/MNC </span>
                                                 <span class="selected"></span>
@@ -655,20 +870,20 @@ i.fa.fa-line-chart {
                                     </ul>
                                 </li>
                                 <li class="nav-item start">
-                                    <a href="ManagePrefix.html" class="8">
+                                    <a href="/WebAdmin/Billing/ManagePrefix" class="8">
                                         <i class="icon-layers"></i>
                                         <span class="title"> Manage Prefix </span>
                                     </a>
                                     <ul>
                                         <li class="nav-item start-li" style="display:none">
-                                            <a href="ImportPrefix.html" class="8">
+                                            <a href="/WebAdmin/Billing/ImportPrefix" class="8">
                                                 <i class="icon-globe"></i>
                                                 <span class="title"> Import Prefix </span>
                                                 <span class="selected"></span>
                                             </a>
                                         </li>
                                         <li class="nav-item start-li" style="display:none">
-                                            <a href="VerifyPrefix.html" class="8">
+                                            <a href="/WebAdmin/Billing/VerifyPrefix" class="8">
                                                 <i class="icon-globe"></i>
                                                 <span class="title"> Verify Prefix </span>
                                                 <span class="selected"></span>
@@ -677,20 +892,20 @@ i.fa.fa-line-chart {
                                     </ul>
                                 </li>
                                 <li class="nav-item ">
-                                    <a href="ManageGatewayPrice.html" class="8">
+                                    <a href="/WebAdmin/Billing/ManageGatewayPrice" class="8">
                                         <i class="icon-note"></i>
                                         <span class="title"> Manage Gateway Price </span>
                                     </a>
                                     <ul>
                                         <li class="nav-item start-li" style="display:none">
-                                            <a href="ImportGatewayPrice.html" class="8">
+                                            <a href="/WebAdmin/Billing/ImportGatewayPrice" class="8">
                                                 <i class="icon-note"></i>
                                                 <span class="title"> Import Gateway Price </span>
                                                 <span class="selected"></span>
                                             </a>
                                         </li>
                                         <li class="nav-item start-li" style="display:none">
-                                            <a href="ViewGatewayDetails.html" class="8">
+                                            <a href="/WebAdmin/Billing/ViewGatewayDetails" class="8">
                                                 <i class="icon-note"></i>
                                                 <span class="title"> View Gateway Details </span>
                                                 <span class="selected"></span>
@@ -708,21 +923,21 @@ i.fa.fa-line-chart {
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item ">
-                                    <a href="ManageRatePlans.html" class="8">
+                                    <a href="/WebAdmin/Billing/ManageRatePlans" class="8">
                                         <i class="icon-folder"></i>
                                         <span class="title"> Manage Rate Plans </span>
                                         <span class="selected"></span>
                                     </a>
                                     <ul>
                                         <li class="nav-item start-li" style="display:none">
-                                            <a href="AddNewTemplate.html" class="8">
+                                            <a href="/WebAdmin/Billing/AddNewTemplate" class="8">
                                                 <i class="icon-globe"></i>
                                                 <span class="title"> Add Rate Plan Template</span>
                                                 <span class="selected"></span>
                                             </a>
                                         </li>
                                         <li class="nav-item start-li" style="display:none">
-                                            <a href="ViewTemplates.html" class="8">
+                                            <a href="/WebAdmin/Billing/ViewTemplates" class="8">
                                                 <i class="icon-globe"></i>
                                                 <span class="title"> View Template Details</span>
                                                 <span class="selected"></span>
@@ -743,7 +958,7 @@ i.fa.fa-line-chart {
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item ">
-                                    <a href="ManageCurrency.html" class="8">
+                                    <a href="/WebAdmin/Billing/ManageCurrency" class="8">
                                         <i class="icon-tag"></i>
                                         <span class="title"> Manage Currency </span>
                                         <span class="selected"></span>
@@ -763,7 +978,7 @@ i.fa.fa-line-chart {
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item start active open">
-                                    <a href="index.html" class="9">
+                                    <a href="/WebAdmin/Voice/Index" class="9">
                                         <i class="icon-microphone"></i>
                                         <span class="title"> HTTP Voice Api</span>
                                         <span class="selected"></span>
@@ -783,19 +998,19 @@ i.fa.fa-line-chart {
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a href="ManageSDPAccount.html" class="4">
+                                    <a href="/SDP/ManageSDPAccount" class="4">
                                         <i class="fa fa-asterisk"></i>
                                         <span class="title">Manage SDP Account(s)</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="ManageSDPEndPoint.html" class="4">
+                                    <a href="/SDP/ManageSDPEndPoint" class="4">
                                         <i class="fa fa-bars"></i>
                                         <span class="title">Manage SDP Endpoint(s)</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="SDPService.html" class="4">
+                                    <a href="/SDP/SDPService" class="4">
                                         <i class="fa fa-bars"></i>
                                         <span class="title">Manage SDP Service(s)</span>
                                     </a>
@@ -811,13 +1026,13 @@ i.fa.fa-line-chart {
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a href="NotifyServiceApp.html" class="4">
+                                    <a href="/Applications/NotifyServiceApp" class="4">
                                         <i class="fa fa-asterisk"></i>
                                         <span class="title">Notify Service App</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="OrderSyncRelationApp.html" class="4">
+                                    <a href="/Applications/OrderSyncRelationApp" class="4">
                                         <i class="fa fa-bars"></i>
                                         <span class="title">Order Sync Relation App</span>
                                     </a>
@@ -834,7 +1049,7 @@ i.fa.fa-line-chart {
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a href="SubscriptionList.html" class="4">
+                                    <a href="/Reports/SubscriptionList" class="4">
                                         <i class="fa fa-asterisk"></i>
                                         <span class="title">Subscription Report</span>
                                     </a>
@@ -852,7 +1067,7 @@ i.fa.fa-line-chart {
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a href="QueueTransfer.html" class="12">
+                                    <a href="/WebAdmin/Utility/QueueTransfer" class="12">
                                         <i class="fa fa-asterisk"></i>
                                         <span class="title">Manage Queue-Transfer</span>
                                     </a>
@@ -861,119 +1076,152 @@ i.fa.fa-line-chart {
                         </li>
 
                         <li class="nav-item start">
-                            <a href="TraceMessage.html" class="12">
+                            <a href="/WebAdmin/Utility/TraceMessage" class="12">
                                 <i class="icon-eyeglasses"></i>
                                 <span class="title">Message Trace</span>
                                 <span class="selected"></span>
                             </a>
                         </li>
                         <li class="nav-item start">
-                            <a href="Throughput.html" class="12">
+                            <a href="/WebAdmin/Utility/Throughput" class="12">
                                 <i class="icon-pie-chart"></i>
                                 <span class="title">View Throughput</span>
                                 <span class="selected"></span>
                             </a>
                         </li>
                     </ul>
+
+
+
                     <!-- END SIDEBAR MENU -->
                 </div>
                 <!-- END SIDEBAR -->
             </div>
-            </div>
-            <div class="col-md-02">
-							<div class="portlet light bordered" style="margin-left: 20%;margin-top: 1%;">
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+			<div class="page-content" style="min-height: 620px;">
+           <div class="portlet light bordered">
+				<div class="Portlet-body">
+				<div class="row-fluid">
+				<b style="font-size: 17px">Manage Interface</b>
+				<div class="form-group">
+                        <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-success btn-sm" id="addGateway"><i class="fa fa-plus"></i>&nbsp;Add New</a>&nbsp;
+                    </div>
+                    
+                    <div class="modal fade" id="myModal" role="dialog">
+										<div class="modal-dialog">
 
-								<div class="Portlet-body">
-									<form action="UserController"
-										class="form-inline no-margin ng-pristine ng-valid"
-										method="post" novalidate="novalidate" name="uForm">
-										<input type="hidden" name="userAction" value="14">
-										<div class="form-group">
-											<!-- <input class="form-control input-sm tb ui-autocomplete-input"
-												data-val="true"
-												data-val-length="The User Name should not be more than 50 characters long."
-												data-val-length-max="50"
-												data-val-regex="Please enter valid username"
-												data-val-regex-pattern="[a-zA-Z0-9@#$%&amp;*+\-_()+.,![\]\s\\/]+$"
-												data-val-required="User Name is required" id="txtUserNames"
-												name="UserName" placeholder="Enter User Name"
-												required="required" style="width: 225px;" type="text"
-												value="" aria-required="true" autocomplete="off"
-												role="textbox" aria-autocomplete="list" aria-haspopup="true"> -->
-												<div class="row-fluid">
-										      <select class="selectpicker" name="UserName" data-show-subtext="true" data-live-search="true">
-										      <option>Choose User</option>
-										     
-									        <%
-										     UserManager manager = new UserManager();
-										      List<User> e=manager.getAllUsersByUserName();
-										      for(int i=0;i<e.size();i++){
-										      %>
-										        <option value="<%=e.get(i).getUserName() %>" data-subtext=""><%=e.get(i).getUserName() %></option>
-										        <%} %>
-										         </select>
-										    </div>
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<p style="margin: 0px 0; font-size: large;">Account Details</p>
+												</div>
+												<div class="modal-body">
+													
+													<form action="UserController" id="smppForm" method="post">    
+				<input type="hidden" name="userAction" value="16">            
+				<div class="modal-body">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" style="        color: #333">
+                                <h4 class="panel-title" style="        font-size: 12px">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#credentialsDetails" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                                        <i class="fa fa-angle-double-down"></i>&nbsp;Required credentials
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="credentialsDetails" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="        height: 0px;">
+                                <div class="panel-body">
+                                    <input data-val="true" data-val-required="The GatewayId field is required." id="GatewayId" name="GatewayId" type="hidden" value="">
+                                    <div class="form-inline no-margin">
+                                        <div class="form-group">
+                                            Gateway Name&nbsp;<a href="#" data-toggle="tooltip" title="" data-placement="bottom" style="        color: black;" data-original-title="Easy to remember name for SMS gateway"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="form-group" style="        margin-right: 9px;">
+                                            <input class="form-control input" data-val="true" data-val-length="The Gateway Name should not be more than 50 characters long." data-val-length-max="50" data-val-required="Gateway Name is required" id="GatewayName" maxlength="50" name="GatewayName" placeholder="Gateway Name" style="width: 148px;" tabindex="1" type="text" value="">
+                                        </div>
+                                        <div class="form-group" style="        margin-right: 15px;">
+                                            Ip Address&nbsp;<a href="#" data-toggle="tooltip" title="" data-placement="bottom" style="        color: black;" data-original-title="IP address of the SMSC"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control input" id="IPAddress" maxlength="50" name="IPAddress" placeholder="IP Address" style="width: 140px;" tabindex="2" type="text" value="">
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <div class="form-inline no-margin">
+                                        <div class="form-group" style="        margin-right: 29px;">
+                                            System Id&nbsp;<a href="#" data-toggle="tooltip" title="" data-placement="right" style="        color: black;" data-original-title="Identified the ESEME system requesting the bind as a receiver/transmitter/transceiver with the SMSC"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="form-group" style="        margin-right: 9px;">
+                                            <input class="form-control input" data-val="true" data-val-required="System Id is required" id="SystemId" maxlength="50" name="SystemId" placeholder="System Id" style="width: 148px;" tabindex="3" type="text" value="">
+                                        </div>
+                                        <div class="form-group" style="        margin-right: 21px;">
+                                            Password&nbsp;<a href="#" data-toggle="tooltip" title="" data-placement="bottom" style="        color: black;" data-original-title="Password may be used by the SMSC for security reasons to authenticate the ESME requesting to bind"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control input" data-val="true" data-val-required="Password is required" id="Password" maxlength="50" name="Password" placeholder="Password" style="width: 140px;" tabindex="4" type="text" value="">
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <div class="form-inline no-margin">
+                                        <div class="form-group" style="        margin-right: 46px;">
+                                            Tx Port&nbsp;<a href="#" data-toggle="tooltip" title="" data-placement="right" style="        color: black;" data-original-title="Transmitter port the ESME system to bind"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="form-group" style="        margin-right: 9px;">
+                                            <input class="form-control NumberValidation" data-val="true" data-val-required="Tx Port is required" id="TxPort" maxlength="10" name="TxPort" style="width: 148px;" tabindex="5" type="text" value="">
+                                        </div>
+                                        <div class="form-group" style="        margin-right: 34px;">
+                                            Rx Port&nbsp;<a href="#" data-toggle="tooltip" title="" data-placement="bottom" style="        color: black;" data-original-title="Receiver port the ESME system to bind"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control NumberValidation" data-val="true" data-val-required="Rx Port is required" id="RxPort" maxlength="10" name="RxPort" style="width: 140px;" tabindex="6" type="text" value="">
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <div class="form-inline no-margin">
+                                        <div class="form-group" style="        margin-right: 36px;">
+                                            TxR Port&nbsp;<a href="#" data-toggle="tooltip" title="" data-placement="right" style="        color: black;" data-original-title="Transceiver port the ESME system to bind"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="form-group" style="        margin-right: 9px;">
+                                            <input class="form-control NumberValidation" data-val="true" data-val-required="TxRx Port is required" id="TxRxPort" maxlength="10" name="TxRxPort" style="width: 148px;" tabindex="7" type="text" value="">
+                                        </div>
+                                        <div class="form-group" style="        margin-right: 8px;">
+                                            System Type&nbsp;<a href="#" data-toggle="tooltip" title="" data-placement="top" style="        color: black;" data-original-title="Identifies the type of ESME system requesting to bind as a receiver/transmitter/transceiver with the SMSC"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" id="SystemType" maxlength="4" name="SystemType" placeholder="System Type" style="width: 140px;" tabindex="8" type="text" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+													</div>
+													</div>
+													</form>
+													
+													
+												</div>
+
+											</div>
+
 										</div>
-										<input type="submit"
-											class="btn btn-sm btn-success" value="Submit">
-										
-									</form>
-									<br>
-									<div style="padding: 15px !important; display: none"
-										id="alertdiv">
-										<a href="#" class="close" aria-label="close">Ã—</a> <span
-											id="AlertMessage"></span>
 									</div>
-									
-
-
-								</div>
-								<%if(list!=null){%>
-							<table style="width:100%;border: 1px solid #c2cad8;">
-							<th style="border: 1px solid #c2cad8;height: 41px">Submit Date</th>
-							<th style="border: 1px solid #c2cad8">Mobile Number</th>
-							<th style="border: 1px solid #c2cad8">Sender Id</th>
-							<th style="border: 1px solid #c2cad8; width: 35%;">Message</th>
-							<th style="border: 1px solid #c2cad8">Status</th>
-							<th style="border: 1px solid #c2cad8">SMS COST</th>
-							<th style="border: 1px solid #c2cad8">Gateway Id</th>
-							<th style="border: 1px solid #c2cad8">Error Code</th>
-							<%for(int i=0;i<list.size();i++){
-								Message m = list.get(i);%>
-								<tr>
-								<td style="border: 1px solid #c2cad8;width: 88px;"><%=m.getSubmissionDate()%></td>
-								<td style="border: 1px solid #c2cad8"><%=m.getContacts()%></td>
-								<td style="border: 1px solid #c2cad8"><%=m.getSenderId()%></td>
-								<td style="border: 1px solid #c2cad8"><%=m.getMessage()%></td>
-								<%String status = "";
-								if(m.getStatus().equals("1")){
-									status="UnDeliver";
-								} else{
-									status="Deliver";
-								} %>
-								<td style="border: 1px solid #c2cad8"><%=status%></td>
-								<td style="border: 1px solid #c2cad8">0.1</td>
-								<td style="border: 1px solid #c2cad8"><%=m.getGatewayId() %></td>
-								<td style="border: 1px solid #c2cad8"><%=m.getErrorCode()%></td>
-								</tr>
-							<%}%>
-							</table>
-						<%}%>
-							</div>
-						</div>
-						
-           
+                    
+                    
+                    
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+			
 </div>
-
-
-
-
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-<script type="text/javascript">
-function submit(){
-	alert("hello");
-}
-</script>
 </body>
+</html>

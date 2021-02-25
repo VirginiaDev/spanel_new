@@ -14,7 +14,17 @@
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/
 font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
 crossorigin="anonymous">
-      <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- <script src="assets/js/jquery.min.js"></script> --> 
+    <script src="/Script/jsapi.js"></script>
+    <script src="assets/js/app.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/.validate.min.js"></script>
+    <script src="assets/js/unobtrusive.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/bsAlerts.js"></script>
     <link href="assets/css/simple-line-icons.min.css" rel="stylesheet" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/bootstrap-switch.min.css" rel="stylesheet" />
@@ -514,29 +524,29 @@ i.fa.fa-line-chart {
                                     <span class="selected"></span>
                                     <span class="arrow open"></span>
                                 </a>
-                               <!--  <ul class="sub-menu">
+                                <ul class="sub-menu">
                                     <li class="nav-item start active open">
-                                        <a href="index.html" class="3">
-                                            <i class="icon-user"></i>
+                                        <a href="ManageInterface.jsp" class="3">
+                                            <i class="fa fa-sliders"></i>
                                             <span class="title"> Manage Interface</span>
                                             <span class="selected"></span>
                                         </a>
                                     </li>
                                     <li class="nav-item start active">
                                         <a href="EsmeBlackListRule.html" class="3">
-                                            <i class="icon-lock"></i>
+                                            <i class="fa fa-sliders"></i>
                                             <span class="title"> Esme Blacklist Rule</span>
                                             <span class="selected"></span>
                                         </a>
                                     </li>
                                     <li class="nav-item start active">
                                         <a href="EsmeClientList.html" class="3">
-                                            <i class="icon-user"></i>
+                                             <i class="fa fa-sliders"></i>
                                             <span class="title"> Esme Client List</span>
                                             <span class="selected"></span>
                                         </a>
                                     </li>
-                                </ul> -->
+                                </ul>
                             </li>
                         <li class="nav-item start ">
                             <a href="javascript:;" class="nav-link nav-toggle">

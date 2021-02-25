@@ -13,7 +13,7 @@ User u = (User)session.getAttribute("user");
     <script src="assets/js/app.min.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js" type="text/javascript"></script>
     <script src="assets/js/layout.js"></script>
-    <script src="assets/js/.validate.min.js"></script>
+    <script src="assets/js/validate.min.js"></script>
     <script src="assets/js/unobtrusive.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/angular.js"></script>
@@ -46,7 +46,7 @@ User u = (User)session.getAttribute("user");
 <%if(route.equals("null")){%>
 	alert("Please Choose a route first. Then send Sms");
 <%}%>
-    google.load("elements", "1", { packages: "transliteration" });
+/*     google.load("elements", "1", { packages: "transliteration" });
     //var transliterationControl;
 
     function changeLanguage() {
@@ -76,12 +76,12 @@ User u = (User)session.getAttribute("user");
             transliterationControl.disableTransliteration();
         }
     }
-    google.setOnLoadCallback(changeLanguage);
+    google.setOnLoadCallback(changeLanguage); */
 </script>
 
 
     <script>
-        $(function () {
+        /* $(function () {
             var timezoneval = $("#TimeZone").val();
             var actualDateTime = null;
              try {
@@ -123,7 +123,7 @@ User u = (User)session.getAttribute("user");
 
 
     });
-
+ */
 </script>
     
 </head>
@@ -153,7 +153,7 @@ User u = (User)session.getAttribute("user");
 
 		<script type="text/javascript">
 
-    $(document).ready(function () {
+  /*   $(document).ready(function () {
         debugger;
         var img = $("#ImageSpan  > img");
         if ($("#ImageSpan > img").length > 0) {
@@ -184,9 +184,9 @@ User u = (User)session.getAttribute("user");
             
         });
     });
+ */
 
-
-    function HideColumns() {
+  /*   function HideColumns() {
         var IsSeenByUser = getCookie("Notificationseen");
         if (IsSeenByUser == "false") {
             setCookie("Notificationseen", "true");
@@ -196,9 +196,9 @@ User u = (User)session.getAttribute("user");
         else {
             $('#spnAlretCounts').text("0");
         }
-    }
+    } */
 
-    function getCookie(cname) {
+/*     function getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
@@ -218,7 +218,7 @@ User u = (User)session.getAttribute("user");
         //d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
         //var expires = "expires=" + d.toUTCString();
         document.cookie = cname + "=" + cvalue + ";path=/";
-    }
+    } */
 </script>
 
 		<div class="page-header-inner ">
@@ -324,7 +324,7 @@ User u = (User)session.getAttribute("user");
                     <ul class="nav navbar-nav ">
 
                         <li class="active">
-                            <a href="UserDashboard.jsp" data-toggle="pills" class="0">
+                            <a href="#" data-toggle="pills" class="0">
                                 <i class="fa fa-line-chart DisplayIcon"></i>
                                 <span class="title">
                                     DASHBOARD
@@ -695,7 +695,7 @@ User u = (User)session.getAttribute("user");
                         <div class="panel-body">
                             <div class="tab-content">
                                 <div class="tab-pane fade in active">
-                                    <form action="UserController" method="POST" name="uForm">
+                                    <form action="sms-controller" method="POST" name="uForm" enctype="multipart/form-data">
                                     	<input type="hidden" name="userAction" value="13">
                                     	<input type="hidden" name="userName" value="<%=userName%>">
                                     	<input type="hidden" name="route" value="<%=route%>">
@@ -726,7 +726,13 @@ User u = (User)session.getAttribute("user");
 
                                                 <span class="field-validation-valid text-danger" data-valmsg-for="SenderId" data-valmsg-replace="true"></span>
                                             </div>
-                                            <div class="form-group">
+                                            
+                                            <div class="form-group" id="upload" style="display: none">
+                                            <label>Upload File</label>
+                                            <input type="file" name="file">
+                                            </div>
+                                            
+                                            <div class="form-group" id="contacts">
                                                 <label for="Campaign Name">Contacts</label>
                                                <!--  <div class="col-md-12 ng-cloak" id="ulSelectedGroupInfo" ng-hide="HideUlSelectedGroupInfo" style="padding: 0; margin: 5px 0;">
                                                     <h5>Group(s) :</h5>
@@ -751,26 +757,26 @@ User u = (User)session.getAttribute("user");
                                                 </div> -->
 
                                                 <textarea class="form-control" columns="10" id="ContactNumber" name="ContactNumber" ng-blur="Managenumbers()" ng-click="ShowHideFileOrGroupsAndMessage(&#x27;group&#x27;)" ng-disabled="DisabledControll" ng-model="ComposeSMS.ContactNumber" ng-paste="handlePaste($event.originalEvent.clipboardData.getData(&#x27;text/plain&#x27;))" rows="3">
-</textarea>
+												</textarea>
 
                                                 <!-- <span class="field-validation-valid text-danger" data-valmsg-for="ContactNumber" data-valmsg-replace="true"></span>
                                                 <div class="text-right hidden-xs" style="padding: 5px 0;">
                                                     <div>
                                                         <a data-toggle="modal" ng-click="ShowHideFileOrGroupsAndMessage('group')" href="#GroupContactModal" class="btn btn-circle btn-icon-only btn-default visible-xs">
                                                             <i class="icon-cloud-upload"></i>
-                                                        </a>
+                                                        </a>-->
 
 
                                                         <div class="form-group" style="padding: 2px; background: white;">
 
-                                                            <label class="mt-checkbox mt-checkbox-outline pull-left" style="float:left">
+                                                            <!-- <label class="mt-checkbox mt-checkbox-outline pull-left" style="float:left">
                                                                 <input type="checkbox" ng-model="ComposeSMS.IsAddCountryCode">Auto Add Country Code(91)
                                                                 <span></span>
-                                                            </label>
+                                                            </label> -->
 
                                                             Import contacts :
-                                                            <a href="" ng-click="ShowHideFileOrGroupsAndMessage('group')" style="cursor: pointer; color: #3c8dbc"><b>Groups</b></a> <span class="reddivider">| </span>
-                                                            <a href="" ng-click="ShowHideFileOrGroupsAndMessage('file')" style="cursor: pointer; color: #3c8dbc"><b>File</b>(Excel, CSV, Text)</a>
+                                                            <!-- <a href="" ng-click="ShowHideFileOrGroupsAndMessage('group')" style="cursor: pointer; color: #3c8dbc"><b>Groups</b></a> <span class="reddivider">| </span> -->
+                                                            <a onclick="uploadForm()" style="cursor: pointer; color: #3c8dbc"><b>File</b>(Excel)</a>
                                                         </div>
 
                                                     </div>
@@ -783,16 +789,16 @@ User u = (User)session.getAttribute("user");
                                                             Import contacts :&nbsp;<div class="btn btn-circle btn-icon-only btn-default" style="margin-top: 5px;"><i class="icon-cloud-upload"></i></div>
                                                         </a>
                                                     </div>
-                                                </div> -->
-                                            </div>
-                                           <!--  <div class="text-left visible-xs" style="padding: 5px; background: white;">
+                                                </div>
+                                            </div> 
+                                            <div class="text-left visible-xs" style="padding: 5px; background: white;">
                                                 <label class="mt-checkbox mt-checkbox-outline pull-left" style="float:left">
                                                     <input type="checkbox" ng-model="ComposeSMS.IsAddCountryCode">Auto Add Country Code(91)
                                                     <span></span>
                                                 </label>
                                                 <br />
                                             </div>
-                                            <div class="form-group" style="padding: 5px; background: white;">
+                                           <!--  <div class="form-group" style="padding: 5px; background: white;">
                                                 <div style="display: inline-block;">
                                                     <label class="mt-checkbox mt-checkbox-outline" style="margin-bottom: 0;">
                                                         <input type="checkbox" id="RemoveDuplicateNumbers" ng-model="ComposeSMS.RemoveDuplicateNumbers" checked="checked" />
@@ -1365,11 +1371,8 @@ User u = (User)session.getAttribute("user");
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- /panel -->
-
-    <!--             <div class="col-md-5 hidden-xs" ng-cloak>
+                        
+                <!-- <div class="col-md-5 hidden-xs" ng-cloak>
                     <div class="portlet light bordered" ng-hide="HideImportFromFileOrGroups">
                         <div class=" tabbable-line">
                             <ul class="nav nav-tabs">
@@ -1441,7 +1444,13 @@ User u = (User)session.getAttribute("user");
                             </tr>
                         </tbody>
                     </table>
-                </div> -->
+                </div>
+ -->                        
+                    </div>
+                </div>
+                <!-- /panel -->
+
+
 
                 <div class="modal fade" id="GroupContactModal" tabindex="-1" role="basic" aria-hidden="true">
                     <div class="modal-dialog">
@@ -1716,7 +1725,14 @@ User u = (User)session.getAttribute("user");
     function submitForm(){
 	document.uForm.submit();
     }
-        $(document).ready(function () {
+    
+    function uploadForm(){
+    	document.getElementById("upload").style.display='block';
+    	document.getElementById("contacts").style.display='none';
+    }
+    
+    
+        /* $(document).ready(function () {
 
             $('#clickmewow').click(function () {
                 $('#radio1003').attr('checked', 'checked');
@@ -1745,13 +1761,13 @@ User u = (User)session.getAttribute("user");
                 }
             });
         })
-
-        angular.module('app').config(['$httpProvider', function ($httpProvider) {
+ */
+       /*  angular.module('app').config(['$httpProvider', function ($httpProvider) {
             $httpProvider.interceptors.push('LoadingInterceptor');
             $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-        }]);
+        }]); */
 
-        angular.module('app').
+        /* angular.module('app').
             service('LoadingInterceptor', ['$rootScope',
                 function ($rootScope) {
                     'use strict';
@@ -1783,8 +1799,8 @@ User u = (User)session.getAttribute("user");
                         }
                     };
                 }]);
-
-        $(document).ready(function () {
+ */
+        /* $(document).ready(function () {
             debugger;
             $("#CreditBalance").click(function () {
                 $.ajax({
@@ -1853,7 +1869,7 @@ User u = (User)session.getAttribute("user");
                     });
                 }
             });
-        });
+        }); */
     </script>
 </body>
 </html>

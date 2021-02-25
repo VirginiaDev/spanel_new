@@ -79,6 +79,9 @@ crossorigin="anonymous">
 </style>
 
 		<script type="text/javascript">
+		<%if(message!=null){%>
+    	alert("<%=message%>");
+    <% session.removeAttribute("message");}%>
 
     $(document).ready(function () {
         debugger;
@@ -1079,9 +1082,6 @@ i.fa.fa-line-chart {
                         }
                     };
                 }]);
-        <%if(message!=null){%>
-        	alert("<%=message%>");
-        <% session.removeAttribute("message");}%>
         
     </script>
 
