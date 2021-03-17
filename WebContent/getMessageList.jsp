@@ -260,7 +260,7 @@ i.fa.fa-line-chart {
                             <div id="navbarMenu" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                      <li><a href="Administration.jsp" data-toggle="pills" class="2" style="margin-left: -75px;"><i class="fa fa-user" aria-hidden="true"></i><br> ADMINISTRATION</a></li>
-                                    <li><a href="#" data-toggle="pills" class="3"><i class="fa fa-cog" aria-hidden="true"></i><br>CONFIGURATION</a></li>
+                                    <li><a href="ManageSmppGateway.jsp" data-toggle="pills" class="3"><i class="fa fa-cog" aria-hidden="true"></i><br>CONFIGURATION</a></li>
 
                                     <li><a href="#" data-toggle="pills" class="5"><i class="fa fa-unlock-alt" aria-hidden="true"></i><br>PERMISSION</a></li>
                                     <li><a href="LiveTrafficReport.jsp" data-toggle="pills" class="6"><i class="fa fa-dropbox" aria-hidden="true"></i><br>REPORTING</a></li>
@@ -946,11 +946,17 @@ i.fa.fa-line-chart {
 								<td style="border: 1px solid #c2cad8"><%=m.getSenderId()%></td>
 								<td style="border: 1px solid #c2cad8"><%=m.getMessage()%></td>
 								<%String status = "";
-								if(m.getStatus().equals("1")){
-									status="UnDeliver";
+								if(m.getErrorCode()!=null){
+									if(m.getErrorCode().equals("016")){
+										status="UnDeliver";
+									} else{
+										status="Deliver";
+									} 
 								} else{
-									status="Deliver";
-								} %>
+									m.setErrorCode("");
+								}
+							
+								%>
 								<td style="border: 1px solid #c2cad8"><%=status%></td>
 								<td style="border: 1px solid #c2cad8">0.1</td>
 								<td style="border: 1px solid #c2cad8"><%=m.getGatewayId() %></td>

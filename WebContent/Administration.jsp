@@ -635,7 +635,6 @@ i.fa.fa-line-chart {
 							</div>
 						</div>
 
-
 					</div>
 				</div>
 

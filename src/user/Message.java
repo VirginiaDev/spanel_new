@@ -14,8 +14,22 @@ public class Message {
 	private String submissionDate;
 	private String reportStatus;
 	private String errorCode;
+	private String messageId;
+	private String trafficId;
 	
 	
+	public String getMessageId() {
+		return messageId;
+	}
+	public void setMessageId(String messageId) {
+		this.messageId = messageId;
+	}
+	public String getTrafficId() {
+		return trafficId;
+	}
+	public void setTrafficId(String trafficId) {
+		this.trafficId = trafficId;
+	}
 	public String getReportStatus() {
 		return reportStatus;
 	}

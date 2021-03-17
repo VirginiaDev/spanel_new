@@ -14,8 +14,8 @@
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/
 font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
 crossorigin="anonymous">
-    <!-- <script src="assets/js/jquery.min.js"></script> --> 
-    <script src="/Script/jsapi.js"></script>
+     <script src="assets/js/jquery.min.js"></script> 
+     <script src="/Script/jsapi.js"></script>
     <script src="assets/js/app.min.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js" type="text/javascript"></script>
     <script src="assets/js/layout.js"></script>
@@ -526,21 +526,21 @@ i.fa.fa-line-chart {
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="nav-item start active open">
-                                        <a href="ManageInterface.jsp" class="3">
+                                        <a href="#" class="3">
                                             <i class="fa fa-sliders"></i>
                                             <span class="title"> Manage Interface</span>
                                             <span class="selected"></span>
                                         </a>
                                     </li>
                                     <li class="nav-item start active">
-                                        <a href="EsmeBlackListRule.html" class="3">
+                                        <a href="#" class="3">
                                             <i class="fa fa-sliders"></i>
                                             <span class="title"> Esme Blacklist Rule</span>
                                             <span class="selected"></span>
                                         </a>
                                     </li>
                                     <li class="nav-item start active">
-                                        <a href="EsmeClientList.html" class="3">
+                                        <a href="#" class="3">
                                              <i class="fa fa-sliders"></i>
                                             <span class="title"> Esme Client List</span>
                                             <span class="selected"></span>

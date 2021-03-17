@@ -47,6 +47,7 @@ import com.mashape.unirest.http.Unirest;
 
 import manager.UserManager;
 import user.User;
+import user.Accounts;
 import user.Message;
 import user.Routes;
 
@@ -123,7 +124,38 @@ public class UserController extends HttpServlet {
 		case 16:
 			addGateway(request, response);
 			break;
+		case 17:
+			saveAccount(request, response);
+			break;
 		}
+		
+	}
+
+	private void saveAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		String systemId = request.getParameter("systemId");
+		String password = request.getParameter("password");
+		String txCount = request.getParameter("txCount");
+		String rxCount = request.getParameter("rxCount");
+		String txRxCount = request.getParameter("txRxCount");
+		String parentId = request.getParameter("parentId");
+		
+		Accounts a = new Accounts();
+		a.setSystemId(systemId);
+		a.setPassword(password);
+		a.setParentAccountId(parentId);
+		a.setTxCount(txCount);
+		a.setRxCount(rxCount);
+		a.setTxRxCount(txRxCount);
+		
+		boolean status = new UserManager().saveAccountInDb(a);
+		if(status == true) {
+			request.getSession().setAttribute("message", "Interface Saved Successfully");
+		} else {
+			request.getSession().setAttribute("message", "An error occured");
+		}
+		
+		response.sendRedirect("ManageInterface.jsp");
+		
 		
 	}
 
@@ -149,7 +181,7 @@ public class UserController extends HttpServlet {
 		boolean status = new UserManager().saveGateway(r);
 		if(status == true) {
 			request.getSession().setAttribute("message", "Gateway saved successfully");
-			bindServer(r);
+//			bindServer(r);
 		} else {
 			request.getSession().setAttribute("message", "No gateway added");
 		}
@@ -365,8 +397,13 @@ public class UserController extends HttpServlet {
 	}
 	
 	private void getUserById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("userId"));
 		UserManager manager = new UserManager();
+		List<Accounts> a = manager.getUserByID(id);
+		
+		request.setAttribute("accounts", a);
+		request.setAttribute("parentId", String.valueOf(id));
+		request.getRequestDispatcher("/ManageInterface.jsp").forward(request, response);
 		
 	}
 

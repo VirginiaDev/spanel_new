@@ -21,8 +21,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import connection.DbConnection;
 import jxl.Workbook;
+import user.Accounts;
 import user.Message;
 import user.Routes;
+import user.Sessions;
 import user.User;
 
 public class UserManager {
@@ -47,6 +49,53 @@ public class UserManager {
 			ps = con.createStatement();
 			String query = "Update clients set status = 0 where id="+id;
 			ps.executeUpdate(query);
+			
+			status = true;
+		} catch(Exception e) {
+			e.printStackTrace();
+		}  finally {
+			try {
+				if(con!=null) {
+					con.close();
+				}if(rs!=null) {
+					rs.close();
+				}if(ps!=null) {
+					ps.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			e2.printStackTrace();
+			}
+		} 
+		
+		return status;
+	}
+	
+	public boolean saveAccountInDb(Accounts account) {
+		boolean status = false;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			Calendar cal = Calendar.getInstance();
+		    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+		    String submission_time = String.valueOf(sdf.format(cal.getTime()));
+		    System.out.println("submission_time=>>"+submission_time);
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");   
+			con=DbConnection.getInstance().getConnection();
+			String query = "insert into accounts (system_id, password, parent_account_id, tx_count, rx_count, tx_rx_count, status, submission_date) values (?,?,?,?,?,?,?,?)";
+			ps = con.prepareStatement(query);
+			ps.setString(1, account.getSystemId());
+			ps.setString(2, account.getPassword());
+			ps.setString(3, account.getParentAccountId());
+			ps.setString(4, account.getTxCount());
+			ps.setString(5, account.getRxCount());
+			ps.setString(6, account.getTxRxCount());
+			ps.setString(7, "1");
+			ps.setString(8, submission_time);
+			ps.executeUpdate();
 			
 			status = true;
 		} catch(Exception e) {
@@ -250,6 +299,98 @@ public class UserManager {
 		return id;
 	}
 	
+	public List<Sessions> getSessionListBySystemId(String systemId) {
+		List<Sessions> sessionsList = new ArrayList<Sessions>();
+		Connection con = null;
+		Statement st = null;
+		ResultSet rs = null;
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123"); 
+			con=DbConnection.getInstance().getConnection();
+			st = con.createStatement();
+			String query = "SELECT * FROM sessions WHERE system_id='"+systemId+"' and status=1 ";
+			rs = st.executeQuery(query);
+			while(rs.next()) {
+				Sessions a = new Sessions();
+				
+				a.setId(rs.getInt("id"));
+				a.setSystemId(rs.getString("system_id"));
+				a.setRemoteIpAdress(rs.getString("remote_ip"));
+				a.setRemotePort(rs.getString("remote_port"));
+				a.setLocalIp(rs.getString("local_ip"));
+				a.setLocalPort(rs.getString("local_port"));
+				a.setBindType(rs.getString("bind_type"));
+				a.setSession(rs.getString("session"));
+				a.setSubmissionDate(rs.getString("submission_date"));
+				
+				sessionsList.add(a);
+			}
+		} catch(Exception e) {
+			log.info(e.toString());
+		}  finally {
+			try {
+				if(con!=null) {
+					con.close();
+				}if(rs!=null) {
+					rs.close();
+				}if(st!=null) {
+					st.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			e2.printStackTrace();
+			}
+		} 
+		return sessionsList;
+	}
+	
+	public List<Accounts> getUserByID(int id) {
+		List<Accounts> accountsList = new ArrayList<Accounts>();
+		Connection con = null;
+		Statement st = null;
+		ResultSet rs = null;
+		try {
+			//Class.forName("com.mysql.jdbc.Driver");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123"); 
+			con=DbConnection.getInstance().getConnection();
+			st = con.createStatement();
+			String query = "SELECT * FROM accounts WHERE parent_account_id="+id;
+			rs = st.executeQuery(query);
+			while(rs.next()) {
+				Accounts a = new Accounts();
+				
+				a.setId(rs.getInt("id"));
+				a.setSystemId(rs.getString("system_id"));
+				a.setPassword(rs.getString("password"));
+				a.setTxCount(rs.getString("tx_count"));
+				a.setRxCount(rs.getString("rx_count"));
+				a.setTxRxCount(rs.getString("tx_rx_count"));
+				a.setParentAccountId(rs.getString("parent_account_id"));
+				
+				accountsList.add(a);
+			}
+		} catch(Exception e) {
+			log.info(e.toString());
+		}  finally {
+			try {
+				if(con!=null) {
+					con.close();
+				}if(rs!=null) {
+					rs.close();
+				}if(st!=null) {
+					st.close();
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			e2.printStackTrace();
+			}
+		} 
+		return accountsList;
+	}
+	
 	public User getUserByEmail(String email, String password, String userType) {
 		User user = new User();
 		Connection con = null;
@@ -303,11 +444,12 @@ public class UserManager {
 			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123"); 
 			con=DbConnection.getInstance().getConnection();
 			st = con.createStatement();
-			String query = "SELECT user_name FROM user WHERE user_name!='' ";
+			String query = "SELECT * FROM user WHERE user_name!='' ";
 			rs = st.executeQuery(query);
 			while(rs.next()) {
 				User u = new User();
 				u.setUserName(rs.getString("user_name"));
+				u.setId(rs.getInt("id"));
 				
 				list.add(u);
 			}
@@ -511,27 +653,29 @@ public class UserManager {
 			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/camel_demo", "root", "root@#123");    
 			con=DbConnection.getInstance().getConnection();
 			st = con.createStatement();
-			String query = "SELECT c.id, c.sender_details, c.contacts, c.message, c.campaign, "
-					+ "c.`status`, c.time_zone, c.submission_date, c.report_status, c.error_code,  "
-					+ "(SELECT r.id)AS gateway_id "
-					+ " FROM clients c, user u, route r WHERE u.user_name=c.user_name AND u.route_name=r.name AND c.user_name='"+userName+"' ";
+			String query = "SELECT  c.sender_details, c.message,c.submission_date, c.contacts, s.message_id , "
+					+ "r.id AS gateway_id, s.error_code  FROM user u, clients c, server_response s, route r    "
+					+ " WHERE u.route_name=r.name and s.client_id=c.id and u.user_name=c.user_name  AND c.user_name='"+userName+"' ";
+//					+ "WHERE u.route_name=r.name and s.client_id=c.id and c.system_id=a.system_id and a.parent_account_id=u.id AND u.user_name='"+userName+"' ";
 			//String query="select * from clients where user_name='"+userName+"'";
 			System.out.println("query is"+query);
 			rs = st.executeQuery(query);
 			while(rs.next()) {
 				Message m = new Message();
 				
-				m.setId(rs.getInt("id"));
+//				m.setId(rs.getInt("id"));
 				m.setSenderId(rs.getString("sender_details"));
 				m.setContacts(rs.getString("contacts"));
 				m.setMessage(rs.getString("message"));
-				m.setCampaignName(rs.getString("campaign"));
-				m.setStatus(rs.getString("status"));
-				m.setTimeZone(rs.getString("time_zone"));
+//				m.setCampaignName(rs.getString("campaign"));
+//				m.setStatus(rs.getString("status"));
+//				m.setTimeZone(rs.getString("time_zone"));
 				m.setSubmissionDate(rs.getString("submission_date"));
 				m.setGatewayId(rs.getInt("gateway_id"));
-				m.setReportStatus(rs.getString("report_status"));
+//				m.setReportStatus(rs.getString("report_status"));
 				m.setErrorCode(rs.getString("error_code"));
+//				m.setTrafficId(rs.getString("traffic_id"));
+//				m.setMessageId(rs.getString("message_id"));
 				list.add(m);
 			}
 		} catch(Exception e) {

@@ -1,8 +1,15 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="user.Sessions"%>
+<%@page import="user.Accounts"%>
 <%@page import="user.User"%>
 <%@page import="java.util.List"%>
 <%@page import="manager.UserManager"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%List<Accounts> accountsList  =  (List<Accounts>)request.getAttribute("accounts");
+String parentId = (String)request.getAttribute("parentId");
+String message = (String)session.getAttribute("message"); 
+List<Sessions> list = new ArrayList<Sessions>();%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +33,8 @@ crossorigin="anonymous">
 <link href="assets/css/custom.min.css" rel="stylesheet" />
 <link href="assets/css/light.min.css" rel="stylesheet" />
 <link href="assets/css/CustomTheme.css" rel="stylesheet" />
-
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -57,7 +65,9 @@ crossorigin="anonymous">
 </style>
 
 		<script type="text/javascript">
-
+		<%if(message!=null){%>
+    	alert("<%=message%>");
+    <% session.removeAttribute("message");}%>
     $(document).ready(function () {
         debugger;
         var img = $("#ImageSpan  > img");
@@ -1105,14 +1115,240 @@ i.fa.fa-line-chart {
 				<div class="Portlet-body">
 				<div class="row-fluid">
 				<b style="font-size: 17px">Manage Interface</b>
+				
+				<form action="UserController?userAction=5"
+					class="form-inline no-margin ng-pristine ng-valid"
+						method="post" novalidate="novalidate" style="margin-top: 2%;">
 				<div class="form-group">
-                        <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-success btn-sm" id="addGateway"><i class="fa fa-plus"></i>&nbsp;Add New</a>&nbsp;
+											<!-- <input class="form-control input-sm tb ui-autocomplete-input"
+												data-val="true"
+												data-val-length="The User Name should not be more than 50 characters long."
+												data-val-length-max="50"
+												data-val-regex="Please enter valid username"
+												data-val-regex-pattern="[a-zA-Z0-9@#$%&amp;*+\-_()+.,![\]\s\\/]+$"
+												data-val-required="User Name is required" id="txtUserNames"
+												name="UserName" placeholder="Enter User Name"
+												required="required" style="width: 225px;" type="text"
+												value="" aria-required="true" autocomplete="off"
+												role="textbox" aria-autocomplete="list" aria-haspopup="true"> -->
+												<div class="row-fluid">
+										      <select class="selectpicker" name="userId" data-show-subtext="true" data-live-search="true">
+										      <option>Choose User</option>
+										     
+									        <%
+										     UserManager manager = new UserManager();
+										      List<User> e=manager.getAllUsersByUserName();
+										      for(int i=0;i<e.size();i++){
+										      %>
+										        <option value="<%=e.get(i).getId() %>" data-subtext=""><%=e.get(i).getUserName() %></option>
+										        <%} %>
+										         </select>
+										    </div>
+												
+										</div>
+										<button type="submit" id="ViewUserProfile"
+											class="btn btn-sm btn-success">
+											<i class="fa fa-check"></i>&nbsp;Search
+										</button>
+				</form>
+					<p style="background-color: #fb04040f;color: red;width: 66%;">Enter the username & click on view button to create esme account or http callback for downstream traffic</p>
+				
+				<%if(accountsList!=null){%>
+					<div class="form-group">
+                        <a style="margin-top: 5%;" href="#" data-toggle="modal" data-target="#myModal" class="btn btn-success btn-sm" id="addGateway"><i class="fa fa-plus"></i>&nbsp;Add New</a><p style="margin-left: 91px;margin-top: -34px;">SMPP connector also knowns as ESME Account helps your partner to connect your SMPP Server. You need to share your SMPP server details along with ESME account detail to your provider.</p>
                     </div>
-                    
-                    <div class="modal fade" id="myModal" role="dialog">
+                    <%if(accountsList.size()>0){%>
+                    	<p>ESME Account Details (Inbound SMPP Clients)</p>
+                    	<table style="width:100%;border: 1px solid #c2cad8;">
+							<th style="border: 1px solid #c2cad8;width: 12%">System Id</th>
+							<th style="border: 1px solid #c2cad8; width: 20%">Tx | Rx | TxRx Count</th>
+							<th style="border: 1px solid #c2cad8">Status</th>
+							<th style="border: 1px solid #c2cad8;width: 22%">Forwarding Connector</th>
+							<th style="border: 1px solid #c2cad8">TCP State</th>
+							<th style="border: 1px solid #c2cad8">Actions</th>
+							
+							<%for(int i=0;i<accountsList.size();i++)
+							{
+								
+							Accounts a = accountsList.get(i);%>
+							<tr>
+								<td style="border: 1px solid #c2cad8;width: 88px;height: 43px"><%=a.getSystemId()%></td>
+								<td style="border: 1px solid #c2cad8;width: 88px;"><%=a.getTxCount()%>&nbsp;|&nbsp;<%=a.getRxCount()%>&nbsp;|&nbsp;<%=a.getTxRxCount()%></td>
+								<td style="border: 1px solid #c2cad8;width: 88px;"><div style="background-color: #36c6d3;text-align: center;color: white;height: 27px;padding: 5px;">Active</div></td>
+								<td style="border: 1px solid #c2cad8;width: 88px;">SMPP</td>
+								<%list =   new UserManager().getSessionListBySystemId(a.getSystemId()); 
+								if(list!=null){
+									
+									if(list.size()>0)
+									{%>
+										<td style="border: 1px solid #c2cad8;width: 88px;">
+										<%for(Sessions s : list){%>
+											<div class="sphere red"></div>
+										<%}%><a href="#" data-toggle="modal" data-target="#myModalTcp<%=i%>">[More]</a>
+										<!-- Modal starts acc to id -->
+										
+												<div class="modal fade" id="myModalTcp<%=i%>" role="dialog">
 										<div class="modal-dialog">
 
 											<!-- Modal content-->
+											<div class="modal-content" style="width: 130%">
+												<div class="modal-header">
+													<p style="margin: 0px 0; font-size: large;">Tcp Details</p>
+												</div>
+												<div class="modal-body">
+													<table style="width:100%;border: 1px solid #c2cad8;">
+													<th style="border: 1px solid #c2cad8;width: 12%">Local IP</th>
+													<th style="border: 1px solid #c2cad8; width: 20%">Remote IP</th>
+													<th style="border: 1px solid #c2cad8">Local Port</th>
+													<th style="border: 1px solid #c2cad8;width: 22%">Remote Port</th>
+													<th style="border: 1px solid #c2cad8">Connection Mode</th>
+													<th style="border: 1px solid #c2cad8">State</th>
+													
+													<%
+													System.out.println("list size before modal data starts=="+list.size());
+													for(Sessions s: list){%>
+														<tr>
+														<td style="border: 1px solid #c2cad8;width: 88px;height: 43px"><%=s.getLocalIp()%></td>
+														<td style="border: 1px solid #c2cad8;width: 88px;height: 43px"><%=s.getRemoteIpAdress()%></td>
+														<td style="border: 1px solid #c2cad8;width: 88px;height: 43px"><%=s.getLocalPort()%></td>
+														<td style="border: 1px solid #c2cad8;width: 88px;height: 43px"><%=s.getRemotePort()%></td>
+														<td style="border: 1px solid #c2cad8;width: 88px;height: 43px"><%=s.getBindType()%></td>
+														<td style="border: 1px solid #c2cad8;width: 88px;height: 43px">Estaiblished</td>
+														</tr>
+													<%}%>
+													
+													</table>
+												</div>
+
+											</div>
+
+										</div>
+									</div>
+										<!-- Modal ends -->
+										</td>
+									<%} else{%>
+										<td style="border: 1px solid #c2cad8;width: 88px;"><span class="badge badge-info" style="border-radius: 0">No Connection</span></td>
+									<%}%>
+									
+								<%}%>
+								
+								<td style="border: 1px solid #c2cad8;width: 88px;"><a href="#">Edit</a></td>
+							</tr>
+							
+					
+							
+							
+							
+							<%}%>
+							</table>
+							
+							
+                    <%}%>
+                    
+				<%}%>
+				<style>
+				.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+				.red {
+  background-color: #36c6d3;
+}
+.green {
+  background-color: green;
+}
+.blue {
+  background-color: blue;
+}
+.yellow {
+  background-color: yellow;
+}
+.sphere {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 500%;
+  position: relative;
+  display: inline-block;
+  margin: 1%;
+}
+				</style>
+				
+				
+				<div class="modal fade" id="myModal" role="dialog">
+										<div class="modal-dialog">
+
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<p style="margin: 0px 0; font-size: large;">New SMPP Connection</p>
+												</div>
+												<div class="modal-body">
+													<form action="UserController" class="form-horizontal" name="uForm"
+														method="post">
+															<%if(parentId!=null){%>
+															<input type="hidden" name="parentId" value="<%=parentId%>">		
+															<%}%>
+														
+														
+														<input type="hidden" name="user_name">
+														 <input type="hidden" name="userAction" value="17">
+														<input type="hidden" name="route">
+														<div class="form-group" style="margin-top: 5%">
+															<div class="col-md-8 col-sm-9 col-xs-12 pb-10">
+																System Id <input type="text" class="form-control"
+																	id="systemId" name="systemId" value="" style="margin-left: 40%;margin-top: -7%;">
+															</div>
+														</div>
+														<div class="form-group" style="margin-top: 5%">
+															<div class="col-md-8 col-sm-9 col-xs-12 pb-10">
+																Password <input type="password" class="form-control"
+																	id="password" name="password" value="" style="margin-left: 40%;margin-top: -7%;">
+															</div>
+														</div>
+														<div class="form-group" style="margin-top: 5%">
+															<div class="col-md-3 col-sm-9 col-xs-12 pb-10">
+																Tx Count <input type="text" class="form-control"
+																	id="txCount" name="txCount" value="" style="margin-left: 122%;margin-top: -20%;">
+															</div>
+															<div class="col-md-3 col-sm-9 col-xs-12 pb-10">
+																<p style="margin-left: 123%;margin-top: -4%;width: 49%;">Rx Count</p> 
+																<input type="text" class="form-control"
+																	id="rxCount" name="rxCount" value="" style="margin-left: 208%;margin-top: -34%;">
+															</div>
+														</div>
+														<div class="form-group" style="margin-top: 5%">
+															<div class="col-md-3 col-sm-9 col-xs-12 pb-10">
+																Tx Rx Count <input type="text" class="form-control"
+																	id="txRxCount" name="txRxCount" value="" style="margin-left: 122%;margin-top: -20%;">
+															</div>
+															
+														</div>
+
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary"
+																data-dismiss="modal">Close</button>
+															<input type="submit" onclick="submitPassword()" value="SAVE" class="btn btn-primary">
+
+														</div>
+													</form>
+												</div>
+
+											</div>
+
+										</div>
+									</div>
+				
+                    
+                    <!-- <div class="modal fade" id="myModal" role="dialog">
+										<div class="modal-dialog">
+
+											Modal content
 											<div class="modal-content">
 												<div class="modal-header">
 													<p style="margin: 0px 0; font-size: large;">Account Details</p>
@@ -1211,7 +1447,7 @@ i.fa.fa-line-chart {
 										</div>
 									</div>
                     
-                    
+                     -->
                     
 					</div>
 				</div>
